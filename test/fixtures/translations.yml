@@ -1,9 +1,2 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  context: MyText
-  support: one
-
-two:
-  context: MyText
-  support: two
