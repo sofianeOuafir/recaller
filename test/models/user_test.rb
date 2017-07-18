@@ -27,7 +27,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "username should be trimmed when saved" do
+  test "username should be trimmed before validation" do
     username = " sofiane "
     @user.username = username
     @user.save

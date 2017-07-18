@@ -1,2 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+harryPotter:
+  id: 1
+  name: Harry Potter
+  user_id: 1
+  sourceLanguage_id: fr
+  targetLanguage_id: fr
+  media_type_id: 1
+
