@@ -31,9 +31,16 @@ class SupportTest < ActiveSupport::TestCase
   test "spaces should be trimmed in names" do
     name = " harry potter "
     @support.name = name
-    @support.save
+    @support.valid?
 
     assert_equal name.strip, @support.name
+  end
+
+  test "first letter of name should be upcased before save" do
+    name = "harry potter"
+    @support.name = name
+    @support.save
+    assert_equal name.capitalize, @support.name
   end
 
   test "user_id should exist" do

@@ -8,3 +8,11 @@ harryPotter:
   targetLanguage_id: fr
   media_type_id: 1
 
+shapeOfYou:
+  id: 2
+  name: Ed sheran - shape of you
+  user_id: 1
+  sourceLanguage_id: fr
+  targetLanguage_id: fr
+  media_type_id: 2
+

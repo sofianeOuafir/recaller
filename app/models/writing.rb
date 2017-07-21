@@ -1,4 +1,7 @@
 class Writing < ApplicationRecord
+  before_validation {self.text.strip!}
+  before_save {self.text.capitalize!}
+  validates :text, length: {minimum:2, maximum: 255}, presence: true
   belongs_to :language
 
   #List of translations when the word is used as the source

@@ -3,3 +3,9 @@
 français:
   name: français
   code: fr
+anglais:
+  name: italien
+  code: it
+allemand:
+  name: allemand
+  code: de
