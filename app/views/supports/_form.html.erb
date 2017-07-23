@@ -1,0 +1,39 @@
+<%= form_for @support do |f| %>
+<% if @support.errors.any? %>
+    <div>
+        <ul>
+            <% @support.errors.full_messages.each do |msg| %>
+                <li> <%= msg %> </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<p>
+    <%= f.label :name, "Nom" %>
+    <%= f.text_field :name %>
+</p>
+
+<p>
+    <%= f.label :media_type_id, "type" %>
+    <%= f.collection_select(:media_type_id, MediaType.all, :id, :name) %>
+</p>
+
+<p>
+    <%= f.label :sourceLanguage_id, "Langue" %>
+    <%= f.collection_select(:sourceLanguage_id, Language.all, :code, :name) %>
+</p>
+
+<p>
+    <%= f.label :targetLanguage_id, "Langue de traduction" %>
+    <%= f.collection_select(:targetLanguage_id, Language.all, :code, :name) %>
+</p>
+
+<p>
+    <%= f.label :user_id, "Utilisateur" %>
+    <%= f.collection_select(:user_id, User.all, :id, :username) %>
+</p>
+
+<p>
+    <%= f.submit submit_value %>
+</p>
+<% end %>

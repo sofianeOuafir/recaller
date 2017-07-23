@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recall</title>
+    <%= yield :head %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1>Rec'all</h1>
+    <div style="display:inline-block; width:49%; border:1px solid black;">
+        <!-- to do here: put the following line in a partial -> collection -->
+        <ul>
+            <%  Support.all.each do |s| %>
+                <li> <%= s.name %> <%= link_to "Modifier", edit_support_path(s) %> </li>
+            <% end %>
+        </ul>
+        <%= link_to "Nouveau media", new_support_path %>
+    </div>
+    <div style="display:inline-block;width:49%; border:1px solid black;">
+        <%= yield %>
+    </div>
   </body>
 </html>
