@@ -6,7 +6,7 @@ class SupportsController < ApplicationController
     def create
         @support = Support.new(support_params)
         if @support.save
-            redirect_to controller: :home, action: :index
+            redirect_to support_translations_path(@support)
         else
             render 'new'
         end
@@ -28,6 +28,13 @@ class SupportsController < ApplicationController
         else
             render 'edit'
         end
+    end
+
+    def destroy
+        @support = Support.find(params[:id])
+        @support.destroy
+
+        redirect_to controller: :home, action: :index
     end
 
     def support_params

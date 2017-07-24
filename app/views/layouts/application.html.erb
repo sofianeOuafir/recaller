@@ -10,16 +10,14 @@
 
   <body>
     <h1>Rec'all</h1>
-    <div style="display:inline-block; width:49%; border:1px solid black;">
-        <!-- to do here: put the following line in a partial -> collection -->
+    <div>
         <ul>
-            <%  Support.all.each do |s| %>
-                <li> <%= s.name %> <%= link_to "Modifier", edit_support_path(s) %> </li>
-            <% end %>
+            <% # render the partial collection _support.html.erb %>
+            <%= render @supports %>
         </ul>
         <%= link_to "Nouveau media", new_support_path %>
     </div>
-    <div style="display:inline-block;width:49%; border:1px solid black;">
+    <div>
         <%= yield %>
     </div>
   </body>

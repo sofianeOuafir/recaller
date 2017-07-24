@@ -1,0 +1,5 @@
+<li>
+    <%= link_to support.name, support_translations_path(support) %>
+    <%= link_to "Modifier", edit_support_path(support) %>
+    <%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %>
+</li>

@@ -1,0 +1,6 @@
+<tr>
+ <td><%= translation.sourceWriting.text %></td>
+ <td><%= translation.context %></td>
+ <td><%= translation.targetWriting.text %></td>
+ <td><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></td>
+</tr>
