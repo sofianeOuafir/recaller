@@ -10,6 +10,9 @@ services:
   
 install:
   - bundle install
+  
+before_script:
+  - cp .travis.database.yml config/database.yml
 
 script:
   - RAILS_ENV=test bundle exec rake db:create
