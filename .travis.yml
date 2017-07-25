@@ -6,4 +6,5 @@ install:
   - bundle install
 
 script:
-  - bundle exec rake build
+  - bundle exec rake db:setup
+  - bundle exec rake test
