@@ -36,8 +36,9 @@ class SupportsController < ApplicationController
 
         redirect_to controller: :home, action: :index
     end
-
-    def support_params
-      params.require(:support).permit(:name, :media_type_id, :sourceLanguage_id, :targetLanguage_id, :user_id)
-    end
+    
+    private
+        def support_params
+          params.require(:support).permit(:name, :media_type_id, :sourceLanguage_id, :targetLanguage_id, :user_id)
+        end
 end
