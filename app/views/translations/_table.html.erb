@@ -10,14 +10,14 @@
         </tr>
     </thead>
     <tbody>
-        <% if local_assigns[:translations] %>
+        <% if show_translations %>
             <%= render @translations %>
         <% end %>
         <tr>
             <td><%= f.text_field :sourceWriting %></td>
             <td><%= f.text_field :context %></td>
             <td><%= f.text_field :targetWriting %></td>
-            <td colspan="2"><%= f.submit %></td>
+            <td colspan="2"><%= f.submit submit_value %></td>
         </tr>
     </tbody>
 </table>
