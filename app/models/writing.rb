@@ -1,7 +1,8 @@
 class Writing < ApplicationRecord
   before_validation {self.text.strip!}
   before_save {self.text.capitalize!}
-  validates :text, length: {minimum:2, maximum: 255}, presence: true
+  validates :text, length: {minimum:2, maximum: 255}, presence: true, uniqueness: { scope: :language_id}
+
   belongs_to :language
 
   #List of translations when the word is used as the source
@@ -15,5 +16,9 @@ class Writing < ApplicationRecord
 
   #list of word that has been defined by self
   has_many :hasDefined, :through => :translationsAsTarget, :source => :sourceWriting
+
+  def to_s
+    return self.text
+  end
 
 end

@@ -1,0 +1,24 @@
+<%= form_for([@support, @translation]) do |f| %>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th><%= @support.sourceLanguage.name %></th>
+            <th>context</th>
+            <th><%= @support.targetLanguage.name %></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if local_assigns[:translations] %>
+            <%= render @translations %>
+        <% end %>
+        <tr>
+            <td><%= f.text_field :sourceWriting %></td>
+            <td><%= f.text_field :context %></td>
+            <td><%= f.text_field :targetWriting %></td>
+            <td colspan="2"><%= f.submit %></td>
+        </tr>
+    </tbody>
+</table>
+<% end %>

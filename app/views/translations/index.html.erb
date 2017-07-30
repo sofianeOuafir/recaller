@@ -1,12 +1,3 @@
-<% content_for :head do %>
-    <title>Recall - <%= @support.name %></title>
-<% end %>
-<h1><%= @support.name %></h1>
-<table>
-    <tr>
-        <th><%= @support.sourceLanguage.name %></th>
-        <th>context</th>
-        <th><%= @support.targetLanguage.name %></th>
-    <tr>
-    <%= render @translations %>
-</table>
+<%= render partial: 'shared/title', locals: {title: @support.name} %>
+
+<%= render 'table', translations: true %>

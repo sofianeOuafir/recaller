@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717170143) do
+ActiveRecord::Schema.define(version: 20170730135646) do
 
   create_table "languages", primary_key: "code", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170717170143) do
     t.datetime "updated_at", null: false
     t.string "language_id"
     t.index ["language_id"], name: "index_writings_on_language_id"
+    t.index ["text", "language_id"], name: "index_writings_on_text_and_language_id", unique: true
   end
 
   add_foreign_key "supports", "languages", column: "sourceLanguage_id", primary_key: "code", name: "support_sourceLanguage_id_fk", on_update: :cascade

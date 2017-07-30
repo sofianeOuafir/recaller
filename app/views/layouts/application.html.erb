@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= yield :head %>
     <%= csrf_meta_tags %>
 
@@ -10,15 +11,18 @@
 
   <body>
     <h1>Rec'all</h1>
-    <div>
-        <ul>
-            <% # render the partial collection _support.html.erb %>
-            <%= render @supports %>
-        </ul>
-        <%= link_to "Nouveau media", new_support_path %>
-    </div>
-    <div>
-        <%= yield %>
+    <div class="container-fluid">
+        <div class="row" style="border:1px black solid">
+            <div class="col-md-4" style="border:1px black solid">
+                <ul>
+                    <%= render @supports %>
+                </ul>
+                <%= link_to "Nouveau media", new_support_path %>
+            </div>
+            <div class="col-md-8" style="border:1px black solid">
+                <%= yield %>
+            </div>
+        </div>
     </div>
   </body>
 </html>

@@ -51,4 +51,9 @@ class WritingTest < ActiveSupport::TestCase
         Language.find_by(code:w.language_id).update_attributes(code: code)
         assert_equal code, w.reload.language_id
     end
+
+    test "(text,language_id) should be unique" do
+        @writing.language_id = "fr"
+        assert_not @writing.valid?
+    end
 end

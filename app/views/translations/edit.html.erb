@@ -1,0 +1,4 @@
+<%= render partial: 'shared/title', locals: {title: @support.name} %>
+
+<%= render 'table', translations: false %>
+<%= link_to "Retour aux traductions", support_translations_path(@support) %>
