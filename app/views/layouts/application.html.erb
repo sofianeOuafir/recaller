@@ -10,16 +10,26 @@
   </head>
 
   <body>
-    <h1>Rec'all</h1>
-    <div class="container-fluid">
+    <nav class="navbar navbar-default" style="border:1px red solid">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="border:1px red solid">Recall</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
         <div class="row" style="border:1px black solid">
-            <div class="col-md-4" style="border:1px black solid">
-                <ul>
+            <div class="col-md-offset-2 col-md-3" style="border:1px red solid">
+                <div class="container-fluid"  style="border:1px black solid">
                     <%= render @supports %>
-                </ul>
-                <%= link_to "Nouveau media", new_support_path %>
+                </div>
+
+                <%= link_to new_support_path do %>
+                <span>Nouveau media</span>
+                <% end %>
             </div>
-            <div class="col-md-8" style="border:1px black solid">
+            <div class="col-md-5" style="border:1px black solid">
                 <%= yield %>
             </div>
         </div>

@@ -1,5 +1,14 @@
-<li>
-    <%= link_to support.name, support_translations_path(support) %>
-    <%= link_to "Modifier", edit_support_path(support) %>
-    <%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %>
-</li>
+<div class="row" style="border: 1px black solid">
+    <div class="col-md-8">
+        <%= link_to support.name, support_translations_path(support) %>
+    </div>
+    <div class="col-md-4 dropdown">
+      <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        ...
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to "Modifier", edit_support_path(support) %></li>
+        <li><%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %></li>
+      </ul>
+    </div>
+</div>
