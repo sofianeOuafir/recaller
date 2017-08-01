@@ -1,7 +1,14 @@
 <tr>
  <td><%= translation.sourceWriting.text %></td>
  <td><%= translation.context %></td>
- <td><%= translation.targetWriting.text %></td>
- <td><%= link_to "Modifier", edit_support_translation_path(translation.support, translation)%></td>
- <td><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></td>
+ <td class="dropdown">
+    <%= translation.targetWriting.text %>
+    <a href="#" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <span class="glyphicon glyphicon-option-vertical"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><%= link_to "Modifier", edit_support_translation_path(translation.support, translation)%></li>
+      <li><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></li>
+    </ul>
+ </td>
 </tr>
