@@ -1,3 +1,4 @@
 <%= render partial: 'shared/title', locals: {title: @support.name} %>
 
-<%= render partial: 'table', locals: {submit_value: "Créer traduction", show_translations: true} %>
+<%= render partial: 'form', locals: {submit_value: "Créer traduction", index_page: true} %>
+<%= link_to "Ajouter une traduction" , 'javascript:;', :onclick => 'showTranslationForm()' %>

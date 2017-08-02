@@ -1,16 +1,12 @@
 // Place all the styles related to the Translations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-th,td {
-    word-wrap: break-word;
-}
 
-input {
+.input-translation-form {
     width: 100%;
 }
 
-table
+.add-translation-form
 {
-    table-layout:fixed;
-    width:100%;
+    //display:none;
 }

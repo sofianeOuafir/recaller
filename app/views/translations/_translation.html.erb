@@ -1,14 +1,18 @@
-<tr>
- <td><%= translation.sourceWriting.text %></td>
- <td><%= translation.context %></td>
- <td class="dropdown">
-    <%= translation.targetWriting.text %>
-    <a href="#" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <span class="glyphicon glyphicon-option-vertical"></span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><%= link_to "Modifier", edit_support_translation_path(translation.support, translation)%></li>
-      <li><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></li>
-    </ul>
- </td>
-</tr>
+<div class="row">
+ <div class="col-md-4" style="border:1px black solid"><%= translation.sourceWriting.text %></div>
+ <div class="col-md-4" style="border:1px black solid"><%= translation.context %></div>
+ <div class="col-md-4 dropdown" style="border:1px black solid">
+    <div class="col-md-9" style="border:1px red solid">
+        <%= translation.targetWriting.text %>
+    </div>
+    <div class="col-md-3 dropdown" style="border:1px blue solid">
+        <a href="#" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class="glyphicon glyphicon-option-vertical"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><%= link_to "Modifier", edit_support_translation_path(translation.support, translation)%></li>
+          <li><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></li>
+        </ul>
+    </div>
+ </div>
+</div>

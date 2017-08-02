@@ -1,0 +1,31 @@
+<%= form_for([@support, @translation]) do |f| %>
+    <% #TODO display error if cannot create writings %>
+    <div class="row" style="border: 1px black solid;">
+        <div class="col-md-4" style="border: 1px black solid;">
+            <%= @support.sourceLanguage.name %>
+        </div>
+        <div class="col-md-4" style="border: 1px black solid;">
+            Contexte
+        </div>
+        <div class="col-md-4" style="border: 1px black solid;">
+            <%= @support.targetLanguage.name %>
+        </div>
+    </div>
+
+    <%= render @translations if index_page %>
+
+    <div class="add-translation-form">
+        <div class="row" style="border: 1px black solid;">
+            <div class="col-md-4" style="border: 1px black solid;"><%= f.text_field :sourceWriting, class: "input-translation-form" %></div>
+            <div class="col-md-4" style="border: 1px black solid;"><%= f.text_field :context, class: "input-translation-form" %></div>
+            <div class="col-md-4" style="border: 1px black solid;"><%= f.text_field :targetWriting, class: "input-translation-form" %></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <%= f.submit submit_value, class: "btn btn-primary" %>
+                <%= link_to 'Annuler', 'javascript:;', :onclick => 'hideTranslationForm()' if index_page %>
+            </div>
+        </div>
+    </div>
+
+<% end %>
