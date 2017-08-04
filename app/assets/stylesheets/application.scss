@@ -25,3 +25,13 @@
        image-url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"),
        image-url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.main-container
+{
+    margin-top:70px;
+}

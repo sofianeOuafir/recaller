@@ -1,4 +1,8 @@
-<% content_for :head do %>
-    <title>Recall - <%= title %></title>
+<% if title_tag_is_defined %>
+    <% content_for :head do %>
+        <title>Recall - <%= title %></title>
+    <% end %>
 <% end %>
-<h5> <strong><%= title %></strong></h5>
+<div class="row">
+    <h5 style="border: 1px black solid"> <strong><%= title %></strong></h5>
+</div>

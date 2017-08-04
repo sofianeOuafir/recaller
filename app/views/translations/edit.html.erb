@@ -1,4 +1,4 @@
-<%= render partial: 'shared/title', locals: {title: @support.name} %>
+<%= render partial: 'shared/title', locals: {title: @support.name, title_tag_is_defined: true} %>
 
 <%= render partial: 'form', locals: {submit_value: "Modifier", index_page: false} %>
 <%= link_to "Retour aux traductions", support_translations_path(@support) %>

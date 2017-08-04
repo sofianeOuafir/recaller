@@ -1,9 +1,10 @@
 <div class="row" style="border: 1px black solid">
-    <div class="col-md-10" style="border: 1px black solid">
+    <div class="col-md-11 nopadding" style="border: 1px black solid">
         <%= link_to support.name, support_translations_path(support) %>
+        <%= support.translations.size %>
     </div>
-    <div class="col-md-2 dropdown" style="border: 1px black solid">
-      <a href="#" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="col-md-1 dropdown nopadding" style="border: 1px black solid">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="glyphicon glyphicon-option-vertical"></span>
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

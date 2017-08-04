@@ -12,18 +12,18 @@
   <body>
     <%= render "shared/navbar" %>
 
-    <div class="container-fluid" style="margin-top:70px">
+    <div class="container-fluid main-container" style="border:1px black solid">
         <div class="row" style="border:1px black solid">
-            <div class="col-sm-offset-2 col-sm-3" style="border:1px red solid">
-                <h6>Medias</h6>
+            <div class="col-sm-offset-2 col-sm-3" style="border:1px red solid;">
+                <%= render partial: 'shared/title', locals: {title: "Medias", title_tag_is_defined: false} %>
                 <%= render @supports %>
                 <div class="row">
                     <%= link_to new_support_path do %>
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true">Nouveau media</span>
+                        <span>Nouveau media</span>
                     <% end %>
                 </div>
             </div>
-            <div class="col-sm-5" style="border:1px black solid">
+            <div class="col-sm-5" style="border:1px black solid;">
                 <%= yield %>
             </div>
         </div>
