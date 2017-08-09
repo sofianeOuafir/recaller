@@ -1,5 +1,8 @@
 class TranslationsController < ApplicationController
+#TODO gestion des erreurs lors de lupdate d'un mot
+#TODO la suppression d'un mot doit se faire en ajax
     def index
+        @sourceWriting = Writing.new
         begin
             @support = Support.find(params[:support_id])
             @translations = @support.translations
@@ -11,19 +14,42 @@ class TranslationsController < ApplicationController
 
     def create
         @support = Support.find(params[:support_id])
+        @translation = Translation.new
         @sourceWriting = Writing.find_by_text_and_language_id(params[:translation][:sourceWriting], @support.sourceLanguage.code)
 
         if @sourceWriting == nil
-            @sourceWriting = Writing.create(text: params[:translation][:sourceWriting], language_id: @support.sourceLanguage.code)
+            @sourceWriting = Writing.new(text: params[:translation][:sourceWriting], language_id: @support.sourceLanguage.code)
+            if !@sourceWriting.save
+              respond_to do |format|
+                format.js{
+                  render :action => 'writing_errors' and return
+                }
+              end
+            end
         end
 
         @targetWriting = Writing.find_by_text_and_language_id(params[:translation][:targetWriting], @support.targetLanguage.code)
 
         if @targetWriting == nil
-            @targetWriting = Writing.create(text: params[:translation][:targetWriting], language_id: @support.targetLanguage.code)
+            @targetWriting = Writing.new(text: params[:translation][:targetWriting], language_id: @support.targetLanguage.code)
+            if !@targetWriting.save
+              respond_to do |format|
+                format.js{
+                  render :action => 'writing_errors' and return
+                }
+              end
+            end
         end
-        @support.translations.create(context: params[:translation][:context], sourceWriting: @sourceWriting, targetWriting: @targetWriting)
-        redirect_to support_translations_path(@support)
+
+        @translation.sourceWriting = @sourceWriting
+        @translation.targetWriting = @targetWriting
+        @translation.context = params[:translation][:context]
+        @translation.support = @support
+        if @translation.save
+            respond_to do |format|
+              format.js
+            end
+        end
     end
 
     def destroy

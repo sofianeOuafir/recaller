@@ -2,13 +2,24 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-root = exports ? this
-root.showTranslationForm = () ->
-    $('.add-translation-form').show("fast") unless $('.add-translation-form').is(':visible')
 
-root.hideTranslationForm = () ->
-    $('.add-translation-form').hide("fast") if $('.add-translation-form').is(':visible')
-    return false
+@displayTranslationForm = (action) ->
+    if action == "show"
+      $('.add-translation-form').show("fast") unless $('.add-translation-form').is(':visible')
+    else
+      $('.add-translation-form').hide("fast") if $('.add-translation-form').is(':visible')
+
+ready = ->
+  $("a[data-translation_form]").click (e) ->
+    e.preventDefault()
+
+    action = $(this).data("translation_form")
+    displayTranslationForm(action)
+
+$(document).on "turbolinks:load", ->
+  ready()
+
+
 
 
 

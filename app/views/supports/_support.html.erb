@@ -1,7 +1,9 @@
-<div class="row" style="border: 1px black solid">
+<div class="row data-row" id="support-<%= support.id %>" style="border: 1px black solid">
     <div class="col-md-11 nopadding" style="border: 1px black solid">
         <%= link_to support.name, support_translations_path(support) %>
-        <%= support.translations.size %>
+        <span class="support-size">
+            <%= support.translations.size %>
+        </span>
     </div>
     <div class="col-md-1 dropdown nopadding" style="border: 1px black solid">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

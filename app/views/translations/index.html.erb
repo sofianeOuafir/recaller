@@ -2,5 +2,7 @@
 
 <%= render partial: 'form', locals: {submit_value: "Créer traduction", index_page: true} %>
 <div class="row">
-    <%= link_to "Ajouter une traduction" , 'javascript:;', :onclick => 'showTranslationForm()' %>
+    <%= link_to 'javascript:;', "data-translation_form" => "show" do %>
+        <span class="glyphicon glyphicon-plus"></span> Ajouter une traduction
+    <% end %>
 </div>

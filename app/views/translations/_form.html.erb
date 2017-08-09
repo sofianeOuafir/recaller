@@ -1,5 +1,7 @@
-<%= form_for([@support, @translation]) do |f| %>
-    <% #TODO display error if cannot create writings %>
+<%= form_with(model:[@support, @translation]) do |f| %>
+    <% #TODO add javascript check value on input before sending data %>
+    <div id="writing-errors">
+    </div>
     <div class="row" style="border: 1px black solid;">
         <div class="col-md-4 nopadding" style="border: 1px black solid;">
             <%= @support.sourceLanguage.name %>
@@ -12,8 +14,13 @@
         </div>
     </div>
 
+    <% # render all translations of current support if we are on index_page %>
+    <div class="translations">
     <%= render @translations if index_page %>
+    </div>
+    <% # I add this css-class to hide the section when page load if current page is index %>
     <% css_class = index_page ? 'add-translation-form' : '' %>
+
     <div class="<%= css_class %> form-group">
         <div class="row" style="border: 1px black solid;">
             <div class="col-md-4 nopadding" style="border: 1px black solid;"><%= f.text_field :sourceWriting, class: "form-control input-translation-form", placeholder: 'Mot - ex: Bonjour!'  %></div>
@@ -23,7 +30,7 @@
         <div class="row">
             <div class="col-md-6 nopadding" style="border:1px black solid">
                 <%= f.submit submit_value, class: "btn btn-primary" %>
-                <%= link_to 'Annuler', 'javascript:;', :onclick => 'hideTranslationForm()' if index_page %>
+                <%= link_to 'Annuler', 'javascript:;', "data-translation_form" => "hide" if index_page %>
             </div>
         </div>
     </div>

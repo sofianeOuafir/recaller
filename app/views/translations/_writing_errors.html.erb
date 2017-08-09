@@ -1,0 +1,21 @@
+<% if @targetWriting.nil? %>
+    <% if @sourceWriting.errors.any? %>
+        <div>
+            <ul>
+                <% @sourceWriting.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+<% else %>
+    <% if @targetWriting.errors.any? %>
+        <div>
+            <ul>
+                <% @targetWriting.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+<% end %>
