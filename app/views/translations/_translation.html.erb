@@ -1,17 +1,17 @@
-<div class="row data-row">
- <div class="col-md-4 nopadding" style="border:1px black solid"><%= translation.sourceWriting.text %></div>
- <div class="col-md-4 nopadding" style="border:1px black solid"><%= translation.context %></div>
- <div class="col-md-4 dropdown nopadding" style="border:1px black solid">
-    <div class="col-md-11 nopadding" style="border:1px red solid">
+<div class="row data-row translation-<%= translation.id %>">
+ <div class="col-md-4 nopadding"><%= translation.sourceWriting.text %></div>
+ <div class="col-md-4 nopadding"><%= translation.context %></div>
+ <div class="col-md-4 dropdown nopadding">
+    <div class="col-md-11 nopadding">
         <%= translation.targetWriting.text %>
     </div>
-    <div class="col-md-1 dropdown nopadding" style="border:1px blue solid">
+    <div class="col-md-1 dropdown nopadding">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <span class="glyphicon glyphicon-option-vertical"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <li><%= link_to "Modifier", edit_support_translation_path(translation.support, translation)%></li>
-          <li><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), method: :delete, data: {confirm: 'are you sure?'} %></li>
+          <li><%= link_to "Supprimer", support_translation_path(translation.support_id, translation.id), remote:true, method: :delete, data: {confirm: 'are you sure?'} %></li>
         </ul>
     </div>
  </div>

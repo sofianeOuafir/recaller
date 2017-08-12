@@ -4,5 +4,9 @@
     <% end %>
 <% end %>
 <div class="row">
-    <h5 style="border: 1px black solid"> <strong><%= title %></strong></h5>
+    <% if is_support_title %>
+        <h3><%= title %></h3>
+    <% else %>
+        <h5><strong><%= title %></strong></h5>
+    <% end %>
 </div>

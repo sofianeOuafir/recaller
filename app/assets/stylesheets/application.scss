@@ -33,10 +33,42 @@
 
 .main-container
 {
-    margin-top:70px;
+    margin-top:50px;
 }
 
 .glyphicon-option-vertical
 {
     display:none;
+}
+
+.navbar
+{
+  background-color:#ef6c35;
+  border:0;
+}
+
+.navbar-header .navbar-brand, .navbar-collapse .connected-as
+{
+  color:white;
+}
+
+body
+{
+background-color: #f8f8f8;
+}
+
+.content-view
+{
+    background-color: #ffffff;
+    height: 100%;
+}
+
+html, body, .main-container
+{
+height:100%;
+}
+
+.main-container
+{
+border:1px black solid;
 }

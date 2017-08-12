@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   def set_supports
     @supports = Support.all
   end
+
 end
