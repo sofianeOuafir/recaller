@@ -9,21 +9,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="border:1px green solid;height:100%;">
+  <body>
     <%= render "shared/navbar" %>
 
-    <div class="container-fluid main-container" style="border:1px blue solid;height:100%;">
-        <div class="row" style="border:1px red solid;height:100%;">
-            <div class="col-sm-offset-2 col-sm-3">
+    <div class="container-fluid main-container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-3 side-menu">
                 <%= render partial: 'shared/title', locals: {title: "Medias", title_tag_is_defined: false, is_support_title: false} %>
                 <%= render @supports %>
                 <div class="row">
-                    <%= link_to new_support_path do %>
+                    <%= link_to new_support_path, class: 'side-menu-new-media' do %>
                         <span class="glyphicon glyphicon-plus"></span> Nouveau media
                     <% end %>
                 </div>
             </div>
-            <div class="col-sm-5 content-view" style="border:1px black solid;">
+            <div class="col-sm-5 content-view">
                 <%= yield %>
             </div>
         </div>

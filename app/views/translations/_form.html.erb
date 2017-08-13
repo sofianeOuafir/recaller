@@ -2,15 +2,15 @@
     <% #TODO add javascript check value on input before sending data %>
     <div id="writing-errors">
     </div>
-    <div class="row">
+    <div class="row translation-title">
         <div class="col-md-4 nopadding">
-            <%= @support.sourceLanguage.name %>
+            <strong><%= @support.sourceLanguage.name %></strong>
         </div>
         <div class="col-md-4 nopadding">
-            Contexte
+            <strong>Contexte</strong>
         </div>
         <div class="col-md-4 nopadding">
-            <%= @support.targetLanguage.name %>
+            <strong><%= @support.targetLanguage.name %></strong>
         </div>
     </div>
 
@@ -21,16 +21,16 @@
     <% # I add this css-class to hide the section when page load if current page is index %>
     <% css_class = index_page ? 'add-translation-form' : '' %>
 
-    <div class="<%= css_class %> form-group">
+    <div class="<%= css_class %> form-group form-group-translation">
         <div class="row">
             <div class="col-md-4 nopadding"><%= f.text_field :sourceWriting, class: "form-control input-translation-form", placeholder: 'Mot - ex: Bonjour!'  %></div>
             <div class="col-md-4 nopadding"><%= f.text_field :context, class: "form-control input-translation-form", placeholder: 'Donnez un exemple!'  %></div>
             <div class="col-md-4 nopadding"><%= f.text_field :targetWriting, class: "form-control input-translation-form", placeholder: 'Définition - ex: Hello!' %></div>
         </div>
-        <div class="row">
+        <div class="row form-group-translation-button">
             <div class="col-md-6 nopadding">
                 <%= f.submit submit_value, class: "btn btn-primary" %>
-                <%= link_to 'Annuler', 'javascript:;', "data-translation_form" => "hide" if index_page %>
+                <%= link_to 'Annuler', 'javascript:;', class: 'form-group-translation-button-cancel', "data-translation_form" => "hide" if index_page %>
             </div>
         </div>
     </div>

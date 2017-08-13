@@ -39,6 +39,7 @@
 .glyphicon-option-vertical
 {
     display:none;
+    color:#ef6c35;
 }
 
 .navbar
@@ -60,7 +61,11 @@ background-color: #f8f8f8;
 .content-view
 {
     background-color: #ffffff;
-    height: 100%;
+    padding-left:20px;
+    border-right:1px #d4d6c8 solid;
+    border-left:1px #d4d6c8 solid;
+    border-bottom:1px #d4d6c8 solid;
+    padding-bottom:100px;
 }
 
 html, body, .main-container
@@ -68,7 +73,7 @@ html, body, .main-container
 height:100%;
 }
 
-.main-container
+.side-menu-new-media, .side-menu-new-media:hover
 {
-border:1px black solid;
+color: #ef6c35;
 }

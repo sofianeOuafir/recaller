@@ -5,7 +5,8 @@
 <% end %>
 <div class="row">
     <% if is_support_title %>
-        <h3><%= title %></h3>
+    <% #TODO make the icons dynamic %>
+        <h3><span class="glyphicon glyphicon-music"></span> <%= title %></h3>
     <% else %>
         <h5><strong><%= title %></strong></h5>
     <% end %>

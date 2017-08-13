@@ -1,6 +1,9 @@
-<div class="row data-row" id="support-<%= support.id %>">
+<div class="row data-row data-row-support" id="support-<%= support.id %>">
     <div class="col-md-11 nopadding">
-        <%= link_to support.name, support_translations_path(support) %>
+        <%= link_to support_translations_path(support), class: 'data-row-support-name' do %>
+            <% #TODO make the icons dynamic %>
+            <span class="glyphicon glyphicon-music"></span> <%= support.name %>
+        <% end %>
         <span class="support-size">
             <%= support.translations.size %>
         </span>
