@@ -1,5 +1,20 @@
-<li>
-    <%= link_to support.name, support_translations_path(support) %>
-    <%= link_to "Modifier", edit_support_path(support) %>
-    <%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %>
-</li>
+<div class="row data-row data-row-support" id="support-<%= support.id %>">
+    <div class="col-md-11 nopadding">
+        <%= link_to support_translations_path(support), class: 'data-row-support-name' do %>
+            <% #TODO make the icons dynamic %>
+            <span class="glyphicon glyphicon-music"></span> <%= support.name %>
+        <% end %>
+        <span class="support-size">
+            <%= support.translations.size %>
+        </span>
+    </div>
+    <div class="col-md-1 dropdown nopadding">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="glyphicon glyphicon-option-vertical"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to "Modifier", edit_support_path(support) %></li>
+        <li><%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %></li>
+      </ul>
+    </div>
+</div>

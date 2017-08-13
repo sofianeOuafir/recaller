@@ -20,7 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'jquery-rails'
-gem 'bootstrap'
+gem 'bootstrap-sass'
+gem 'rails-assets-tether'
 
 
 # Use CoffeeScript for .coffee assets and views

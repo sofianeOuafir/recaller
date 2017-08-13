@@ -23,8 +23,7 @@ class SupportsController < ApplicationController
     def update
         @support = Support.find(params[:id])
         if @support.update(support_params)
-            @supports = Support.all
-            render 'home/index'
+            redirect_to support_translations_path(@support)
         else
             render 'edit'
         end

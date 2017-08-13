@@ -10,7 +10,70 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
 @import 'bootstrap';
+@import 'translations';
+@import 'home';
+@import 'supports';
+
+@font-face{
+  font-family:'Glyphicons Halflings';
+  src: image-url("bootstrap/glyphicons-halflings-regular.eot");
+  src: image-url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"),
+       image-url("bootstrap/glyphicons-halflings-regular.woff") format("woff"),
+       image-url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"),
+       image-url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.main-container
+{
+    margin-top:50px;
+}
+
+.glyphicon-option-vertical
+{
+    display:none;
+    color:#ef6c35;
+}
+
+.navbar
+{
+  background-color:#ef6c35;
+  border:0;
+}
+
+.navbar-header .navbar-brand, .navbar-collapse .connected-as
+{
+  color:white;
+}
+
+body
+{
+background-color: #f8f8f8;
+}
+
+.content-view
+{
+    background-color: #ffffff;
+    padding-left:20px;
+    border-right:1px #d4d6c8 solid;
+    border-left:1px #d4d6c8 solid;
+    border-bottom:1px #d4d6c8 solid;
+    padding-bottom:100px;
+}
+
+html, body, .main-container
+{
+height:100%;
+}
+
+.side-menu-new-media, .side-menu-new-media:hover
+{
+color: #ef6c35;
+}
