@@ -6,9 +6,10 @@ class SupportsController < ApplicationController
     def create
         @support = Support.new(support_params)
         if @support.save
+            flash[:notice] = "Le media a bien été enregistré."
             redirect_to support_translations_path(@support)
         else
-            render 'new'
+            render 'new', status: 400
         end
     end
 
@@ -23,6 +24,7 @@ class SupportsController < ApplicationController
     def update
         @support = Support.find(params[:id])
         if @support.update(support_params)
+            flash[:notice] = "Le media a bien été modifié."
             redirect_to support_translations_path(@support)
         else
             render 'edit', status: 400
@@ -32,7 +34,7 @@ class SupportsController < ApplicationController
     def destroy
         @support = Support.find(params[:id])
         @support.destroy
-
+        flash[:notice] = "Le media a bien été supprimé."
         redirect_to controller: :home, action: :index
     end
     
