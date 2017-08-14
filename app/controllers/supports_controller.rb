@@ -16,7 +16,7 @@ class SupportsController < ApplicationController
         begin
             @support = Support.find(params[:id])
         rescue
-            render file: 'public/404.html'
+            render file: 'public/404.html', status: 404, layout: false
         end
     end
 
@@ -25,7 +25,7 @@ class SupportsController < ApplicationController
         if @support.update(support_params)
             redirect_to support_translations_path(@support)
         else
-            render 'edit'
+            render 'edit', status: 400
         end
     end
 

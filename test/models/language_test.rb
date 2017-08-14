@@ -44,10 +44,18 @@ class LanguageTest < ActiveSupport::TestCase
     assert_equal name.strip, @language.name
   end
 
-    test "code should be trimmed before validation" do
-      code = "f "
-      @language.code = code
-      @language.valid?
-      assert_equal code.strip, @language.code
-    end
+  test "code should be trimmed before validation" do
+    code = "f "
+    @language.code = code
+    @language.valid?
+    assert_equal code.strip, @language.code
+  end
+
+  test "name should be capitalized before save" do
+    name = "my name"
+    @language.name = name
+    @language.save
+    assert_equal name.capitalize, @language.name
+  end
+
 end

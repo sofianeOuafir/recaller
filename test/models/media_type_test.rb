@@ -3,7 +3,7 @@ require 'test_helper'
 class MediaTypeTest < ActiveSupport::TestCase
 
     def setup
-        @media_type = MediaType.new(name:"book")
+        @media_type = MediaType.new(name:"Book")
     end
 
     test "should be valid" do
@@ -26,16 +26,17 @@ class MediaTypeTest < ActiveSupport::TestCase
     end
 
     test "name should be trimmed before validation" do
-        name = " music "
+        name = " Music "
         @media_type.name = name
         @media_type.valid?
         assert_equal name.strip, @media_type.name
     end
 
-    test "name should be lowercased before save" do
-        name = "Course"
+    test "name should be capitalized before save" do
+        name = "course"
         @media_type.name = name
         @media_type.save
-        assert_equal name.downcase, @media_type.name
+        assert_equal name.capitalize, @media_type.name
     end
+
 end
