@@ -58,9 +58,8 @@ class TranslationsController < ApplicationController
                 format.js
               end
             end
-            #redirect_to support_translations_path(@translation.support)
         rescue
-            render file: 'public/404.html', layout: false
+            render file: 'public/404.html', layout: false, status: 404
         end
     end
 
@@ -69,7 +68,7 @@ class TranslationsController < ApplicationController
             @support = Support.find(params[:support_id])
             @translation = Translation.find(params[:id])
         rescue
-            render file: 'public/404.html', layout: false
+            render file: 'public/404.html', layout: false, status: 404
         end
     end
 
