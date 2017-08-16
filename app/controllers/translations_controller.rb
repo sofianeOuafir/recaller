@@ -6,7 +6,7 @@ class TranslationsController < ApplicationController
             @translations = @support.translations
             @translation = Translation.new
         rescue
-            render file: 'public/404.html', layout: false
+            render file: 'public/404.html', layout: false, status: 404
         end
     end
 
@@ -20,7 +20,7 @@ class TranslationsController < ApplicationController
             if !@sourceWriting.save
               respond_to do |format|
                 format.js{
-                  render :action => 'writing_errors' and return
+                  render :action => 'writing_errors', status: 400 and return
                 }
               end
             end
@@ -33,7 +33,7 @@ class TranslationsController < ApplicationController
             if !@targetWriting.save
               respond_to do |format|
                 format.js{
-                  render :action => 'writing_errors' and return
+                  render :action => 'writing_errors', status: 400 and return
                 }
               end
             end
@@ -58,9 +58,8 @@ class TranslationsController < ApplicationController
                 format.js
               end
             end
-            #redirect_to support_translations_path(@translation.support)
         rescue
-            render file: 'public/404.html', layout: false
+            render file: 'public/404.html', layout: false, status: 404
         end
     end
 
@@ -69,7 +68,7 @@ class TranslationsController < ApplicationController
             @support = Support.find(params[:support_id])
             @translation = Translation.find(params[:id])
         rescue
-            render file: 'public/404.html', layout: false
+            render file: 'public/404.html', layout: false, status: 404
         end
     end
 
