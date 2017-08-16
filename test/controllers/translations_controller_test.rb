@@ -10,16 +10,75 @@ class TranslationsControllerTest < ActionDispatch::IntegrationTest
     get support_translations_url(@support)
     assert_response :success
   end
-  
-  #TODO Test all cases where create should fail
+
+  test "should fail trying to get index" do
+    @support.id = 99
+    get support_translations_url(@support)
+    assert_response :not_found
+  end
+
   test "should create translation" do
     assert_difference('Translation.count') do
-      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: "Bonjour", targetWriting: "Hello"} }, xhr: true
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: "Voiture", targetWriting: "Automobile"} }, xhr: true
     end
 
     assert_equal "text/javascript", @response.content_type
     assert_response :success
     assert_equal "create", @controller.action_name
+  end
+
+  test "should fail trying to create a translation with a blank sourceWriting" do
+    invalidWriting = "  "
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: invalidWriting, targetWriting: "Automobile"} }, xhr: true
+    end
+
+    assert_response :bad_request
+  end
+
+  test "should fail trying to create a translation with a sourceWriting containing 1 character" do
+    invalidWriting = "a"
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: invalidWriting, targetWriting: "Automobile"} }, xhr: true
+    end
+
+    assert_response :bad_request
+  end
+
+  test "should fail trying to create a translation with a sourceWriting containing more than 255 characters" do
+    invalidWriting = "a" * 256
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: invalidWriting, targetWriting: "Automobile"} }, xhr: true
+    end
+
+    assert_response :bad_request
+  end
+
+  test "should fail trying to create a translation with a blank targetWriting" do
+    invalidWriting = "    "
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: "Voiture", targetWriting: invalidWriting} }, xhr: true
+    end
+
+    assert_response :bad_request
+  end
+
+  test "should fail trying to create a translation with a targetWriting containing less than 2 characters" do
+    invalidWriting = "a"
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: "Voiture", targetWriting: invalidWriting} }, xhr: true
+    end
+
+    assert_response :bad_request
+  end
+
+  test "should fail trying to create a translation with a targetWriting containing more than 255 characters" do
+    invalidWriting = "a" * 256
+    assert_no_difference('Translation.count') do
+      post support_translations_url(@translation.support), params: {translation: { context: @translation.context, support_id: @translation.support_id, sourceWriting: "Voiture", targetWriting: invalidWriting} }, xhr: true
+    end
+
+    assert_response :bad_request
   end
 
   test "should get edit" do
