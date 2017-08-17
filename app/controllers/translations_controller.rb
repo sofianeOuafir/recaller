@@ -1,4 +1,7 @@
 class TranslationsController < ApplicationController
+    before_action :authenticate_user!, :set_supports
+    before_action :restrict_access
+
     def index
         @sourceWriting = Writing.new
         begin
@@ -122,5 +125,16 @@ class TranslationsController < ApplicationController
     private
         def translation_params
             params.require(:translation).permit(:sourceWriting, :context, :targetWriting)
+        end
+
+        def restrict_access
+            begin
+                if current_user != Support.find(params[:support_id]).user
+                    flash[:notice] = "Vous n'êtes pas autorisé à accéder à ce contenu."
+                    redirect_to root_path
+                end
+            rescue
+                render file: 'public/404.html', layout: false, status: 404
+            end
         end
 end

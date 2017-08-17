@@ -1,10 +1,14 @@
 class SupportsController < ApplicationController
+    before_action :authenticate_user!, :set_supports
+    before_action :restrict_access, only: [:edit, :update, :destroy]
+
     def new
         @support = Support.new
     end
 
     def create
         @support = Support.new(support_params)
+        @support.user_id = current_user.id
         if @support.save
             flash[:notice] = "Le media a bien été enregistré."
             redirect_to support_translations_path(@support)
@@ -40,6 +44,17 @@ class SupportsController < ApplicationController
     
     private
         def support_params
-          params.require(:support).permit(:name, :media_type_id, :sourceLanguage_id, :targetLanguage_id, :user_id)
+          params.require(:support).permit(:name, :media_type_id, :sourceLanguage_id, :targetLanguage_id)
+        end
+
+        def restrict_access
+            begin
+                if current_user != Support.find(params[:id]).user
+                    flash[:notice] = "Vous n'êtes pas autorisé à accéder à ce contenu."
+                    redirect_to root_path
+                end
+            rescue
+                render file: 'public/404.html', layout: false, status: 404
+            end
         end
 end

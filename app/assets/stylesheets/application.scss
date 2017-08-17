@@ -49,9 +49,9 @@
   border:0;
 }
 
-.navbar-header .navbar-brand, .navbar-collapse .connected-as
+.navbar-brand, .navbar-text-color
 {
-  color:white;
+  color:white !important;
 }
 
 body
@@ -82,4 +82,9 @@ color: #ef6c35;
 .alert
 {
   text-align:center;
+}
+
+.test:visited
+{
+background-color:#ef6c35 !important;
 }
