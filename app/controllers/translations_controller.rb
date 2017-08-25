@@ -1,6 +1,6 @@
 class TranslationsController < ApplicationController
     before_action :authenticate_user!, :set_supports
-    before_action :restrict_access
+    before_action :restrict_access, only: [:destroy, :edit, :update]
 
     def index
         @sourceWriting = Writing.new
@@ -129,7 +129,7 @@ class TranslationsController < ApplicationController
 
         def restrict_access
             begin
-                if current_user != Support.find(params[:support_id]).user
+                if current_user != Translation.find(params[:id]).support.user
                     flash[:notice] = "Vous n'êtes pas autorisé à accéder à ce contenu."
                     redirect_to root_path
                 end
