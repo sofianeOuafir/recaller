@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'devise-i18n'
+gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'rails-assets-tether'
