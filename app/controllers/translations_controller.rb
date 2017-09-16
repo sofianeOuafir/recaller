@@ -1,13 +1,11 @@
 class TranslationsController < ApplicationController
+    before_action :authenticate_user!, :set_supports
+    before_action :restrict_access
+
     def index
-        @sourceWriting = Writing.new
-        begin
-            @support = Support.find(params[:support_id])
-            @translations = @support.translations
-            @translation = Translation.new
-        rescue
-            render file: 'public/404.html', layout: false, status: 404
-        end
+        @support = Support.find(params[:support_id])
+        @translations = @support.translations
+        @translation = Translation.new
     end
 
     def create
@@ -51,25 +49,17 @@ class TranslationsController < ApplicationController
     end
 
     def destroy
-        begin
-            @translation = Translation.find(params[:id])
-            if @translation.destroy
-              respond_to do |format|
-                format.js
-              end
-            end
-        rescue
-            render file: 'public/404.html', layout: false, status: 404
+        @translation = Translation.find(params[:id])
+        if @translation.destroy
+          respond_to do |format|
+            format.js
+          end
         end
     end
 
     def edit
-        begin
-            @support = Support.find(params[:support_id])
-            @translation = Translation.find(params[:id])
-        rescue
-            render file: 'public/404.html', layout: false, status: 404
-        end
+        @translation = Translation.find(params[:id])
+        @support = @translation.support
     end
 
     def update
@@ -122,5 +112,34 @@ class TranslationsController < ApplicationController
     private
         def translation_params
             params.require(:translation).permit(:sourceWriting, :context, :targetWriting)
+        end
+
+        def restrict_access
+            begin
+                support = Support.find(params[:support_id])
+                if action_name == "index" || action_name == "create"
+                    if current_user != support.user
+                        logger.error "403 forbidden error -> the user #{current_user.username}, id #{current_user.id} tried to access the support #{params[:support_id]} wheras he is not the owner of that resource"
+                        render file: 'public/403.html', layout: 'error', status: 403 and return
+                    elsif support.deleted_at != nil
+                        logger.error "404 forbidden error -> the user #{current_user.username}, id #{current_user.id} tried to access the support #{params[:id]} wheras this resource has been deleted before"
+                        render file: 'public/404.html', layout: 'error', status: 404 and return
+                    end
+                else
+                    if current_user != Translation.find(params[:id]).support.user
+                        logger.error "403 forbidden error -> the user #{current_user.username}, id #{current_user.id} tried to access the translation #{params[:id]} wheras he is not the owner of that resource"
+                        render file: 'public/403.html', layout: 'error', status: 403 and return
+                    elsif current_user != support.user
+                        logger.error "403 forbidden error -> the user #{current_user.username}, id #{current_user.id} tried to access the support #{params[:support_id]} wheras he is not the owner of that resource"
+                        render file: 'public/403.html', layout: 'error', status: 403 and return
+                    elsif support.deleted_at != nil
+                        logger.error "404 forbidden error -> the user #{current_user.username}, id #{current_user.id} tried to access the support #{params[:id]} wheras this resource has been deleted before"
+                        render file: 'public/404.html', layout: 'error', status: 404 and return
+                    end
+                end
+            rescue
+                logger.info "404 page not found error -> the user #{current_user.username}, id #{current_user.id} tried to access a resource that does not exists"
+                render file: 'public/404.html', layout: 'error', status: 404 and return
+            end
         end
 end

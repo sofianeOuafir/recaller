@@ -28,9 +28,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "username should be trimmed before validation" do
-    username = " sofiane "
+    username = " Sofiane "
     @user.username = username
     @user.save
     assert_equal username.strip, @user.username
+  end
+
+  test "username should be capitalize before save" do
+    username = "sofiane"
+    @user.username = username
+    @user.save
+    assert_equal username.capitalize, @user.username
   end
 end

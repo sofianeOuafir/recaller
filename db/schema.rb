@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814105935) do
+ActiveRecord::Schema.define(version: 20170902174042) do
 
   create_table "languages", primary_key: "code", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170814105935) do
     t.string "targetLanguage_id", null: false
     t.bigint "media_type_id", null: false
     t.bigint "user_id"
+    t.datetime "deleted_at"
     t.index ["media_type_id"], name: "index_supports_on_media_type_id"
     t.index ["sourceLanguage_id"], name: "index_supports_on_sourceLanguage_id"
     t.index ["targetLanguage_id"], name: "index_supports_on_targetLanguage_id"

@@ -10,7 +10,7 @@ default: &default
   reconnect: false
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: 4c6t3xxx
+  password: ENV['devise_password']
   timeout: 5000
   socket: /var/run/mysqld/mysqld.sock
 

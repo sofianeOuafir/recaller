@@ -16,6 +16,7 @@
 @import 'translations';
 @import 'home';
 @import 'supports';
+@import 'devise';
 
 @font-face{
   font-family:'Glyphicons Halflings';
@@ -48,9 +49,10 @@
   border:0;
 }
 
-.navbar-header .navbar-brand, .navbar-collapse .connected-as
+.navbar-brand, .navbar-text-color
 {
-  color:white;
+  color:white !important;
+  background-color:#ef6c35 !important;
 }
 
 body

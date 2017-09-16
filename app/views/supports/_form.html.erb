@@ -29,11 +29,6 @@
 </p>
 
 <p>
-    <%= f.label :user_id, "Utilisateur" %>
-    <%= f.collection_select(:user_id, User.all, :id, :username) %>
-</p>
-
-<p>
     <%= f.submit submit_value %>
 </p>
 <% end %>
