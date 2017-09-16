@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_supports
-    @supports = Support.where(user_id: current_user.id)
+    @supports = Support.where(user_id: current_user.id, deleted_at: nil)
   end
 
   protected
