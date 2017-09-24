@@ -18,8 +18,15 @@
             <div class="col-sm-offset-2 col-sm-3 side-menu">
                 <%= render partial: 'shared/title', locals: {title: "Medias", title_tag_is_defined: false, is_support_title: false} %>
                 <%= render @active_supports %>
-                <%= render partial: 'shared/title', locals: {title: "Medias Archivés", title_tag_is_defined: false, is_support_title: false} %>
+                <div class="row">
+                    <h5>
+                        <a class="title_media_archived" data-display="archived_supports">Medias archivés</a><span class="support-size"> <%= @archived_supports.count %> </span>
+                    </h5>
+                </div>
+                <div id="archived_supports">
                 <%= render @archived_supports %>
+                </div>
+
                 <div class="row">
                     <%= link_to new_support_path, class: 'side-menu-new-media' do %>
                         <span class="glyphicon glyphicon-plus"></span> Nouveau media
