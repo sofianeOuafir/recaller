@@ -17,7 +17,9 @@
         <div class="row">
             <div class="col-sm-offset-2 col-sm-3 side-menu">
                 <%= render partial: 'shared/title', locals: {title: "Medias", title_tag_is_defined: false, is_support_title: false} %>
-                <%= render @supports %>
+                <%= render @active_supports %>
+                <%= render partial: 'shared/title', locals: {title: "Medias Archivés", title_tag_is_defined: false, is_support_title: false} %>
+                <%= render @archived_supports %>
                 <div class="row">
                     <%= link_to new_support_path, class: 'side-menu-new-media' do %>
                         <span class="glyphicon glyphicon-plus"></span> Nouveau media

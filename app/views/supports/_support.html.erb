@@ -14,6 +14,8 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><%= link_to "Modifier", edit_support_path(support) %></li>
         <li><%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %></li>
+        <% support.archive_at.nil? ? link_name = 'Archiver' : link_name = 'Enlever des archives' %>
+        <li><%= link_to link_name, archive_support_path(support), method: :patch %></li>
       </ul>
     </div>
 </div>

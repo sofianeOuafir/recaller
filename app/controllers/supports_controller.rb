@@ -31,9 +31,23 @@ class SupportsController < ApplicationController
         end
     end
 
+    def archive
+        @support = Support.find(params[:id])
+        if @support.archive_at == nil
+            @support.archive_at = DateTime.now
+        else
+            @support.archive_at = nil
+        end 
+
+        if @support.save
+            redirect_to root_path
+        end
+    end
+
     def destroy
         @support = Support.find(params[:id])
         @support.deleted_at = DateTime.now
+        @support.archive_at = nil
         if @support.save
             flash[:notice] = "Le media a bien été supprimé."
             redirect_to controller: :home, action: :index

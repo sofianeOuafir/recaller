@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_supports
-    @supports = Support.owner(current_user.id).active
+    @active_supports = Support.owner(current_user.id).active
+    @archived_supports = Support.owner(current_user.id).archived
   end
 
   protected

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  patch 'supports/archive/:id' => 'supports#archive', as: 'archive_support'
+
   resources :supports do
     resources :translations
   end
