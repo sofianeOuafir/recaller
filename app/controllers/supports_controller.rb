@@ -40,6 +40,7 @@ class SupportsController < ApplicationController
         end 
 
         if @support.save
+            #TODO handle that by calling a javascript that take the archive element to the active element
             redirect_to root_path
         end
     end
