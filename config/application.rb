@@ -12,8 +12,9 @@ module Recall
     config.load_defaults 5.1
     config.i18n.default_locale = :fr
     config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
-    
+
     config.filter_parameters << :password
+    config.autoload_paths += %W(#{config.root}/app/poros)
     Raven.configure do |config|
   		config.dsn = 'https://25e11499ea134fd38dbf9052d9d51654:0a12cbab351e44fda99f520b46a9bc76@sentry.io/221994'
 	end

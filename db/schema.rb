@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924152421) do
+ActiveRecord::Schema.define(version: 20180205000341) do
 
   create_table "languages", primary_key: "code", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 20170924152421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon"
+  end
+
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "question"
+    t.bigint "review_id"
+    t.bigint "translation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_questions_on_review_id"
+    t.index ["translation_id"], name: "index_questions_on_translation_id"
+  end
+
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "support_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["support_id"], name: "index_reviews_on_support_id"
   end
 
   create_table "supports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,6 +107,9 @@ ActiveRecord::Schema.define(version: 20170924152421) do
     t.index ["text", "language_id"], name: "index_writings_on_text_and_language_id", unique: true
   end
 
+  add_foreign_key "questions", "reviews"
+  add_foreign_key "questions", "translations"
+  add_foreign_key "reviews", "supports"
   add_foreign_key "supports", "languages", column: "sourceLanguage_id", primary_key: "code", name: "support_sourceLanguage_id_fk", on_update: :cascade
   add_foreign_key "supports", "languages", column: "targetLanguage_id", primary_key: "code", name: "support_targetLanguage_id_fk", on_update: :cascade
   add_foreign_key "supports", "media_types", name: "support_media_type_id_fk"

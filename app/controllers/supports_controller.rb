@@ -37,7 +37,7 @@ class SupportsController < ApplicationController
             @support.archive_at = DateTime.now
         else
             @support.archive_at = nil
-        end 
+        end
 
         if @support.save
             #TODO handle that by calling a javascript that take the archive element to the active element
@@ -54,7 +54,7 @@ class SupportsController < ApplicationController
             redirect_to controller: :home, action: :index
         end
     end
-    
+
     private
         def support_params
           params.require(:support).permit(:name, :media_type_id, :sourceLanguage_id, :targetLanguage_id)

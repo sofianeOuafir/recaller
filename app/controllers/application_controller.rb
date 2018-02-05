@@ -4,19 +4,20 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context
 
   def set_supports
-    @active_supports = Support.owner(current_user.id).active
-    @archived_supports = Support.owner(current_user.id).archived
+    @active_supports = current_user.supports.active
+    @archived_supports = current_user.supports.archived
   end
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  end
 
   private
-    def set_raven_context
-      Raven.user_context(id: current_user.try(:id), username: current_user.try(:username))
-    end
 
+  def set_raven_context
+    Raven.user_context(id: current_user.try(:id),
+                       username: current_user.try(:username))
+  end
 end
