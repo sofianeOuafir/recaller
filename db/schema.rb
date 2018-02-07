@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205000341) do
+ActiveRecord::Schema.define(version: 20180207202018) do
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "text"
+    t.bigint "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "languages", primary_key: "code", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -32,8 +38,10 @@ ActiveRecord::Schema.define(version: 20180205000341) do
     t.bigint "translation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "writing_id"
     t.index ["review_id"], name: "index_questions_on_review_id"
     t.index ["translation_id"], name: "index_questions_on_translation_id"
+    t.index ["writing_id"], name: "index_questions_on_writing_id"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,8 +115,10 @@ ActiveRecord::Schema.define(version: 20180205000341) do
     t.index ["text", "language_id"], name: "index_writings_on_text_and_language_id", unique: true
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "questions", "reviews"
   add_foreign_key "questions", "translations"
+  add_foreign_key "questions", "writings"
   add_foreign_key "reviews", "supports"
   add_foreign_key "supports", "languages", column: "sourceLanguage_id", primary_key: "code", name: "support_sourceLanguage_id_fk", on_update: :cascade
   add_foreign_key "supports", "languages", column: "targetLanguage_id", primary_key: "code", name: "support_targetLanguage_id_fk", on_update: :cascade

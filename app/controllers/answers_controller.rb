@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
   def new
     review = Review.find(params[:review_id])
     @question = Question::QuestionAsker.new(review: review).ask
-    @answer = @question.answers.build
+    @answer = @question.answers.new
   end
 
   private
@@ -17,5 +17,4 @@ class AnswersController < ApplicationController
     params.require(:answer)
           .permit(:answer, :question_id, :review_id)
   end
-
 end

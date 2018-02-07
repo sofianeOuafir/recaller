@@ -7,10 +7,7 @@ class Question::QuestionsCreator
 
   def create_questions
     review.support.translations.each do |translation|
-      question = Question::QuestionGenerator.new(translation: translation).generate
-      Question.create(review_id: review.id,
-                      translation_id: translation.id,
-                      question: question)
+      Question::QuestionGenerator.new(translation: translation, review: review).generate
     end
   end
 end
