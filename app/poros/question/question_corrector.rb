@@ -1,12 +1,8 @@
 class Question::QuestionCorrector
-  attr_reader :answer
 
-  def initialize(args)
-    @answer = args[:answer]
-  end
-
-  def correct?
-    answer.question.writing.text == answer.text
+  def self.correct?(answer)
+    answer.question.writing.text == answer.text.titleize
+    Writing::SynonymsFinder.find
   end
 
 end

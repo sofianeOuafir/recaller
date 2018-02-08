@@ -1,16 +1,16 @@
 class Writing < ApplicationRecord
-  before_validation {self.text.strip!}
-  before_save {self.text.capitalize!}
-  validates :text, length: {minimum:2, maximum: 255}, presence: true, uniqueness: { scope: :language_id}
+  before_validation { text.strip! }
+  before_save { text.capitalize! }
+  validates :text, length: { minimum:2, maximum: 255 }, presence: true, uniqueness: { scope: :language_id }
 
   belongs_to :language
 
-  has_many :translationsAsSource, :class_name => "Translation", :foreign_key => :sourceWriting_id
-  has_many :translationsAsTarget, :class_name => "Translation", :foreign_key => :targetWriting_id
-  has_many :definitions, :through => :translationsAsSource, :source => :targetWriting
-  has_many :hasDefined, :through => :translationsAsTarget, :source => :sourceWriting
+  has_many :translations_as_source, :class_name => "Translation", :foreign_key => :sourceWriting_id
+  has_many :translations_as_target, :class_name => "Translation", :foreign_key => :targetWriting_id
+  has_many :definitions, :through => :translations_as_source, :source => :targetWriting
+  has_many :has_defined, :through => :translations_as_target, :source => :sourceWriting
 
   def to_s
-    return self.text
+    text
   end
 end

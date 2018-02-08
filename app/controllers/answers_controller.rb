@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
-    @answer.correct = Answer::AnswerCorrector.new(answer: answer).correct?
+    @answer.correct = Question::QuestionCorrector.correct?(answer)
     @answer.save
   end
 

@@ -1,0 +1,4 @@
+class Writing::SynonymsFinder
+
+
+end
