@@ -24,7 +24,8 @@ gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'rails-assets-tether'
-gem "sentry-raven"
+gem 'sentry-raven'
+gem 'simple_form'
 
 
 # Use CoffeeScript for .coffee assets and views

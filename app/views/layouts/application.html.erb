@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   </head>
 
   <body>
@@ -39,4 +40,8 @@
         </div>
     </div>
   </body>
+  <div id="modal-container"></div>
+  <%= render 'shared/js/jquery' %>
+  <%= render 'shared/js/modal' %>
+
 </html>

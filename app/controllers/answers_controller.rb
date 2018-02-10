@@ -1,13 +1,15 @@
 class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
-    @answer.correct = Question::QuestionCorrector.correct?(answer)
+    @answer.writing = Writing.find_or_create_by(text: params[:answer][:text], language_id: @answer.question.writing.language_id)
+    @answer.correct = Question::QuestionCorrector.correct?(@answer)
     @answer.save
+    @review = @answer.review
   end
 
   def new
     review = Review.find(params[:review_id])
-    @question = Question::QuestionAsker.new(review: review).ask
+    @question = Question::QuestionAsker.ask(review)
     @answer = @question.answers.new
   end
 
@@ -15,6 +17,6 @@ class AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer)
-          .permit(:answer, :question_id, :review_id)
+          .permit(:question_id, :review_id)
   end
 end

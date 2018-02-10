@@ -12,7 +12,7 @@
         <span class="glyphicon glyphicon-option-vertical"></span>
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><%= link_to 'Reviser', edit_support_path(support) if support.reviewable? %></li>
+        <li><%= link_to 'Reviser', support_reviews_path(support), remote: true, method: :post if support.reviewable? %></li>
         <li><%= link_to "Modifier", edit_support_path(support) %></li>
         <li><%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %></li>
         <% support.archive_at.nil? ? link_name = 'Archiver' : link_name = 'Enlever des archives' %>

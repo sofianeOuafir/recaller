@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207202018) do
+ActiveRecord::Schema.define(version: 20180210164902) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "text"
     t.bigint "question_id"
+    t.boolean "correct"
+    t.bigint "review_id"
+    t.bigint "writing_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["review_id"], name: "index_answers_on_review_id"
+    t.index ["writing_id"], name: "index_answers_on_writing_id"
   end
 
   create_table "languages", primary_key: "code", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -116,6 +120,8 @@ ActiveRecord::Schema.define(version: 20180207202018) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "reviews"
+  add_foreign_key "answers", "writings"
   add_foreign_key "questions", "reviews"
   add_foreign_key "questions", "translations"
   add_foreign_key "questions", "writings"

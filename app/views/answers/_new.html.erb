@@ -1,0 +1,11 @@
+<div id="modal" class="modal" style="display:none;">
+  <div>
+    <h1><%= "#{@question.question}" %></h1>
+    <%= simple_form_for [@question.review, @answer], method: :post, remote: true do |f| %>
+      <%= f.input :text %>
+      <%= f.hidden_field :question_id, value: @question.id %>
+      <%= f.hidden_field :review_id, value: @question.review.id %>
+      <%= f.submit 'Valider' %>
+    <% end %>
+  </div>
+</div>

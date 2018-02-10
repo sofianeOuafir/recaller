@@ -11,34 +11,8 @@ class TranslationsController < ApplicationController
     def create
         @support = Support.find(params[:support_id])
         @translation = Translation.new
-        @sourceWriting = Writing.find_by_text_and_language_id(params[:translation][:sourceWriting], @support.sourceLanguage.code)
-
-        if @sourceWriting == nil
-            @sourceWriting = Writing.new(text: params[:translation][:sourceWriting], language_id: @support.sourceLanguage.code)
-            if !@sourceWriting.save
-              respond_to do |format|
-                format.js{
-                  render :action => 'writing_errors', status: 400 and return
-                }
-              end
-            end
-        end
-
-        @targetWriting = Writing.find_by_text_and_language_id(params[:translation][:targetWriting], @support.targetLanguage.code)
-
-        if @targetWriting == nil
-            @targetWriting = Writing.new(text: params[:translation][:targetWriting], language_id: @support.targetLanguage.code)
-            if !@targetWriting.save
-              respond_to do |format|
-                format.js{
-                  render :action => 'writing_errors', status: 400 and return
-                }
-              end
-            end
-        end
-
-        @translation.sourceWriting = @sourceWriting
-        @translation.targetWriting = @targetWriting
+        @translation.sourceWriting = Writing.find_or_create_by(text: params[:translation][:sourceWriting], language_id: @support.sourceLanguage.code)
+        @translation.targetWriting = Writing.find_or_create_by(text: params[:translation][:targetWriting], language_id: @support.targetLanguage.code)
         @translation.context = params[:translation][:context]
         @translation.support = @support
         if @translation.save
