@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.3
-  
+
 cache: bundler
 
 env:
@@ -9,14 +9,14 @@ env:
 
 services:
   - mysql
-  
+
 install:
   - bundle install
-  
+
 before_script:
   - cp .travis.database.yml config/database.yml
 
 script:
   - RAILS_ENV=test bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:setup
-  - bundle exec rake test
+  - bundle exec rspec
