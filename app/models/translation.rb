@@ -1,6 +1,6 @@
 class Translation < ApplicationRecord
-  before_validation {self.context.strip!}
-  before_save {self.context.capitalize!}
+  before_validation { context.strip! }
+  before_save { context.capitalize! }
   validates :context, length: {maximum:500}
 
   belongs_to :support

@@ -6,10 +6,10 @@
             <strong><%= @support.sourceLanguage.name %></strong>
         </div>
         <div class="col-md-4 nopadding">
-            <strong>Contexte</strong>
+            <strong><%= @support.targetLanguage.name %></strong>
         </div>
         <div class="col-md-4 nopadding">
-            <strong><%= @support.targetLanguage.name %></strong>
+            <strong>Contexte</strong>
         </div>
     </div>
 
@@ -23,8 +23,8 @@
     <div class="<%= css_class %> form-group form-group-translation">
         <div class="row">
             <div class="col-md-4 nopadding"><%= f.text_field :sourceWriting, class: "form-control input-translation-form", placeholder: 'Mot - ex: Bonjour!', :required => true %></div>
-            <div class="col-md-4 nopadding"><%= f.text_field :context, class: "form-control input-translation-form", placeholder: 'Donnez un exemple!'  %></div>
             <div class="col-md-4 nopadding"><%= f.text_field :targetWriting, class: "form-control input-translation-form", placeholder: 'Définition - ex: Hello!', :required => true %></div>
+            <div class="col-md-4 nopadding"><%= f.text_field :context, class: "form-control input-translation-form", placeholder: 'Donnez un exemple!'  %></div>
         </div>
         <div class="row form-group-translation-button">
             <div class="col-md-6 nopadding">

@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  id: 1
-  context: Façon de saluer
-  support_id: 1
-  sourceWriting_id: 1
-  targetWriting_id: 2
-

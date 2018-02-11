@@ -12,7 +12,7 @@ class Writing < ApplicationRecord
   has_many :has_defined, :through => :translations_as_target, :source => :sourceWriting
 
   def synonyms
-    Writing::SynonymsFinder.find(self)
+    Writing::SynonymsFinder.find_synonyms_of(self)
   end
 
   def to_s

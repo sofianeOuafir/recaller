@@ -1,9 +1,9 @@
 <div class="row data-row data-row-translation" id="translation-<%= translation.id %>">
  <div class="col-md-4 nopadding"><%= translation.sourceWriting.text %></div>
- <div class="col-md-4 nopadding"><%= translation.context %></div>
+ <div class="col-md-4 nopadding"><%= translation.targetWriting.text %></div>
  <div class="col-md-4 dropdown nopadding">
     <div class="col-md-11 nopadding">
-        <%= translation.targetWriting.text %>
+        <%= translation.context %>
     </div>
     <div class="col-md-1 dropdown nopadding">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
