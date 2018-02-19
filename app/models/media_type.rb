@@ -1,8 +1,16 @@
 class MediaType < ApplicationRecord
-    before_validation { name.strip! }
-    before_save { name.capitalize! }
+  before_validation { name.strip! }
+  before_save { name.capitalize! }
 
-    validates :name, presence: true, length: { minimum:2, maximum: 50 }
+  ICONS = {
+    'Cours' => 'ion-university',
+    'Livre' => 'ion-ios-book-outline',
+    'Film' => 'ion-ios-videocam',
+    'Musique' => 'ion-music-note'
 
-    has_many :supports
+  }
+
+  validates :name, presence: true, length: { minimum: 2, maximum: 50 }
+
+  has_many :supports
 end

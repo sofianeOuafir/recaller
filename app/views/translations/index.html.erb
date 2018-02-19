@@ -1,8 +1,8 @@
-<%= render partial: 'shared/title', locals: {title: @support.name, title_tag_is_defined: true, is_support_title: true} %>
-
-<%= render partial: 'form', locals: {submit_value: "Créer traduction", index_page: true} %>
-<div class="row">
-    <%= link_to 'javascript:;', "data-translation_form" => "show", class: 'translation-link-bottom' do %>
-        <span class="glyphicon glyphicon-plus"></span> Ajouter une traduction
-    <% end %>
+<div class="col col-12 center">
+  <p class="col col-3"><%= @support.sourceLanguage.name %></p>
+  <p class="col col-3"><%= @support.targetLanguage.name %></p>
+  <p class="col col-3">Contexte</p>
+  <p class="col col-3"></p>
 </div>
+<%= render @translations %>
+<%= render partial: 'form', locals: {submit_value: "Create"} %>

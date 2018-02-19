@@ -1,22 +1,19 @@
-<div class="row data-row data-row-support" id="support-<%= support.id %>">
-    <div class="col-md-11 nopadding">
-        <%= link_to support_translations_path(support), class: 'data-row-support-name' do %>
-            <span class="<%= support.media_type.icon %>"></span> <%= support.name %>
-        <% end %>
-        <span class="support-size">
-            <%= support.translations.size %>
-        </span>
-    </div>
-    <div class="col-md-1 dropdown nopadding">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="glyphicon glyphicon-option-vertical"></span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><%= link_to 'Reviser', support_reviews_path(support), remote: true, method: :post if support.reviewable? %></li>
-        <li><%= link_to "Modifier", edit_support_path(support) %></li>
-        <li><%= link_to "Supprimer", support_path(support), method: :delete, data: {confirm: 'are you sure?'} %></li>
-        <% support.archive_at.nil? ? link_name = 'Archiver' : link_name = 'Enlever des archives' %>
-        <li><%= link_to link_name, archive_support_path(support), method: :patch %></li>
-      </ul>
-    </div>
+<div>
+  <div>
+    <%= link_to support_translations_path(support) do %>
+      <i class="<%= MediaType::ICONS[support.media_type.name] %>"></i> <%= support.name %>
+    <% end %>
+    <span>
+      <%= support.translations.size %>
+    </span>
+  </div>
+  <div>
+    <ul>
+      <li><%= link_to 'Review', support_reviews_path(support), remote: true, method: :post if support.reviewable? %></li>
+      <li><%= link_to "Update", edit_support_path(support) %></li>
+      <li><%= link_to "Delete", support_path(support), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+      <% support.archive_at.nil? ? link_name = 'Archive' : link_name = 'Unarchive' %>
+      <li><%= link_to link_name, archive_support_path(support), method: :patch %></li>
+    </ul>
+  </div>
 </div>

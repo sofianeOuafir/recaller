@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Writing::SynonymsFinder', type: :poro do
+RSpec.describe 'Writing::SynonymsFinder class', type: :poro do
   before(:each) do
     allow_any_instance_of(Devise::Mailer).to receive(:confirmation_instructions)
   end
@@ -16,9 +16,11 @@ RSpec.describe 'Writing::SynonymsFinder', type: :poro do
   let!(:translation_1) { create(:translation, context: '', sourceWriting: hello, targetWriting: bonjour, support: support)}
   let!(:translation_2) { create(:translation, context: '', sourceWriting: hello, targetWriting: salut, support: support)}
 
-  describe '#find_synonyms_of' do
-    it 'salut should be a synoym of bonjour' do
-      expect(Writing::SynonymsFinder.find_synonyms_of(bonjour)).to include(salut)
+  describe '#find_synonyms_of method' do
+    context 'hello means bonjour and also salut in french' do
+      it 'Bonjour should be a synoym of Salut' do
+        expect(Writing::SynonymsFinder.find_synonyms_of(bonjour)).to include(salut)
+      end
     end
   end
 end

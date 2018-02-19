@@ -23,7 +23,7 @@ class Question::QuestionGenerator
   def generate_reverse_question
     Question.create(review_id: review.id,
                     translation_id: translation.id,
-                    question: "Quel est la definition du mot #{translation.targetWriting.text} en #{translation.sourceWriting.language.name} ?",
+                    question: "Quel est la definition du mot '#{translation.targetWriting.text}' en #{translation.sourceWriting.language.name} ?",
                     writing_id: translation.sourceWriting.id,
                     reverse: true)
   end
@@ -31,7 +31,7 @@ class Question::QuestionGenerator
   def generate_normal_question
     Question.create(review_id: review.id,
               translation_id: translation.id,
-              question: "Quel est la definition du mot #{translation.sourceWriting.text} en #{translation.targetWriting.language.name} ?",
+              question: "Quel est la definition du mot '#{translation.sourceWriting.text}' en #{translation.targetWriting.language.name} ?",
               writing_id: translation.targetWriting.id,
               reverse: false)
   end

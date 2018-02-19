@@ -5,12 +5,14 @@ class Answer < ApplicationRecord
   belongs_to :review
   belongs_to :writing
 
-  def right_answer
-    question.writing
+  scope :correct, -> { where(correct: true) }
+
+  def answer_given
+    writing
   end
 
   def correct_with_synonym?
     return false unless correct?
-    writing != right_answer
+    answer_given != question.expected_answer
   end
 end

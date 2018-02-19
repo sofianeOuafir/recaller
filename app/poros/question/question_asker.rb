@@ -19,6 +19,6 @@ class Question::QuestionAsker
   end
 
   def self.already_asked_question_ids(review)
-    review.answers.map(&:question_id).uniq
+    review.answers.correct.map(&:question_id).uniq
   end
 end

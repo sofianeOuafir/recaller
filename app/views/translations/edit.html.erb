@@ -1,8 +1,10 @@
-<%= render partial: 'shared/title', locals: {title: @support.name, title_tag_is_defined: true, is_support_title:true} %>
-
-<%= render partial: 'form', locals: {submit_value: "Modifier", index_page: false} %>
-<div class="row">
-  <%= link_to support_translations_path(@support), class: 'translation-link-bottom' do %>
-    <span class="glyphicon glyphicon-arrow-left"></span> Retour aux traductions
-  <% end %>
+<div class="col col-12 center">
+  <p class="col col-3"><%= @support.sourceLanguage.name %></p>
+  <p class="col col-3"><%= @support.targetLanguage.name %></p>
+  <p class="col col-3">Contexte</p>
+  <p class="col col-3"></p>
+</div>
+<%= render partial: 'form', locals: { submit_value: "Update" } %>
+<div>
+  <%= link_to 'Back to translations', support_translations_path(@support) %>
 </div>

@@ -2,8 +2,8 @@
   <h1><%= Teacher.am_i_right?(@answer) %></h1>
 
   <% if Question::QuestionAsker.finish?(@review) %>
-    <p>C'est fini!</p>
+    <p>This is over!</p>
   <% else %>
-    <%= link_to 'Question Suivante', new_review_answer_path(@review), remote: :true %>
+    <%= link_to 'Next Question', new_review_answer_path(@review), remote: :true %>
   <% end %>
 </div>

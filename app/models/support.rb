@@ -19,7 +19,7 @@ class Support < ApplicationRecord
   #=== SCOPE ===
 
   scope :active, -> { where(deleted_at: nil, archive_at: nil) }
-  scope :owner, ->(id) { where('user_id = ?', id) }
+  scope :deleted, -> { where('deleted_at IS NOT NULL') }
   scope :archived, -> { where('archive_at IS NOT NULL') }
 
   def reviewable?

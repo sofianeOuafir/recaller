@@ -1,7 +1,8 @@
 class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
-    @answer.writing = Writing.find_or_create_by(text: params[:answer][:text], language_id: @answer.question.writing.language_id)
+    @answer.writing = Writing.find_or_create_by(text: params[:answer][:text],
+                                                language_id: @answer.question.expected_answer.language_id)
     @answer.correct = Answer::AnswerCorrector.correct?(@answer)
     @answer.save
     @review = @answer.review

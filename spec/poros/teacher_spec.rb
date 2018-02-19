@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Teacher, type: :poro do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#am_i_right method' do
+    it 'pending'
+  end
 end

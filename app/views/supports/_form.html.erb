@@ -1,34 +1,8 @@
-<%= form_for @support do |f| %>
-<% if @support.errors.any? %>
-    <div>
-        <ul>
-            <% @support.errors.full_messages.each do |msg| %>
-                <li> <%= msg %> </li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
-<p>
-    <%= f.label :name, "Nom" %>
-    <%= f.text_field :name %>
-</p>
-
-<p>
-    <%= f.label :media_type_id, "type" %>
-    <%= f.collection_select(:media_type_id, MediaType.all, :id, :name) %>
-</p>
-
-<p>
-    <%= f.label :sourceLanguage_id, "Langue" %>
-    <%= f.collection_select(:sourceLanguage_id, Language.all, :code, :name) %>
-</p>
-
-<p>
-    <%= f.label :targetLanguage_id, "Langue de traduction" %>
-    <%= f.collection_select(:targetLanguage_id, Language.all, :code, :name) %>
-</p>
-
-<p>
-    <%= f.submit submit_value %>
-</p>
+<%= simple_form_for @support do |f| %>
+  <%= render partial:'shared/errors', locals:{obj: @support} %>
+  <div><%= f.input :name %></div>
+  <div><%= f.association :media_type, collection: MediaType.all.order(:name) %></div>
+  <div><%= f.association :sourceLanguage, collection: Language.all.order(:name), label: 'Language of the media' %></div>
+  <div><%= f.association :targetLanguage, collection: Language.all.order(:name), label: 'Language of translation' %></div>
+  <div><%= f.submit submit_value %></div>
 <% end %>

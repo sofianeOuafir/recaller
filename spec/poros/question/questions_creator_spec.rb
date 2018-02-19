@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Question::QuestionsCreator', type: :poro do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#create_questions method' do
+    it 'pending'
+  end
 end

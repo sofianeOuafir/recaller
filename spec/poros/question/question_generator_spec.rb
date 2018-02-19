@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Question::QuestionGenerator', type: :poro do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#generate' do
+    it 'pending'
+  end
 end

@@ -8,33 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
   </head>
 
   <body>
     <%= render "shared/navbar" %>
 
-    <div class="container-fluid main-container">
-        <%= render "shared/notice" %>
-        <div class="row">
-            <div class="col-sm-offset-2 col-sm-3 side-menu">
-                <%= render partial: 'shared/title', locals: {title: "Medias", title_tag_is_defined: false, is_support_title: false} %>
+    <div class="border">
+        <div class="border col col-12">
+            <div class="border flex flex-column col col-3">
                 <%= render @active_supports %>
-                <div class="row">
-                    <h5>
-                        <a class="title_media_archived" data-display="archived_supports">Medias archivés</a><span class="support-size"> <%= @archived_supports.count %> </span>
-                    </h5>
-                </div>
-                <div id="archived_supports">
+                <p>Medias archivés <%= @archived_supports.count %></p>
                 <%= render @archived_supports %>
-                </div>
-
-                <div class="row">
-                    <%= link_to new_support_path, class: 'side-menu-new-media' do %>
-                        <span class="glyphicon glyphicon-plus"></span> Nouveau media
-                    <% end %>
-                </div>
+                <%= link_to 'New Media', new_support_path %>
             </div>
-            <div class="col-sm-5 content-view">
+            <div class="border col col-9">
                 <%= yield %>
             </div>
         </div>
