@@ -1,5 +1,5 @@
 class SupportsController < ApplicationController
-  before_action :authenticate_user!, :set_supports
+  before_action :authenticate_user!
   before_action :set_support, only: %i[edit update destroy archive]
   before_action :confirm_user, :check_deleted_support_access, only: %i[edit update destroy]
 
@@ -30,8 +30,6 @@ class SupportsController < ApplicationController
 
   def archive
     @support.archive_at = (@support.archive_at.nil? ? DateTime.now : nil)
-    # TODO: handle that by calling a javascript
-    # that take the archive element to the active element
     redirect_to root_path if @support.save
   end
 

@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/sofiane/Documents/GitHub/expense_tracker"
 		}
 	]
 }

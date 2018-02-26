@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-  before_action :authenticate_user!, :set_supports
+  before_action :authenticate_user!
   before_action :restrict_access_to_support, only: %i[index create]
   before_action :restrict_access_to_translation, only: %i[edit update destroy]
   before_action :set_translation, only: %i[edit update destroy]

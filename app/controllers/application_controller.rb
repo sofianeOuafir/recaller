@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_raven_context
 
-  def set_supports
-    @active_supports = current_user.supports.active
-    @archived_supports = current_user.supports.archived
-  end
-
   protected
 
   def configure_permitted_parameters

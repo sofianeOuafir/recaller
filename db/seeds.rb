@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 MediaType.delete_all
-MediaType.create!(name:'Livre', icon:'glyphicon glyphicon-book')
-MediaType.create!(name:'Musique', icon:'glyphicon glyphicon-music')
-MediaType.create!(name:'Film', icon: 'glyphicon glyphicon-film')
-MediaType.create!(name:'Cours', icon: 'glyphicon glyphicon-briefcase')
+MediaType.create!(name:'Livre')
+MediaType.create!(name:'Musique')
+MediaType.create!(name:'Film')
+MediaType.create!(name:'Cours')
 
 Language.delete_all
 Language.create!(name: 'Français', code:'fr')

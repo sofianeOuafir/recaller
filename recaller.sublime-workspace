@@ -529,6 +529,15 @@
 			}
 		},
 		{
+			"file": "db/seeds.rb",
+			"settings":
+			{
+				"buffer_size": 770,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "spec/rails_helper.rb",
 			"settings":
 			{
@@ -598,7 +607,8 @@
 	"expanded_folders":
 	[
 		"/Users/sofiane/Documents/GitHub/recaller",
-		"/Users/sofiane/Documents/GitHub/recaller/spec"
+		"/Users/sofiane/Documents/GitHub/recaller/spec",
+		"/Users/sofiane/Documents/GitHub/expense_tracker"
 	],
 	"file_history":
 	[
@@ -733,7 +743,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -765,7 +775,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -790,14 +800,42 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 57.0,
+						"translation.y": 22.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "db/seeds.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								518,
+								518
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
 					"file": "spec/rails_helper.rb",
 					"semi_transient": false,
 					"settings":
@@ -823,7 +861,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -881,6 +919,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"seed",
+				"db/seeds.rb"
+			],
 			[
 				"item.r",
 				"app/models/item.rb"
@@ -1388,10 +1430,6 @@
 			[
 				"questionco",
 				"app/poros/question/question_corrector.rb"
-			],
-			[
-				"answe",
-				"app/models/answer.rb"
 			]
 		],
 		"width": 0.0

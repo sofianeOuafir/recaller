@@ -25,4 +25,8 @@ class Support < ApplicationRecord
   def reviewable?
     translations.present?
   end
+
+  def mark
+    reviews.last.mark
+  end
 end

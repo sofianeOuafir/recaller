@@ -13,4 +13,10 @@ class Review < ApplicationRecord
   def number_of_questions
     questions.count
   end
+
+  def mark
+    2
+  end
+
+  private
 end

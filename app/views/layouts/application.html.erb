@@ -15,20 +15,8 @@
 
   <body>
     <%= render "shared/navbar" %>
+    <%= yield %>
 
-    <div class="border">
-        <div class="border col col-12">
-            <div class="border flex flex-column col col-3">
-                <%= render @active_supports %>
-                <p>Medias archivés <%= @archived_supports.count %></p>
-                <%= render @archived_supports %>
-                <%= link_to 'New Media', new_support_path %>
-            </div>
-            <div class="border col col-9">
-                <%= yield %>
-            </div>
-        </div>
-    </div>
   </body>
   <div id="modal-container"></div>
   <%= render 'shared/js/jquery' %>
