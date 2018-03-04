@@ -6,9 +6,14 @@ class Answer < ApplicationRecord
   belongs_to :writing
 
   scope :correct, -> { where(correct: true) }
+  scope :incorrect, -> { where(correct: false) }
 
   def answer_given
     writing
+  end
+
+  def correct?
+    correct
   end
 
   def correct_with_synonym?

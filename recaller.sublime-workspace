@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"rev",
+				"review"
+			],
+			[
+				"syno",
+				"synonym_corrector"
+			],
+			[
+				"spell",
+				"spelling_corrector"
+			],
+			[
+				"corre",
+				"correctors"
+			],
+			[
+				"answ",
+				"answer_corrector"
+			],
+			[
 				"l",
 				"local_authority"
 			],
@@ -30,10 +50,6 @@
 			[
 				"correc",
 				"correct_with_synonym"
-			],
-			[
-				"answ",
-				"answer"
 			],
 			[
 				"media",
@@ -498,54 +514,11 @@
 			[
 				"measure",
 				"measured_survey"
-			],
-			[
-				"mea",
-				"measured_survey"
-			],
-			[
-				"stat",
-				"state_name"
-			],
-			[
-				"target",
-				"target_state"
-			],
-			[
-				"colle",
-				"dimension_collection_method"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 1007,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/seeds.rb",
-			"settings":
-			{
-				"buffer_size": 770,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "spec/rails_helper.rb",
-			"settings":
-			{
-				"buffer_size": 2720,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -607,11 +580,57 @@
 	"expanded_folders":
 	[
 		"/Users/sofiane/Documents/GitHub/recaller",
+		"/Users/sofiane/Documents/GitHub/recaller/app",
 		"/Users/sofiane/Documents/GitHub/recaller/spec",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models",
 		"/Users/sofiane/Documents/GitHub/expense_tracker"
 	],
 	"file_history":
 	[
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_corrector.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/synonym_corrector.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/spelling_corrector.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/teacher_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/writing_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/user_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/translation_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/support_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/answer.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/review_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/question_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/media_type_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/language_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/answer_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/answer_corrector_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/spelling_corrector_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/synonym_corrector_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_asker_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_generator_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/questions_creator_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/writing/synonyms_finder_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/writing/synonyms_finder.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/rails_helper.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/models/review_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/review.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/spec_helper.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/answer/answer_corrector_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_corrector.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/supports_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/translations_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/application_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/home_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/variables/_colours.scss",
+		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_text_colours.scss",
+		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_backgrounds.scss",
+		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_borders.scss",
+		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_font_weight.scss",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/application.html.erb",
+		"/Users/sofiane/Documents/GitHub/recaller/.gitignore",
+		"/Users/sofiane/Documents/GitHub/recaller/db/seeds.rb",
 		"/Users/sofiane/Documents/GitHub/buildpath/spec/feature/brief_setup_spec.rb",
 		"/Users/sofiane/Documents/GitHub/buildpath/app/models/product.rb",
 		"/Users/sofiane/Documents/GitHub/buildpath/app/mailers/admin_notifications_mailer.rb",
@@ -684,7 +703,6 @@
 		"/Users/sofiane/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/activerecord-5.0.2/lib/active_record/connection_adapters/postgresql_adapter.rb",
 		"/Users/sofiane/Documents/GitHub/buildpath/config/application.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/create.js.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/translations_controller.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/edit.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/index.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/models/writing.rb",
@@ -697,59 +715,18 @@
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/_notice.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_form.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_support.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_form.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_translation.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/destroy.js.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/config/application.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/application.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/reviews_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/application_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180218211429_remove_icon_column_from_media_types.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/media_type.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/edit.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/new.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/reviews/_show.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/_navbar.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/variables/_colours.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_backgrounds.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/application.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_colours.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/supports.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/javascripts/shared.coffee",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/javascripts/translations.coffee",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/_title.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/js/_basscss.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/javascripts/application.js",
-		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/translations.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/Gemfile",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/supports_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/log/development.log",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/examples.txt",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/poros/tea_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/teacher.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/poros/teacher_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/questions_creator.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/poros/question/questions_creator_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_generator.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/poros/question/question_generator_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/poros/question/question_asker_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_asker.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180207201559_remove_question_answer_from_questions.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/answer.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/models/answer_spec.rb"
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_form.html.erb"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
 		"height": 101.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -757,6 +734,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Answer::AnswerCorrector",
+			"Answer::SynonymCorrector",
+			"Answer::SpellingCorrector",
+			"Writing",
+			"Answer::AnswerCorrector",
+			"Answer::AnswerCorrector.new()",
+			"Answer::SpellingCorrector",
+			"Answer::AnswerCorrector",
+			"Answer::SpellingCorrector",
+			"Answer::AnswerCorrector",
+			"text-white",
+			"white",
+			"orange",
+			"set_supports",
 			"ssl"
 		],
 		"highlight": true,
@@ -775,95 +766,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1007,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1006,
-								1006
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 22.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "db/seeds.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 770,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								518,
-								518
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "spec/rails_helper.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2720,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2260,
-								2260
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -919,6 +823,54 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"answer",
+				"recaller/app/models/answer.rb"
+			],
+			[
+				"revie",
+				"recaller/app/models/review.rb"
+			],
+			[
+				"synonym",
+				"recaller/app/poros/writing/synonyms_finder.rb"
+			],
+			[
+				"spell",
+				"recaller/app/poros/answer/spelling_corrector.rb"
+			],
+			[
+				"supp",
+				"recaller/app/models/support.rb"
+			],
+			[
+				"synony",
+				"recaller/app/poros/answer/synonym_corrector.rb"
+			],
+			[
+				"answer_cor",
+				"recaller/app/poros/answer/answer_corrector.rb"
+			],
+			[
+				"revi",
+				"recaller/app/models/review.rb"
+			],
+			[
+				"suppor",
+				"recaller/app/models/support.rb"
+			],
+			[
+				"support_con",
+				"recaller/app/controllers/supports_controller.rb"
+			],
+			[
+				"appli",
+				"recaller/app/controllers/application_controller.rb"
+			],
+			[
+				"home_",
+				"recaller/app/controllers/home_controller.rb"
+			],
 			[
 				"seed",
 				"db/seeds.rb"
@@ -1216,10 +1168,6 @@
 				"app/models/media_type.rb"
 			],
 			[
-				"revie",
-				"app/controllers/reviews_controller.rb"
-			],
-			[
 				"translation_con",
 				"app/controllers/translations_controller.rb"
 			],
@@ -1230,10 +1178,6 @@
 			[
 				"home/ind",
 				"app/views/home/index.html.erb"
-			],
-			[
-				"suppor",
-				"app/models/support.rb"
 			],
 			[
 				"application_cont",
@@ -1316,10 +1260,6 @@
 				"app/models/question.rb"
 			],
 			[
-				"answer",
-				"app/models/answer.rb"
-			],
-			[
 				"answer_corr",
 				"app/poros/answer/answer_corrector.rb"
 			],
@@ -1388,48 +1328,12 @@
 				"app/poros/question/questions_creator.rb"
 			],
 			[
-				"synony",
-				"app/poros/answer/synonym_corrector.rb"
-			],
-			[
 				"js/moda",
 				"app/views/shared/js/_modal.html.erb"
 			],
 			[
 				"application.hm",
 				"app/views/layouts/application.html.erb"
-			],
-			[
-				"synonym",
-				"app/poros/writing/synonyms_finder.rb"
-			],
-			[
-				"langua",
-				"spec/factories/languages.rb"
-			],
-			[
-				"synon",
-				"app/poros/writing/synonyms_finder.rb"
-			],
-			[
-				"langu",
-				"spec/factories/languages.rb"
-			],
-			[
-				"",
-				"spec/poros/answer/answer_corrector_spec.rb"
-			],
-			[
-				"schem/",
-				"tmp/cache/assets/sprockets/v3.0/he/heHILW9sCSaCVqDfSiNwQlvUlFVMz2_LOHgd1HrjtmY.cache"
-			],
-			[
-				"gemfil",
-				"Gemfile"
-			],
-			[
-				"questionco",
-				"app/poros/question/question_corrector.rb"
 			]
 		],
 		"width": 0.0

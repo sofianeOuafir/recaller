@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218211429) do
+ActiveRecord::Schema.define(version: 20180304181618) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "question_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180218211429) do
     t.datetime "updated_at", null: false
     t.bigint "writing_id"
     t.boolean "reverse"
+    t.boolean "correctly_answered", default: false
     t.index ["review_id"], name: "index_questions_on_review_id"
     t.index ["translation_id"], name: "index_questions_on_translation_id"
     t.index ["writing_id"], name: "index_questions_on_writing_id"
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180218211429) do
     t.bigint "support_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "complete", default: false
     t.index ["support_id"], name: "index_reviews_on_support_id"
   end
 

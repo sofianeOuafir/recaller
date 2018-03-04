@@ -5,19 +5,35 @@
         <div class="center border border-orange">
           <div class="h2 text-black"><%= support.name %></div>
           <div><i class="h1 <%= MediaType::ICONS[support.media_type.name] %> text-black"></i></div>
-          <div class="py1">
+          <div class="py1 flex justify-center">
             <% for i in 1..5 %>
               <% if i <= support.mark %>
-                <i class="h1 ion-star text-yellow"></i>
+                <div>
+                  <i class="h1 ion-star text-yellow pr1"></i>
+                </div>
               <% else %>
-                <i class="h1 ion-ios-star-outline text-text"></i>
+                <div>
+                  <i class="h1 ion-ios-star-outline text-text pr1"></i>
+                </div>
               <% end %>
             <% end %>
           </div>
-          <%= link_to support_reviews_path(support), method: :post, remote: true do %>
-            <div class="border py1 bg-white">
-              <span class="h3 text-orange">Review</span>
-            </div>
+          <% if support.reviewable? %>
+            <%= link_to support_reviews_path(support), method: :post, remote: true do %>
+              <div class="border py1 bg-white">
+                <span class="h3 text-orange">New Review</span>
+              </div>
+            <% end %>
+
+            <% if support.last_review %>
+              <% if support.last_review.incomplete? %>
+                <%= link_to new_review_answer_path(support.last_review), remote: :true do %>
+                  <div class="border py1 bg-white">
+                    <span class="h3 text-orange">Resume Review</span>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
           <% end %>
           <div class="border py1 bg-white">
             <span class="h3 text-orange">Update</span>

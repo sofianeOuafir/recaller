@@ -1,7 +1,7 @@
 <div id="modal" class="modal" style="display:none;">
   <h1><%= Teacher.am_i_right?(@answer) %></h1>
 
-  <% if Question::QuestionAsker.finish?(@review) %>
+  <% if @review.complete? %>
     <p>This is over!</p>
   <% else %>
     <%= link_to 'Next Question', new_review_answer_path(@review), remote: :true %>

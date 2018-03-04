@@ -27,6 +27,10 @@ class Support < ApplicationRecord
   end
 
   def mark
-    reviews.last.mark
+    last_review.mark
+  end
+
+  def last_review
+    reviews.last
   end
 end
