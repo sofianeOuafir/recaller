@@ -27,4 +27,4 @@ test:
 
 production:
   <<: *default
-  database: recall_prod
+  url: ENV['CLEARDB_DATABASE_URL']
