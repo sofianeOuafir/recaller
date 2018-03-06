@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Writing::SynonymsFinder class', type: :poro do
+RSpec.describe 'Writing::SynonymsFinder class', type: :integration do
   before(:each) do
     allow_any_instance_of(Devise::Mailer).to receive(:confirmation_instructions)
   end

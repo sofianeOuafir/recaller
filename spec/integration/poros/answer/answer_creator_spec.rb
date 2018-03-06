@@ -98,14 +98,9 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
           })
         end
 
-        it 'should create an answer' do
-        end
-
-        it "should not set the answer's question as correctly answered" do
-        end
-
-        it "should not set the review as complete" do
-        end
+        it 'should not create an answer'
+        it "should not set the answer's question as correctly answered"
+        it "should not set the review as complete"
       end
     end
   end

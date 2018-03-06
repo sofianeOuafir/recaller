@@ -6,7 +6,7 @@ RSpec.describe Review, type: :integration do
       it 'should not create a review'
     end
 
-    context 'The support we want to create the review from 2 translations' do
+    context 'The support we want to create the review from has 2 translations' do
       it 'should create a review with 2 question'
     end
   end
@@ -54,7 +54,7 @@ RSpec.describe Review, type: :integration do
           end
 
           context 'without any mistake' do
-            it 'should return the right mark' do
+            it 'should return a mark of 1.5' do
               expect(review.mark).to eq 1.5
             end
           end
@@ -64,7 +64,7 @@ RSpec.describe Review, type: :integration do
               review.answers.first.update(correct: false)
             end
 
-            it 'should return the right mark' do
+            it 'should return a mark of 0.5' do
               expect(review.mark).to eq 0.5
             end
           end
@@ -91,7 +91,7 @@ RSpec.describe Review, type: :integration do
             answer7 = create(:answer, review: review, writing: writing, correct: true, question: review.questions.last)
             review.answers << answer7
           end
-          it 'should return the right mark' do
+          it 'should return a mark of 3.5' do
             expect(review.mark).to eq 3.5
           end
         end

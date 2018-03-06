@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"revi",
+				"review_completer"
+			],
+			[
+				"targ",
+				"target_language"
+			],
+			[
 				"rev",
 				"review"
 			],
@@ -506,14 +514,6 @@
 			[
 				"Date",
 				"DateTime"
-			],
-			[
-				"confirm",
-				"confirmation_with_customer"
-			],
-			[
-				"measure",
-				"measured_survey"
 			]
 		]
 	},
@@ -580,42 +580,64 @@
 	"expanded_folders":
 	[
 		"/Users/sofiane/Documents/GitHub/recaller",
-		"/Users/sofiane/Documents/GitHub/recaller/app",
 		"/Users/sofiane/Documents/GitHub/recaller/spec",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models",
-		"/Users/sofiane/Documents/GitHub/expense_tracker"
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros"
 	],
 	"file_history":
 	[
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/answer/answer_creator_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/review/review_completer_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/writing/synonyms_finder_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/answer_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/model/review_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/questions_creator.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/review.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/config/database.yml",
+		"/Users/sofiane/Documents/GitHub/recaller/db/schema.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/reviews_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_completer.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/question.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_asker.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_creator.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_generator.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180304181618_add_correctly_answered_to_questions.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/answers/_show.html.erb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/correct_answer_retriever.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180304151708_add_complete_to_reviews.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/answer.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/review_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/review/review_completer_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/support/integration_acceptance_helpers.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/translation.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/support/factories/reviews.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/spec_helper.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/support/factories/supports.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/writing/synonyms_finder_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_corrector.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/synonym_corrector.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/spelling_corrector.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/teacher_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/writing_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/user_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/translation_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/support_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/answer.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/review_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/question_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/media_type_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/language_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/answer_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/answer_corrector_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/spelling_corrector_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/synonym_corrector_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_asker_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_generator_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/questions_creator_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/writing/synonyms_finder_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/writing/synonyms_finder.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/rails_helper.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/models/review_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/review.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/spec_helper.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/answer/answer_corrector_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_corrector.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/supports_controller.rb",
@@ -627,7 +649,6 @@
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_backgrounds.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_borders.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_font_weight.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/application.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/.gitignore",
 		"/Users/sofiane/Documents/GitHub/recaller/db/seeds.rb",
@@ -693,33 +714,11 @@
 		"/Users/sofiane/Library/Application Support/Sublime Text 3/Packages/TestRSpec/Preferences.sublime-settings",
 		"/Users/sofiane/Documents/GitHub/buildpath/spec/poros/catalyst_spec.rb",
 		"/Users/sofiane/Documents/GitHub/buildpath/app/poros/coleman/catalyst.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/spec/support/page_objects/stripe_page_object.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/layouts/loggedin.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/controllers/stripe_charges_controller.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/quotes/show.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/quotes/quote/_payment.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/shared/_flash.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/PATH=$HOME/.rb",
-		"/Users/sofiane/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/activerecord-5.0.2/lib/active_record/connection_adapters/postgresql_adapter.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/config/application.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/create.js.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/edit.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/index.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/writing.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/translation.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/answers/_new.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/answers/_show.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/devise.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/error.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/_errors.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/_notice.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_form.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_support.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_form.html.erb"
+		"/Users/sofiane/Documents/GitHub/buildpath/spec/support/page_objects/stripe_page_object.rb"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -734,6 +733,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"reviewable",
+			"already_asked_question_ids",
+			"ids_of_correct_answers",
+			"already_asked_question_ids",
+			"answer1",
+			"answer2",
+			"questions_answered_incorrectly",
+			"}\n",
+			" {",
+			"create(:question)",
+			"build_stubbed",
 			"Answer::AnswerCorrector",
 			"Answer::SynonymCorrector",
 			"Answer::SpellingCorrector",
@@ -824,12 +834,84 @@
 		"selected_items":
 		[
 			[
-				"answer",
-				"recaller/app/models/answer.rb"
+				"review_co",
+				"recaller/app/poros/review/review_completer.rb"
+			],
+			[
+				"review_compl",
+				"recaller/spec/integration/poros/review/review_completer_spec.rb"
+			],
+			[
+				"question_as",
+				"recaller/app/poros/question/question_asker.rb"
+			],
+			[
+				"question_gen",
+				"recaller/app/poros/question/question_generator.rb"
+			],
+			[
+				"question_ge",
+				"recaller/app/poros/question/question_generator.rb"
+			],
+			[
+				"ques",
+				"recaller/app/models/question.rb"
+			],
+			[
+				"datab",
+				"recaller/config/database.yml"
+			],
+			[
+				"sche",
+				"recaller/db/schema.rb"
+			],
+			[
+				"schem",
+				"recaller/db/schema.rb"
+			],
+			[
+				"answe",
+				"recaller/app/controllers/answers_controller.rb"
+			],
+			[
+				"suppo",
+				"recaller/app/models/support.rb"
 			],
 			[
 				"revie",
 				"recaller/app/models/review.rb"
+			],
+			[
+				"question_cr",
+				"recaller/app/poros/question/questions_creator.rb"
+			],
+			[
+				"review",
+				"recaller/app/models/review.rb"
+			],
+			[
+				"review_con",
+				"recaller/app/controllers/reviews_controller.rb"
+			],
+			[
+				"rev",
+				"recaller/app/models/review.rb"
+			],
+			[
+				"answer",
+				"recaller/app/controllers/answers_controller.rb"
+			],
+			[
+				"questio",
+				"recaller/app/models/question.rb"
+			],
+			[
+				"trnas",
+				"recaller/app/models/translation.rb"
+			],
+			[
+				"support",
+				"recaller/app/models/support.rb"
 			],
 			[
 				"synonym",
@@ -1068,10 +1150,6 @@
 				"app/views/admin/customers/_show.html.erb"
 			],
 			[
-				"schem",
-				"db/schema.rb"
-			],
-			[
 				"gitign",
 				".gitignore"
 			],
@@ -1220,10 +1298,6 @@
 				"spec/poros/question/question_asker_spec.rb"
 			],
 			[
-				"question_as",
-				"db/migrate/20180207201559_remove_question_answer_from_questions.rb"
-			],
-			[
 				"answer_spe",
 				"spec/models/answer_spec.rb"
 			],
@@ -1234,10 +1308,6 @@
 			[
 				"review_sp",
 				"spec/models/review_spec.rb"
-			],
-			[
-				"ques",
-				"spec/models/question_spec.rb"
 			],
 			[
 				"question_sp",
@@ -1274,66 +1344,6 @@
 			[
 				"quote",
 				"app/models/quote.rb"
-			],
-			[
-				"payment.rb",
-				"app/models/payment.rb"
-			],
-			[
-				"letter",
-				"app/views/quotes/_letter.html.erb"
-			],
-			[
-				"quotes/lette",
-				"app/views/quotes/_letter.html.erb"
-			],
-			[
-				"quote/show",
-				"app/views/quotes/show.html.erb"
-			],
-			[
-				"item_fa",
-				"spec/support/factories/item_factory.rb"
-			],
-			[
-				"invoice_f",
-				"spec/support/factories/invoice_factory.rb"
-			],
-			[
-				"brief_fac",
-				"spec/support/factories/brief_factory.rb"
-			],
-			[
-				"quote_fa",
-				"spec/support/factories/quote_factory.rb"
-			],
-			[
-				"invoice_fa",
-				"spec/support/factories/invoice_factory.rb"
-			],
-			[
-				"quote_fac",
-				"spec/support/factories/quote_factory.rb"
-			],
-			[
-				"user_f",
-				"spec/support/factories/user_factory.rb"
-			],
-			[
-				"prope",
-				"app/models/property.rb"
-			],
-			[
-				"question_cre",
-				"app/poros/question/questions_creator.rb"
-			],
-			[
-				"js/moda",
-				"app/views/shared/js/_modal.html.erb"
-			],
-			[
-				"application.hm",
-				"app/views/layouts/application.html.erb"
 			]
 		],
 		"width": 0.0

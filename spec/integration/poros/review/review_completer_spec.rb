@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Review::ReviewCompleter, type: :unit do
+RSpec.describe Review::ReviewCompleter, type: :integration do
   let(:review_completer) { class_double('Review::ReviewCompleter') }
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
