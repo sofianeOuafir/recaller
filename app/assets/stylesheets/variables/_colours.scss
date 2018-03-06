@@ -3,3 +3,75 @@ $yellow: #ffc300;
 $text: #5f5f5f;
 $black: #000000;
 $white: #ffffff;
+$green:   #02b494;
+$blue:    #0099f8;
+
+// Navies
+$ocean-blue: #345ba6;
+$royal-blue: #26427a;
+$indigo: #213b6d;
+$navy: #17294c;
+
+// Greys
+$off-white: #f3f8ff;
+$light-grey: #dcdfe3;
+$grey: #cad1d9;
+
+
+// Translucents
+$green-translucent: rgba( darken($green, 10%), .7 );
+$blue-translucent: rgba( darken($blue, 10%), .7 );
+
+
+// Theme Colours
+$aqua:      #3ACABB;
+$cool:      #add4f2;
+$blue-tint: #87BEFF;
+$baby:      #F3F8FF;
+$cloud:     #E1ECF4;
+$fake:      #475878;
+$grey:      #F7F9FB;
+$base:      #ececec;
+$tint:      #F0F0F0;
+$iron:      #B4B4B4;
+$coal:      #2B2935;
+$aubergine: #2C9186;
+$action:    #4990E2;
+
+$pink:      #f4dcdc;
+$ruby:      #e85b5b;
+$seal:      #F0F6FB;
+$success:   #A2DED0;
+$dust:      #5F6680;
+$space:     #242F44;
+$blend:     #818FAA;
+$marine:    #34495E;
+$rule:      #BFC8CC;
+$accent-navy: #4e6288;
+$accent-blue: #68a4d8;
+
+$light-aqua: #4fe3c1;
+
+$purple: #bd0fe0;
+
+$veil:      rgba(84, 84, 106, .74);
+$bare:      rgba(240, 247, 255, .61);
+$event:     rgb(252, 252, 252);
+
+// RAG
+$wolf:   #27AE60;
+$chimp:  #37DBD0;
+$rabbit: #FFCF4B;
+$mouse:  #F7F9FB;
+
+$t-wolf:   #238e50;
+$t-chimp:  #268a83;
+$t-rabbit: #d2a11a;
+$t-mouse:  #afb1b4;
+
+$customer:  #27AE60;
+$super-hot: #e85b5b;
+$hot:       #f5b358;
+$lead:      $action;
+$cold:      #37DBD0;
+

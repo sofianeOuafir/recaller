@@ -1,0 +1,50 @@
+@import 'variables/colours';
+
+.btn-outline {
+  border: 1px solid;
+  font-weight: 300;
+  color: $text;
+  border-color: $text;
+}
+
+.btn-outline-aqua {
+  @extend .btn-outline;
+  border-color: $aqua;
+  color: $aqua;
+
+  &:hover {
+    background-color: $aqua;
+    border-color: $aqua;
+    color: $grey;
+  }
+}
+
+.btn-outline-action {
+  @extend .btn-outline;
+  border-color: $yellow;
+  color: $yellow;
+}
+
+.btn-outline-blue {
+  @extend .btn-outline;
+  border-color: $blue;
+  color: $blue;
+}
+
+.btn-outline-ruby {
+  @extend .btn-outline;
+  border-color: $ruby;
+  color: $ruby;
+}
+
+.btn-outline-navy {
+  @extend .btn-outline;
+  border-color: $navy;
+  color: $navy;
+}
+
+.btn-outline-grey {
+  @extend .btn-outline;
+  border-color: $grey;
+  color: $grey;
+}

@@ -2,9 +2,32 @@
   <% @supports.each do |support| %>
     <div class="p2 col col-3">
      <%= link_to support_translations_path(support) do %>
-        <div class="center border border-orange">
+      <div class="center border border-orange clearfix">
+        <!-- links -->
+        <div class="flex justify-end">
+          <div id="dropdown_trigger" class="dropdown">
+            <%= link_to '#', class:'px2' do %>
+              <i class="ion-android-more-vertical h1"></i>
+            <% end %>
+          </div>
+           <div class="dropdown-content" id="myDropdown">
+              <div class="border py1 bg-white">
+                <span class="h3 text-orange">Update</span>
+              </div>
+              <div class="border py1 bg-white">
+                <span class="h3 text-orange">Archive</span>
+              </div>
+              <div class="border py1 bg-white">
+                <span class="h3 text-orange">Delete</span>
+              </div>
+           </div>
+         </div>
+         <!-- end links -->
+
           <div class="h2 text-black"><%= support.name %></div>
           <div><i class="h1 <%= MediaType::ICONS[support.media_type.name] %> text-black"></i></div>
+
+          <!-- mark -->
           <div class="py1 flex justify-center">
             <% for i in 1..5 %>
               <% if i <= support.mark %>
@@ -18,35 +41,42 @@
               <% end %>
             <% end %>
           </div>
-          <% if support.reviewable? %>
-            <%= link_to support_reviews_path(support), method: :post, remote: true do %>
-              <div class="border py1 bg-white">
+          <!-- mark -->
+
+          <div class="col col-12">
+            <% if support.reviewable? %>
+            <div class="py1 bg-white col col-6">
+              <%= link_to 'New Review', support_reviews_path(support), method: :post, remote: true, class:'btn btn-orange' %>
+            </div>
+            <% else %>
+              <div class="py1 bg-white col col-6">
                 <span class="h3 text-orange">New Review</span>
               </div>
             <% end %>
-
-            <% if support.last_review %>
-              <% if support.last_review.incomplete? %>
-                <%= link_to new_review_answer_path(support.last_review), remote: :true do %>
-                  <div class="border py1 bg-white">
-                    <span class="h3 text-orange">Resume Review</span>
-                  </div>
-                <% end %>
-              <% end %>
+            <% if support.last_review && support.last_review.incomplete? %>
+              <div class="py1 bg-white col col-6">
+                <%= link_to 'Resume Review', new_review_answer_path(support.last_review), remote: :true, class:'btn btn-orange' %>
+              </div>
+            <% else %>
+              <div class="py1 bg-white col col-6">
+                <span class="h3 text-orange">Resume Review</span>
+              </div>
             <% end %>
-          <% end %>
-          <div class="border py1 bg-white">
-            <span class="h3 text-orange">Update</span>
-          </div>
-          <div class="border py1 bg-white">
-            <span class="h3 text-orange">Archive</span>
-          </div>
-          <div class="border py1 bg-white">
-            <span class="h3 text-orange">Delete</span>
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $('#dropdown_trigger').click( function(event){
+    event.stopPropagation();
+    $('#myDropdown').toggle();
+  });
+
+  $(document).click( function(){
+    $('#myDropdown').hide();
+  });
+</script>
 

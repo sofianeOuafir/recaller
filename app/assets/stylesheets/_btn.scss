@@ -1,0 +1,88 @@
+@import 'variables/colours';
+@import 'btn-outline';
+
+.btn {
+  padding: 7px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: .8rem;
+  box-sizing: border-box;
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  }
+}
+
+.btn-grey {
+  background: $grey;
+  color: $text;
+  border: 1px solid $base;
+}
+
+.btn-navy {
+  background: $navy;
+  color: $white;
+}
+
+.btn-action {
+  background: $yellow;
+  color: $royal-blue;
+}
+
+.btn-ruby {
+  background: $ruby;
+  color: $white;
+}
+
+.btn-aqua {
+  background: $aqua;
+  color: $white;
+}
+
+.btn-green {
+  background: $green;
+  color: $white;
+}
+
+.btn-orange {
+  background: $orange;
+  color: $white;
+}
+
+.btn-iron {
+  background: $iron;
+  color: $white;
+}
+
+.btn-mini {
+  font-size: 0.8em;
+  padding: 5px 10px;
+  font-weight: 600;
+  border-radius: 20px;
+  box-sizing: border-box;
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  }
+}
+
+.btn-mega {
+  font-size: 1.2em;
+  padding: 20px;
+}
+
+.btn-admin {
+  @extend .btn;
+  @extend .btn-outline-navy;
+  @extend .btn-mini
+}
+
+.btn-primary {
+  color: $grey;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background: $blue;
+  font-weight: 300;
+}
