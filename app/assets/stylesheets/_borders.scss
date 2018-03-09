@@ -1,3 +1,41 @@
 @import 'variables/colours';
 
 .border-orange { border-color: $orange; }
+
+//  Border Colors
+.border-aqua        { border-color: $aqua; }
+.border-blue        { border-color: $blue; }
+.border-blue-tint   { border-color: $blue-tint; }
+.border-cloud       { border-color: $cloud; }
+.border-navy        { border-color: $navy; }
+.border-fake        { border-color: $fake; }
+.border-blend       { border-color: $blend; }
+.border-dust        { border-color: $dust; }
+.border-grey        { border-color: $grey; }
+.border-base        { border-color: $base; }
+.border-iron        { border-color: $iron; }
+.border-text        { border-color: $text; }
+.border-coal        { border-color: $coal; }
+.border-ruby        { border-color: $ruby; }
+.border-customer    { border-color: $customer; }
+.border-wolf        { border-color: $t-wolf; }
+.border-mouse       { border-color: $t-mouse; }
+.border-chimp       { border-color: $t-chimp; }
+.border-rabbit      { border-color: $t-rabbit; }
+.border-seal        { border-color: $seal; }
+.border-super_hot_lead  { border-color: $super-hot; }
+.border-hot_lead        { border-color: $hot; }
+.border-lead            { border-color: $lead; }
+.border-cold_lead       { border-color: $cold; }
+
+
+//  Border Widths
+.border-2 { border-width: 2px; }
+.border-5 { border-width: 5px; }
+
+
+// Border Radius
+.rounded-0  { border-radius: 0px; }
+.rounded-4  { border-radius: 4px; }
+.rounded-8  { border-radius: 8px; }
+.rounded-14 { border-radius: 14px;}

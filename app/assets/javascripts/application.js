@@ -16,3 +16,13 @@
 //= require turbolinks
 //= require tether
 //= require_tree .
+
+
+  $('#dropdown_trigger').click( function(event){
+    event.stopPropagation();
+    $('#myDropdown').toggle();
+  });
+
+  $(document).click( function(){
+    $('#myDropdown').hide();
+  });

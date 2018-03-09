@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 MediaType.delete_all
-MediaType.create!(name:'Livre')
-MediaType.create!(name:'Musique')
-MediaType.create!(name:'Film')
-MediaType.create!(name:'Cours')
+MediaType.create!(name:'Book')
+MediaType.create!(name:'Music')
+MediaType.create!(name:'Movie')
+MediaType.create!(name:'Course')
 
 Language.delete_all
-Language.create!(name: 'Français', code:'fr')
-Language.create!(name: 'Anglais', code:'gb')
-Language.create!(name: 'Italien', code:'it')
-Language.create!(name: 'Espagnole', code:'es')
-Language.create!(name: 'Allemand', code:'al')
+Language.create!(name: 'French', code:'fr')
+Language.create!(name: 'English', code:'gb')
+Language.create!(name: 'Italian', code:'it')
+Language.create!(name: 'Spanish', code:'es')
+Language.create!(name: 'German', code:'al')

@@ -1,8 +1,41 @@
-<div class="col col-12 center">
-  <p class="col col-3"><%= @support.sourceLanguage.name %></p>
-  <p class="col col-3"><%= @support.targetLanguage.name %></p>
-  <p class="col col-3">Contexte</p>
-  <p class="col col-3"></p>
+<div class="max-width-4 mx-auto clearfix bg-white">
+  <div class="col col-12 center border-bottom border-cloud">
+    <p class="col col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
+    <p class="col col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
+    <p class="col col-3 fw700 h2">Context</p>
+    <p class="col col-3"></p>
+  </div>
+  <%= render @translations %>
+  <div class="col col-12 center py2 pb4 mb4 fullwidth">
+    <%= simple_form_for [@support, @translation], remote: true do |f| %>
+      <%= f.hidden_field :support_id, value: @support.id %>
+      <div class="col col-3">
+      <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center' %>
+      </div>
+      <div class="col col-3">
+      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center' %>
+      </div>
+      <div class="col col-3">
+      <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+      </div>
+      <div class="col col-3">
+      <%= f.submit 'Create', class: 'btn btn-orange' %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= render @translations %>
-<%= render partial: 'form', locals: {submit_value: "Create"} %>
+
+
+<!-- TODO, put that code in a sharable place -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.dropdown').click(function(e){
+      e.preventDefault();
+      toggle_dropdown($(this).data('target'));
+    });
+  });
+
+  function toggle_dropdown(id){
+    $('#myDropdown' + id).toggle();
+  }
+</script>

@@ -3,10 +3,10 @@ class MediaType < ApplicationRecord
   before_save { name.capitalize! }
 
   ICONS = {
-    'Cours' => 'ion-university',
-    'Livre' => 'ion-ios-book-outline',
-    'Film' => 'ion-ios-videocam',
-    'Musique' => 'ion-music-note'
+    'Course' => 'ion-university',
+    'Book' => 'ion-ios-book-outline',
+    'Movie' => 'ion-ios-videocam',
+    'Music' => 'ion-music-note'
 
   }
 

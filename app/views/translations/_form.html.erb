@@ -1,9 +1,7 @@
-<%= simple_form_for [@support, @translation], remote: true do |f| %>
-  <div class="col col-12 center bg-orange py1">
-    <%= f.hidden_field :support_id, value: @support.id %>
-    <div class="col col-3"><%= f.text_field :sourceWriting, placeholder: 'Mot - ex: Bonjour!', :required => true %></div>
-    <div class="col col-3"><%= f.text_field :targetWriting, placeholder: 'Définition - ex: Hello!', :required => true %></div>
-    <div class="col col-3"><%= f.text_field :context, placeholder: 'Donnez un exemple!'  %></div>
-    <div class="col col-3"><%= f.submit submit_value %></div>
-  </div>
+<%= simple_form_for [@support, @translation], html: { class: 'admin-modal-form' }, remote: true do |f| %>
+  <%= f.hidden_field :support_id, value: @support.id %>
+  <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true %>
+  <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true %>
+  <%= f.text_field :context, placeholder: 'Give a context!'  %>
+  <%= f.submit submit_value, class: 'btn btn-orange' %>
 <% end %>

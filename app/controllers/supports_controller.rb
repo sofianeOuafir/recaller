@@ -10,12 +10,7 @@ class SupportsController < ApplicationController
   def create
     @support = Support.new(support_params)
     @support.user_id = current_user.id
-    if @support.save
-      flash[:notice] = 'Le media a bien été enregistré.'
-      redirect_to support_translations_path(@support)
-    else
-      render 'new'
-    end
+    @support.save
   end
 
   def edit; end

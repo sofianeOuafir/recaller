@@ -1,0 +1,9 @@
+<div id="modal" class="m0 p0">
+  <%= render partial:'shared/modals/header', locals:{
+      title: "Update Translation",
+      sub_title: "Add a new media in order to never forget the new words you have learnt from it."
+  }%>
+  <div class="px4 py2">
+    <%= render partial: 'form', locals: { submit_value: "Update", support: support, translation: translation } %>
+  </div>
+</div>

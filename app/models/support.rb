@@ -27,10 +27,15 @@ class Support < ApplicationRecord
   end
 
   def mark
+    return 0 if last_review.nil?
     last_review.mark
   end
 
   def last_review
     reviews.last
+  end
+
+  def languages_updatable?
+    translations.present?
   end
 end

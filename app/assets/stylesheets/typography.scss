@@ -1,0 +1,128 @@
+@import 'variables/colours';
+@import 'variables/typography';
+
+body {
+  font-family: $text-font;
+  color: $text;
+}
+
+html.admin_layout body, html.loggedin_layout body {
+ font-family: $admin-font;
+
+ p { font-family: $admin-font; }
+ h1, h2, .h0, .h1, .h2 { font-family: $admin-font; }
+}
+
+* {-webkit-font-smoothing: antialiased;}
+
+p {
+  font-size: 1rem;
+  letter-spacing: -0.3px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.logo  { font-family: $logo-font;}
+
+.text-font { font-family: $text-font !important;}
+
+a { text-decoration: none; }
+
+
+h1, h2, .h0, .h1, .h2 {
+  font-family: $headline-font; font-weight: 600;
+}
+
+h3, h4, h5 {
+  font-weight: 400;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5 { font-size: .875rem; }
+h6 { font-size: .75rem; }
+
+.h1x, .h1 {
+  line-height: 3.2rem;
+}
+
+.h0 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.h3, .h4, .h5, .h6 {
+  font-weight: 400;
+}
+
+.lh35 {
+  line-height: 35px;
+}
+
+.h7 {font-size: .6rem;}
+
+.uppercase { text-transform: uppercase;}
+
+.underline_blue {
+  padding-bottom: 5px;
+  border-bottom: 2px solid $action;
+}
+
+
+//  Font Weights
+.fw200{ font-weight: 200;}
+.fw300{ font-weight: 300;}
+.fw400{ font-weight: 400;}
+.fw500{ font-weight: 500;}
+.fw600{ font-weight: 600;}
+.fw700{ font-weight: 700;}
+
+
+//  Text Colors
+.text-marine  { color: $marine; }
+.text-pink  { color: $pink; }
+.text-orange  { color: $orange; }
+.text-blend  { color: $blend; }
+.text-aubergine { color: $aubergine; }
+.text-ruby  { color: $ruby; }
+.text-aqua  { color: $aqua; }
+.text-blue  { color: $blue; }
+.text-cool  { color: $cool; }
+.text-navy  { color: $navy; }
+.text-grey  { color: $grey; }
+.text-green  { color: $green; }
+.text-iron  { color: $iron; }
+.text-rule  { color: $rule; }
+.text-text  { color: $text; }
+.text-coal  { color: $coal; }
+.text-dust  { color: $dust; }
+.text-space  { color: $space; }
+.text-action  { color: $action; }
+.text-white { color: $white; }
+.text-purple { color: $purple; }
+.text-yellow { color:$yellow; }
+.text-royal-blue { color: $royal-blue }
+
+.text-customer { color: $customer; }
+.text-wolf     { color: $t-wolf; }
+.text-mouse    { color: $t-mouse; }
+.text-rabbit   { color: $t-rabbit; }
+.text-chimp    { color: $t-chimp; }
+
+.text-super_hot_lead { color: $super-hot }
+.text-hot_lead { color: $hot }
+.text-lead { color: $lead }
+.text-cold_lead { color: $cold }
+
+.sm-center {
+  @media (min-width: 52em) {
+    text-align: center;
+  }
+}
+
+.internal-link {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,23 +1,31 @@
-<div class="border bg-orange flex justify-between">
+<div class="bg-orange flex justify-between items-center mb1 py1 px4">
   <div>
-      <%= link_to "Recall", root_path %>
+      <%= link_to "Recall", root_path, class: 'text-white h1' %>
   </div>
-  <div>
-    <ul>
-      <% if user_signed_in? %>
-        <li>
-          <a>
-            <%= current_user.username %>
-          </a>
-          <ul>
-            <li><%= link_to 'Account Details', edit_user_registration_path %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <% end %>
-    </ul>
-  </div>
+  <% if current_user %>
+    <div>
+      <div id="dropdown_trigger_nav" class="dropdown btn btn-outline-grey"><%= current_user.username %> &or;</div>
+      <div class="dropdown-content rounded-4" id="myDropdownNav">
+        <%= link_to 'Account Details', edit_user_registration_path , class:"text-white block p2" %>
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:"text-white block p2" %>
+      </div>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to 'Sign In', new_user_session_path %>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    </div>
+  <% end %>
 </div>
+
+<!-- TODO, put that code in a sharable place -->
+<script type="text/javascript">
+  $('#dropdown_trigger_nav').click( function(event){
+    event.stopPropagation();
+    $('#myDropdownNav').toggle();
+  });
+
+  $(document).click( function(){
+    $('#myDropdownNav').hide();
+  });
+</script>

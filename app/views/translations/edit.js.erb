@@ -1,0 +1,4 @@
+$('#modal').remove();
+$("#modal-container").html("<%= escape_javascript(render(partial:'translations/edit', locals:{support: @support, translation: @translation})).html_safe %>");
+$('#modal').modal();
+

@@ -18,4 +18,22 @@ RSpec.describe Support, type: :unit do
       end
     end
   end
+
+  describe '#languages_updatable?' do
+    context 'The support has at least 1 translations' do
+      it 'should return false' do
+        expect(subject.languages_updatable?).to eq false
+      end
+    end
+
+    context 'The support has no translations' do
+      before do
+
+      end
+
+      it 'should return true' do
+        expect(subject.languages_updatable?).to eq true
+      end
+    end
+  end
 end

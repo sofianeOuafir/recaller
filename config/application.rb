@@ -10,7 +10,6 @@ module Recall
   class Application < Rails::Application
     # Initialize configura tion defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.i18n.default_locale = :fr
     config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
 
     config.filter_parameters << :password

@@ -1,0 +1,4 @@
+$('#modal').remove();
+$("#modal-container").html("<%= escape_javascript(render(partial:'supports/new', locals:{support: @support})).html_safe %>");
+$('#modal').modal();
+

@@ -1,0 +1,9 @@
+<div id="modal" class="m0 p0">
+  <%= render partial:'shared/modals/header', locals:{
+      title: "Edit a Media",
+      sub_title: ""
+  }%>
+  <div class="px4">
+    <%= render partial: 'form', locals: {submit_value: "Update"} %>
+  </div>
+</div>

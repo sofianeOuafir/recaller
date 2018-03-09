@@ -25,6 +25,12 @@
   color: $yellow;
 }
 
+.btn-outline-orange {
+  @extend .btn-outline;
+  border-color: $orange;
+  color: $orange;
+}
+
 .btn-outline-blue {
   @extend .btn-outline;
   border-color: $blue;

@@ -1,0 +1,68 @@
+form.admin {
+  label {
+    width:150px;
+    display: block;
+    float: left;
+  }
+}
+
+@import 'variables/colours';
+@import 'btn-outline';
+@import 'variables/typography';
+
+
+form.admin-modal-form{
+  input {
+    margin-bottom: 30px;
+  }
+
+  input[type="checkbox"] {
+    margin-bottom: 5px;
+    width: auto;
+  }
+
+  label{
+    font-size: 0.8rem;
+  }
+
+  input, textarea, select {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $base;
+  }
+
+  input[type=submit]{
+    margin-bottom: 0;
+  }
+
+  select{
+    height:40px;
+    font-size: 1.2rem;
+  }
+
+  span.currencyinput{
+    display: inline-block;
+    background: $base;
+    padding: 0 10px;
+    line-height: 35px;
+    box-sizing: border-box;
+    margin-right: -4px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  input.currencyinput {
+    width: 70px;
+  }
+
+  table.table-admin-striped{
+    input {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.checkbox_container{
+  display:block;
+}

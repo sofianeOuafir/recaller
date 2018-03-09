@@ -1,8 +1,16 @@
-<%= simple_form_for @support do |f| %>
+<%= simple_form_for @support, html: {class:'admin-modal-form'}, remote: true do |f| %>
   <%= render partial:'shared/errors', locals:{obj: @support} %>
-  <div><%= f.input :name %></div>
-  <div><%= f.association :media_type, collection: MediaType.all.order(:name) %></div>
-  <div><%= f.association :sourceLanguage, collection: Language.all.order(:name), label: 'Language of the media' %></div>
-  <div><%= f.association :targetLanguage, collection: Language.all.order(:name), label: 'Language of translation' %></div>
-  <div><%= f.submit submit_value %></div>
+  <%= f.input :name %>
+  <div class="py1">
+    <%= f.association :media_type, collection: MediaType.all.order(:name), label: 'What is it?' %>
+  </div>
+  <div class="py1">
+    <%= f.association :sourceLanguage, collection: Language.all.order(:name), label: 'Language of the media' %>
+  </div>
+  <div class="py1">
+    <%= f.association :targetLanguage, collection: Language.all.order(:name), label: 'Language of translation' %>
+  </div>
+  <div class="py1">
+    <%= f.submit submit_value, class: 'btn btn-orange' %>
+  </div>
 <% end %>
