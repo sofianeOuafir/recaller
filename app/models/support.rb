@@ -36,6 +36,6 @@ class Support < ApplicationRecord
   end
 
   def languages_updatable?
-    translations.present?
+    translations.empty?
   end
 end

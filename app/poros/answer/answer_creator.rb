@@ -6,6 +6,7 @@ class Answer::AnswerCreator
                                                 language_id: @answer.question.expected_answer.language_id)
     @answer.correct = Answer::AnswerCorrector.new.correct?(@answer)
     return @answer unless @answer.save
+    @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
     return @answer unless @answer.correct?
     set_question_as_correctly_answered
     set_review_as_complete_if_complete

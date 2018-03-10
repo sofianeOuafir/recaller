@@ -31,19 +31,24 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
           end
 
           it 'should create an answer' do
-            @answer = Answer::AnswerCreator.create(@answers_params)
-            expect(@answer.persisted?).to eq true
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.persisted?).to eq true
           end
 
           it "should set the answer's question as correctly answered" do
-            @answer = Answer::AnswerCreator.create(@answers_params)
-            expect(@answer.question.correctly_answered).to eq true
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.question.correctly_answered).to eq true
+          end
+
+          it 'should re-calculate the mark' do
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.review.mark).to eq 5
           end
 
           context 'the review is complete' do
             it 'it should set the review as complete' do
-              @answer = Answer::AnswerCreator.create(@answers_params)
-              expect(@answer.review.complete).to eq true
+              answer = Answer::AnswerCreator.create(@answers_params)
+              expect(answer.review.complete).to eq true
             end
           end
 
@@ -53,8 +58,8 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
               review.questions << create(:question, review: review, translation: translation, writing: writing)
             end
             it 'it should not set the review as complete' do
-              @answer = Answer::AnswerCreator.create(@answers_params)
-              expect(@answer.review.complete).to eq false
+              answer = Answer::AnswerCreator.create(@answers_params)
+              expect(answer.review.complete).to eq false
             end
           end
         end
@@ -71,18 +76,23 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
           end
 
           it 'should create an answer' do
-            @answer = Answer::AnswerCreator.create(@answers_params)
-            expect(@answer.persisted?).to eq true
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.persisted?).to eq true
+          end
+
+          it 'should re-calculate the mark' do
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.review.mark).to eq 0
           end
 
           it "should not set the answer's question as correctly answered" do
-            @answer = Answer::AnswerCreator.create(@answers_params)
-            expect(@answer.question.correctly_answered).to eq false
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.question.correctly_answered).to eq false
           end
 
           it "should not set the review as complete" do
-            @answer = Answer::AnswerCreator.create(@answers_params)
-            expect(@answer.review.complete).to eq false
+            answer = Answer::AnswerCreator.create(@answers_params)
+            expect(answer.review.complete).to eq false
           end
         end
       end
@@ -101,6 +111,7 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
         it 'should not create an answer'
         it "should not set the answer's question as correctly answered"
         it "should not set the review as complete"
+        it 'should not calculate the mark'
       end
     end
   end
