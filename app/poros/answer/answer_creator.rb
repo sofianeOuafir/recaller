@@ -1,9 +1,7 @@
 class Answer::AnswerCreator
-  def self.create(params)
-    @params = params
-    @answer = Answer.new(answer_params)
-    @answer.writing = Writing.find_or_create_by(text: params[:answer][:text],
-                                                language_id: @answer.question.expected_answer.language_id)
+  def self.create(answer)
+    @answer = answer
+    return @answer unless @answer.valid?
     @answer.correct = Answer::AnswerCorrector.new.correct?(@answer)
     return @answer unless @answer.save
     @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
@@ -21,10 +19,5 @@ class Answer::AnswerCreator
 
   def self.set_review_as_complete_if_complete
     Review::ReviewCompleter.mark_review_as_complete_if_complete(@answer.review)
-  end
-
-  def self.answer_params
-    @params.require(:answer)
-           .permit(:question_id, :review_id)
   end
 end

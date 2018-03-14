@@ -519,97 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "spec/integration/poros/review/mark_calculator_spec.rb",
-			"settings":
-			{
-				"buffer_size": 4213,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "mark_calculator_spec.rb"
-			}
-		},
-		{
-			"file": "spec/integration/model/review_spec.rb",
-			"settings":
-			{
-				"buffer_size": 387,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/review.rb",
-			"settings":
-			{
-				"buffer_size": 452,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/poros/review/mark_calculator.rb",
-			"settings":
-			{
-				"buffer_size": 818,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "mark_calculator.rb"
-			}
-		},
-		{
-			"file": "db/migrate/20180310211656_migrate_marks.rb",
-			"settings":
-			{
-				"buffer_size": 181,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/answers_controller.rb",
-			"settings":
-			{
-				"buffer_size": 301,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/support.rb",
-			"settings":
-			{
-				"buffer_size": 850,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "spec/integration/poros/answer/answer_creator_spec.rb",
-			"settings":
-			{
-				"buffer_size": 4011,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/migrate/20180310210627_add_mark_to_reviews.rb",
-			"settings":
-			{
-				"buffer_size": 118,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/poros/answer/answer_creator.rb",
-			"settings":
-			{
-				"buffer_size": 1002,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -671,30 +580,53 @@
 	"expanded_folders":
 	[
 		"/Users/sofiane/Documents/GitHub/recaller",
-		"/Users/sofiane/Documents/GitHub/recaller/db",
-		"/Users/sofiane/Documents/GitHub/recaller/db/migrate"
+		"/Users/sofiane/Documents/GitHub/recaller/spec",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/model"
 	],
 	"file_history":
 	[
-		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/review/review_completer_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/devise.html.erb",
+		"/Users/sofiane/Library/Application Support/Sublime Text 3/Packages/TestRSpec/Preferences.sublime-settings",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_creator.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180310210627_add_mark_to_reviews.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/answer/answer_creator_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180310211656_migrate_marks.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/mark_calculator.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/review.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/model/review_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/translations_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/acceptance/support_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/language_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/models/writing.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/review/mark_calculator_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_completer.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/writing/synonyms_finder.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_asker_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_asker.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/media_type_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/translation_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/user_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/writing_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/synonym_corrector_spec.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/synonym_corrector.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/review/review_completer_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/support/integration_acceptance_helpers.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/support_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_form.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/acceptance/support_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/model/review_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_edit.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/edit.js.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_form.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/models/media_type.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/db/seeds.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/supports/_new.html.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/home/index.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/config/application.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_translation.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/_edit.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/edit.js.erb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/translations_controller.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/translations/index.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/supports_controller.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_borders.scss",
@@ -707,7 +639,6 @@
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/shared/modals/_header.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/forms.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_modal.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/models/review.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/config/routes.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_btn-outline.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_btn.scss",
@@ -716,22 +647,16 @@
 		"/Users/sofiane/Documents/GitHub/recaller/db/schema.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/variables/_typography.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/typography.scss",
-		"/Users/sofiane/Documents/GitHub/recaller/app/views/layouts/devise.html.erb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/_dropdown.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/stylesheets/variables/_colours.scss",
 		"/Users/sofiane/Documents/GitHub/recaller/app/assets/javascripts/dropdown.js",
 		"/Users/sofiane/Documents/GitHub/recaller/config/database.yml",
 		"/Users/sofiane/Documents/GitHub/recaller/Procfile",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/answer/answer_creator_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/writing/synonyms_finder_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/answer_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/questions_creator.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/reviews_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_completer.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/models/question.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_asker.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_creator.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/question/question_generator.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180304181618_add_correctly_answered_to_questions.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/views/answers/_show.html.erb",
@@ -746,22 +671,13 @@
 		"/Users/sofiane/Documents/GitHub/recaller/spec/support/factories/supports.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/writing/synonyms_finder_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_corrector.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/synonym_corrector.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/spelling_corrector.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/teacher_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/writing_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/user_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/translation_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/question_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/media_type_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/models/language_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/answer_corrector_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/spelling_corrector_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/answer/synonym_corrector_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_asker_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/question_generator_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/poros/question/questions_creator_spec.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/app/poros/writing/synonyms_finder.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/rails_helper.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/models/review_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/unit/answer/answer_corrector_spec.rb",
@@ -797,13 +713,7 @@
 		"/Users/sofiane/Documents/GitHub/buildpath/app/views/welcome/index.html.erb",
 		"/Users/sofiane/Documents/GitHub/buildpath/app/views/welcome/_masthead.html.erb",
 		"/Users/sofiane/Documents/GitHub/buildpath/app/views/local_authority_finder/_do_you_need_planning_permission.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/welcome/_first_online.html.erb",
-		"/Users/sofiane/Documents/GitHub/buildpath/lib/tasks/scheduler.rake",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/models/progress_update.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/poros/toggl.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/controllers/admin/briefs_controller.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/poros/valuation_calculator.rb",
-		"/Users/sofiane/Documents/GitHub/buildpath/app/views/questions/index.html.erb"
+		"/Users/sofiane/Documents/GitHub/buildpath/app/views/welcome/_first_online.html.erb"
 	],
 	"find":
 	{
@@ -913,361 +823,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "spec/integration/poros/review/mark_calculator_spec.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4213,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2147,
-								2147
-							]
-						],
-						"settings":
-						{
-							"SL.207.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"auto_name": "mark_calculator_spec.rb",
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 624.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "spec/integration/model/review_spec.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 387,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								382,
-								382
-							]
-						],
-						"settings":
-						{
-							"SL.220.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/models/review.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 452,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"SL.200.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/poros/review/mark_calculator.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								28,
-								6
-							]
-						],
-						"settings":
-						{
-							"SL.219.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"auto_name": "mark_calculator.rb",
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "db/migrate/20180310211656_migrate_marks.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 181,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"SL.234.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/controllers/answers_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 301,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								83,
-								96
-							]
-						],
-						"settings":
-						{
-							"SL.205.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/models/support.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 850,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.233.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 82.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "spec/integration/poros/answer/answer_creator_spec.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4011,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2885,
-								2885
-							]
-						],
-						"settings":
-						{
-							"SL.206.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "db/migrate/20180310210627_add_mark_to_reviews.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 118,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.228.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/poros/answer/answer_creator.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1002,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								421,
-								421
-							]
-						],
-						"settings":
-						{
-							"SL.227.region_keys":
-							[
-								"SL.rubocop.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1328,6 +885,42 @@
 		"selected_items":
 		[
 			[
+				"synony",
+				"app/poros/answer/synonym_corrector.rb"
+			],
+			[
+				"synon",
+				"spec/unit/poros/answer/synonym_corrector_spec.rb"
+			],
+			[
+				"writi",
+				"app/models/writing.rb"
+			],
+			[
+				"question_a",
+				"app/poros/question/question_asker.rb"
+			],
+			[
+				"review_com",
+				"app/poros/review/review_completer.rb"
+			],
+			[
+				"answer_c",
+				"app/poros/answer/answer_creator.rb"
+			],
+			[
+				"revie",
+				"app/models/review.rb"
+			],
+			[
+				"transl",
+				"app/controllers/translations_controller.rb"
+			],
+			[
+				"home/in",
+				"app/views/home/index.html.erb"
+			],
+			[
 				"support",
 				"app/models/support.rb"
 			],
@@ -1338,10 +931,6 @@
 			[
 				"answer",
 				"app/controllers/answers_controller.rb"
-			],
-			[
-				"revie",
-				"app/models/review.rb"
 			],
 			[
 				"support.",
@@ -1494,10 +1083,6 @@
 			[
 				"supp",
 				"recaller/app/models/support.rb"
-			],
-			[
-				"synony",
-				"recaller/app/poros/answer/synonym_corrector.rb"
 			],
 			[
 				"answer_cor",
@@ -1784,14 +1369,6 @@
 				"app/controllers/translations_controller.rb"
 			],
 			[
-				"writi",
-				"app/models/writing.rb"
-			],
-			[
-				"transl",
-				"app/models/translation.rb"
-			],
-			[
 				"translat",
 				"app/controllers/translations_controller.rb"
 			],
@@ -1818,26 +1395,6 @@
 			[
 				"application_cont",
 				"app/controllers/application_controller.rb"
-			],
-			[
-				"translation/ind",
-				"app/views/translations/index.html.erb"
-			],
-			[
-				"application.htm",
-				"app/views/layouts/application.html.erb"
-			],
-			[
-				"trna",
-				"app/models/translation.rb"
-			],
-			[
-				"writ",
-				"app/models/writing.rb"
-			],
-			[
-				"teac",
-				"app/poros/teacher.rb"
 			]
 		],
 		"width": 0.0
