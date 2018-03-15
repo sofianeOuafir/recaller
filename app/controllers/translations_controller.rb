@@ -19,7 +19,7 @@ class TranslationsController < ApplicationController
     @translation.targetWriting =
       Writing.find_or_create_by(text: params[:translation][:targetWriting],
                                 language_id: @support.targetLanguage.code)
-    @translation.save
+    Translation::TranslationCreator.create(@translation)
   end
 
   def destroy
