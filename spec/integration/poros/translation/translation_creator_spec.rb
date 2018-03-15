@@ -1,13 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Translation::TranslationCreator' do
-  let(:translation_creator) { class_double('Translation::TranslationCreator') }
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
-
-  before do
-    allow(translation_creator).to receive(:create).with(kind_of(Translation))
-  end
 
   describe '#create' do
     context 'The translation is valid' do
@@ -19,8 +14,7 @@ RSpec.describe 'Translation::TranslationCreator' do
       end
 
       it 'should create a translation' do
-        expect(@translation).to eq nil
-        expect(translation_creator.create(@translation).persisted?).to eq true
+        expect(Translation::TranslationCreator.create(@translation).persisted?).to eq true
       end
 
       context 'The review has a mark of 5' do

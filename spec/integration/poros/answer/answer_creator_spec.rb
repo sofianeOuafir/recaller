@@ -11,6 +11,8 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
                          context: '')
   end
   let(:question) { create(:question, review: review, translation: translation, writing: writing) }
+  let!(:question2) { create(:question, review: review, translation: translation, writing: writing, correctly_answered: true) }
+  let!(:answer2) { create(:answer, writing: writing, review: review, question: question2, correct: true) }
 
   before do
     allow(answer_creator).to receive(:create).with(kind_of(Answer))
@@ -31,6 +33,7 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
           it 'should create an answer' do
             answer = Answer::AnswerCreator.create(@answer)
             expect(answer.persisted?).to eq true
+            expect(answer.correct?).to eq true
           end
 
           it "should set the answer's question as correctly answered" do
@@ -40,7 +43,12 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
 
           it 'should re-calculate the mark' do
             answer = Answer::AnswerCreator.create(@answer)
-            expect(answer.review.mark).to eq 5
+            expect(answer.review.mark).to eq 5.0
+          end
+
+          it "should re-calculate the support's mark" do
+            answer = Answer::AnswerCreator.create(@answer)
+            expect(answer.review.support.mark).to eq 5.0
           end
 
           context 'the review is complete' do
@@ -74,11 +82,17 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
           it 'should create an answer' do
             answer = Answer::AnswerCreator.create(@answer)
             expect(answer.persisted?).to eq true
+            expect(answer.correct?).to eq false
           end
 
           it 'should re-calculate the mark' do
             answer = Answer::AnswerCreator.create(@answer)
-            expect(answer.review.mark).to eq 0
+            expect(answer.review.mark).to eq 2.5
+          end
+
+          it "should re-calculate the support's review mark" do
+            answer = Answer::AnswerCreator.create(@answer)
+            expect(answer.review.support.mark).to eq 2.5
           end
 
           it "should not set the answer's question as correctly answered" do
@@ -116,7 +130,11 @@ RSpec.describe Answer::AnswerCreator, type: :integration do
         end
 
         it 'should not calculate the mark' do
-          expect(Answer::AnswerCreator.create(@invalid_answer).review.mark).to eq 0
+          expect(Answer::AnswerCreator.create(@invalid_answer).review.mark).to eq 0.0
+        end
+
+        it "should not calculate support's review mark" do
+          expect(Answer::AnswerCreator.create(@invalid_answer).review.support.mark).to eq 0.0
         end
 
         it 'correct column should remain nil' do

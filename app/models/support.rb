@@ -26,11 +26,6 @@ class Support < ApplicationRecord
     translations.present?
   end
 
-  def mark
-    return 0 if last_review.nil?
-    last_review.mark
-  end
-
   def last_review
     reviews.last
   end

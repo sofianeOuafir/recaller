@@ -4,6 +4,7 @@ class Answer::AnswerCreator
     return @answer unless @answer.valid?
     @answer.correct = Answer::AnswerCorrector.new.correct?(@answer)
     return @answer unless @answer.save
+    @answer.review.support.update(mark: Review::MarkCalculator.calculate(@answer.review))
     @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
     return @answer unless @answer.correct?
     set_question_as_correctly_answered

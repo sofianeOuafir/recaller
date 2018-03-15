@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310211656) do
+ActiveRecord::Schema.define(version: 20180315092547) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "question_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180310211656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "complete", default: false
-    t.integer "mark", default: 0
+    t.float "mark", limit: 24, default: 0.0
     t.index ["support_id"], name: "index_reviews_on_support_id"
   end
 
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180310211656) do
     t.bigint "user_id"
     t.datetime "deleted_at"
     t.datetime "archive_at"
+    t.float "mark", limit: 24, default: 0.0
     t.index ["media_type_id"], name: "index_supports_on_media_type_id"
     t.index ["sourceLanguage_id"], name: "index_supports_on_sourceLanguage_id"
     t.index ["targetLanguage_id"], name: "index_supports_on_targetLanguage_id"
