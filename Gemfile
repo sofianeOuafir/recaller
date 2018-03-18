@@ -22,7 +22,6 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'figaro'
 gem 'jquery-rails'
-gem 'rails-assets-tether'
 gem 'sentry-raven'
 gem 'simple_form'
 
