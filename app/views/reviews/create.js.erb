@@ -1,4 +1,9 @@
 $('#modal').remove();
 $("#modal-container").html("<%= escape_javascript(render(partial:'reviews/show', locals:{review: @review})).html_safe %>");
-$('#modal').modal();
+$('#modal').modal({
+  escapeClose: false,
+  clickClose: false,
+  showClose: false
+  }
+);
 

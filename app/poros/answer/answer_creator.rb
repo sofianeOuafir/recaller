@@ -4,8 +4,8 @@ class Answer::AnswerCreator
     return @answer unless @answer.valid?
     @answer.correct = Answer::AnswerCorrector.new.correct?(@answer)
     return @answer unless @answer.save
-    @answer.review.support.update(mark: Review::MarkCalculator.calculate(@answer.review))
-    @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
+    recalculate_supports_mark
+    recalculate_reviews_mark
     return @answer unless @answer.correct?
     set_question_as_correctly_answered
     set_review_as_complete_if_complete
@@ -13,6 +13,14 @@ class Answer::AnswerCreator
   end
 
   private_class_method
+
+  def self.recalculate_reviews_mark
+    @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
+  end
+
+  def self.recalculate_supports_mark
+    @answer.review.support.update(mark: Review::MarkCalculator.calculate(@answer.review))
+  end
 
   def self.set_question_as_correctly_answered
     @answer.question.update(correctly_answered: true)

@@ -1,4 +1,24 @@
 <div id="modal">
-    <h1><%= "#{@review.number_of_questions} questions" %></h1>
-    <%= link_to 'Start', new_review_answer_path(@review), remote: :true %>
+  <h1 class="center">We have prepared a new reviewing for you!</h1>
+  <div class="center">
+    <i class="ion-clipboard h1"></i>
+  </div>
+  <p class="center">
+    <%= "This reviewing is composed of #{@review.number_of_questions} questions" %>
+  </p>
+  <div>
+    <%= link_to 'Start Reviewing', new_review_answer_path(@review), remote: :true, class:'btn btn-orange fullwidth block center' %>
+  </div>
+
+  <div class="mt2">
+    <%= link_to '#', class: 'btn btn-outline-orange close_button block fullwidth' do %>
+      <div class="center">Pause</div>
+    <% end %>
+  </div>
 </div>
+
+<script type="text/javascript">
+  $('close_button').onClick({
+    location.reload();
+  })
+</script>

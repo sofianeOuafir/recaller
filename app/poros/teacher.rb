@@ -1,7 +1,7 @@
 class Teacher
   def self.am_i_right?(answer)
     if answer.correct_with_synonym?
-      "C'est juste, #{answer.question.about.text} signifie aussi #{answer.question.expected_answer.text}"
+      "That's right! #{answer.question.about.text} means also #{answer.question.expected_answer.text}"
     elsif answer.correct?
       "Excellent!"
     else
@@ -14,9 +14,9 @@ class Teacher
   def self.wrong_answer(answer)
     synonyms = Writing::SynonymsFinder.find_synonyms_of(answer.question.expected_answer).map(&:text).join(',')
     if synonyms.size.zero?
-      "Oups! La bonne reponse est #{answer.question.expected_answer.text}"
+      "Ooops! The right answer is #{answer.question.expected_answer.text}"
     else
-      "Oups! Les bonnes reponses possibles sont #{answer.question.expected_answer.text}, #{synonyms}"
+      "Ooops! The right answers are #{answer.question.expected_answer.text}, #{synonyms}"
     end
   end
 end

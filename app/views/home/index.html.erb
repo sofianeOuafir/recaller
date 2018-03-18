@@ -31,31 +31,17 @@
             <div class="h2 text-text"><%= support.name %></div>
             <div><i class="h1 <%= MediaType::ICONS[support.media_type.name] %> text-text"></i></div>
 
-            <!-- mark -->
-            <div class="py1 flex justify-center">
-              <% for i in 1..5 %>
-                <% if i <= support.mark %>
-                  <div>
-                    <i class="h1 ion-star text-yellow pr1"></i>
-                  </div>
-                <% else %>
-                  <div>
-                    <i class="h1 ion-ios-star-outline text-text pr1"></i>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-            <!-- mark -->
+            <%= render partial: 'home/mark', locals: { support: support } %>
 
             <div class="col col-12 pb1">
               <% if support.reviewable? %>
                 <div class="col col-6 px1">
-                  <%= link_to 'New Review', support_reviews_path(support), method: :post, remote: true, class:'btn btn-orange block' %>
+                  <%= link_to 'Start Reviewing', support_reviews_path(support), method: :post, remote: true, class:'btn btn-orange block' %>
                 </div>
               <% else %>
                 <div class="col col-6 px1">
                   <div class="btn btn-outline-orange">
-                    New Review
+                    Start Reviewing
                   </div>
                 </div>
               <% end %>

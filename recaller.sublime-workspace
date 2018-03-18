@@ -580,20 +580,24 @@
 	"expanded_folders":
 	[
 		"/Users/sofiane/Documents/GitHub/recaller",
-		"/Users/sofiane/Documents/GitHub/recaller/public"
+		"/Users/sofiane/Documents/GitHub/recaller/app",
+		"/Users/sofiane/Documents/GitHub/recaller/spec",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/translation"
 	],
 	"file_history":
 	[
-		"/Users/sofiane/Documents/GitHub/recaller/spec/support/integration_acceptance_helpers.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/db/schema.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/translation/translation_creator.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/spec/integration/poros/translation/translation_creator_spec.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/translations_controller.rb",
+		"/Users/sofiane/Documents/GitHub/recaller/spec/support/integration_acceptance_helpers.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/controllers/answers_controller.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/models/support.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180314203309_migrate_support_mark.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180314203204_add_mark_to_supports.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/db/migrate/20180315092547_change_marks_columns_type.rb",
-		"/Users/sofiane/Documents/GitHub/recaller/db/schema.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/mark_calculator.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/review/review_completer.rb",
 		"/Users/sofiane/Documents/GitHub/recaller/app/poros/answer/answer_creator.rb",
@@ -887,8 +891,16 @@
 		"selected_items":
 		[
 			[
+				"trans",
+				"app/controllers/translations_controller.rb"
+			],
+			[
 				"schem",
 				"db/schema.rb"
+			],
+			[
+				"translation_cr",
+				"app/poros/translation/translation_creator.rb"
 			],
 			[
 				"answer_c",
@@ -1387,16 +1399,8 @@
 				"app/controllers/translations_controller.rb"
 			],
 			[
-				"trans",
-				"app/controllers/translations_controller.rb"
-			],
-			[
 				"translat",
 				"app/controllers/translations_controller.rb"
-			],
-			[
-				"shared/nav",
-				"app/views/shared/_navbar.html.erb"
 			]
 		],
 		"width": 0.0
