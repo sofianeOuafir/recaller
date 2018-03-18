@@ -10,7 +10,7 @@ module Recall
   class Application < Rails::Application
     # Initialize configura tion defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
+    config.action_mailer.default_url_options = { host: 'https://rec-all.herokuapp.com', port:443 }
 
     config.filter_parameters << :password
     config.autoload_paths += %W(#{config.root}/app/poros)
