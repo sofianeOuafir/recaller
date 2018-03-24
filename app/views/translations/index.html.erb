@@ -11,20 +11,20 @@
     </p>
   </div>
   <%= render @translations %>
-  <div class="col col-12 center py2 pb4 mb4 fullwidth">
+  <div class="col col-12 center py2 pb4 mb4">
     <%= simple_form_for [@support, @translation], remote: true do |f| %>
       <%= f.hidden_field :support_id, value: @support.id %>
       <div class="col col-5 sm-col-3">
-      <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center' %>
+      <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
       </div>
       <div class="col col-5 sm-col-3">
-      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center' %>
+      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
       </div>
       <div class="col col-3 xs-hide sm-show">
       <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
       </div>
       <div class="col col-2 sm-col-3">
-      <%= f.submit 'Add', class: 'btn btn-orange' %>
+      <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
       </div>
     <% end %>
   </div>
