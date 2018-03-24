@@ -1,7 +1,7 @@
 <div class="max-width-4 mx-auto">
   <div class="col col-12 flex flex-wrap">
 
-    <div class="p1 col col-4">
+    <div class="p1 col col-12 sm-col-6 md-col-4">
       <%= link_to new_support_path, remote: true do %>
         <div class="center clearfix bg-orange flex items-center" style="height:100%;">
           <div class="col col-12 flex flex-column">
@@ -13,7 +13,7 @@
     </div>
 
     <% @supports.each do |support| %>
-      <div class="p1 col col-4">
+      <div class="p1 col col-12 sm-col-6 md-col-4">
          <!-- links -->
         <div class="bg-white">
           <div id="dropdown_trigger" class="dropdown px3"  data-target="<%= support.id %>">

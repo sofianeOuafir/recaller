@@ -4,27 +4,27 @@
     <%= link_to 'Start Reviewing', support_reviews_path(@support), method: :post, remote: true, class:'btn btn-orange' %>
   </div>
   <div class="col col-12 center border-bottom border-cloud">
-    <p class="col col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
-    <p class="col col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
-    <p class="col col-3 fw700 h2">Context</p>
-    <p class="col col-3">
+    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
+    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
+    <p class="col col-3 xs-hide sm-show fw700 h2">Context</p>
+    <p class="col col-2 sm-col-2">
     </p>
   </div>
   <%= render @translations %>
   <div class="col col-12 center py2 pb4 mb4 fullwidth">
     <%= simple_form_for [@support, @translation], remote: true do |f| %>
       <%= f.hidden_field :support_id, value: @support.id %>
-      <div class="col col-3">
+      <div class="col col-5 sm-col-3">
       <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center' %>
       </div>
-      <div class="col col-3">
+      <div class="col col-5 sm-col-3">
       <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center' %>
       </div>
-      <div class="col col-3">
+      <div class="col col-3 xs-hide sm-show">
       <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
       </div>
-      <div class="col col-3">
-      <%= f.submit 'Create', class: 'btn btn-orange' %>
+      <div class="col col-2 sm-col-3">
+      <%= f.submit 'Add', class: 'btn btn-orange' %>
       </div>
     <% end %>
   </div>

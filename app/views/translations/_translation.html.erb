@@ -1,9 +1,9 @@
 <div class="col col-12 center border-bottom border-cloud flex items-center">
- <div class="col col-3"><%= translation.sourceWriting.text %></div>
- <div class="col col-3"><%= translation.targetWriting.text %></div>
+ <div class="col col-5 sm-col-3"><%= translation.sourceWriting.text %></div>
+ <div class="col col-5 sm-col-3"><%= translation.targetWriting.text %></div>
  <% context = (!translation.context.present? ? '/' : translation.context ) %>
- <div class="col col-3"><%= context %></div>
- <div class="col col-3">
+ <div class="col col-3 xs-hide sm-show"><%= context %></div>
+ <div class="col col-2 sm-col-3">
   <div id="dropdown_trigger" class="dropdown px3" data-target="<%= translation.id %>">
       <i class="ion-android-more-vertical h1 text-orange"></i>
   </div>
