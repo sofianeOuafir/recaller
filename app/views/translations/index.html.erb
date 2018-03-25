@@ -43,4 +43,14 @@
   function toggle_dropdown(id){
     $('#myDropdown' + id).toggle();
   }
+
+  $('#translation_sourceWriting').focusout(function(){
+    fetch($('#translation_sourceWriting').val());
+  });
+
+  function fetch(phrase){
+    $.get( "/<%= @support.sourceLanguage.name.downcase %>_to_<%= @support.targetLanguage.name.downcase %>/" + phrase, function( data ) {
+      $('#translation_targetWriting').val(data["tuc"][0]["phrase"]["text"]);
+    });
+  }
 </script>
