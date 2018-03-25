@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/english_to_french/:phrase', to: 'english_to_french_dictionary#index'
   get '/french_to_english/:phrase', to: 'french_to_english_dictionary#index'
+  get '/french_to_german/:phrase', to: 'french_to_german_dictionary#index'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
