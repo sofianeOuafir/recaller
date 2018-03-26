@@ -18,7 +18,9 @@
       <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
       </div>
       <div class="col col-5 sm-col-3">
-      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
+        <datalist id="translation_list">
+        </datalist>
       </div>
       <div class="col col-3 xs-hide sm-show">
       <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
@@ -50,7 +52,16 @@
 
   function fetch(phrase){
     $.get( "/<%= @support.sourceLanguage.name.downcase %>_to_<%= @support.targetLanguage.name.downcase %>/" + phrase, function( data ) {
-      $('#translation_targetWriting').val(data["tuc"][0]["phrase"]["text"]);
+      var translation_list = document.getElementById('translation_list');
+      document.getElementById('translation_list').innerHTML = '';
+      for(var i = 0; i < data["tuc"].length; i++)
+      {
+        if(data["tuc"][i]["phrase"] != null){
+          var option = document.createElement('option');
+          option.value = data["tuc"][i]["phrase"]["text"];
+          translation_list.appendChild(option);
+        }
+      }
     });
   }
 </script>
