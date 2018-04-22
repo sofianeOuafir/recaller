@@ -26,7 +26,7 @@
       <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
       </div>
       <div class="col col-2 sm-col-3">
-      <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
+      <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;', id: 'addTranslationButton' %>
       </div>
     <% end %>
   </div>
@@ -36,7 +36,7 @@
 <!-- TODO, put that code in a sharable place -->
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.dropdown').click(function(e){
+    $('.dropdown').click(function(){
       e.preventDefault();
       toggle_dropdown($(this).data('target'));
     });
@@ -46,22 +46,39 @@
     $('#myDropdown' + id).toggle();
   }
 
+  (function addTranslation(){
+    var form = document.getElementById('new_translation');
+    document.getElementById("addTranslationButton")
+            .addEventListener(
+              "click", 
+              function callback(event){
+                event.preventDefault();
+                form.submit();
+              }
+            );
+
+    // function callback(event){
+    //   event.preventDefault();
+    //   console.log('yo');
+    // };
+  })();
+
   $('#translation_sourceWriting').focusout(function(){
-    fetch($('#translation_sourceWriting').val());
+    (function fetch(phrase){
+      $.get( "/<%= @support.sourceLanguage.name.downcase %>_to_<%= @support.targetLanguage.name.downcase %>/" + phrase, function( data ) {
+        var translation_list = document.getElementById('translation_list');
+        document.getElementById('translation_list').innerHTML = '';
+        for(var i = 0; i < data["tuc"].length; i++)
+        {
+          if(data["tuc"][i]["phrase"] != null){
+            var option = document.createElement('option');
+            option.value = data["tuc"][i]["phrase"]["text"];
+            translation_list.appendChild(option);
+          }
+        }
+      });
+    })($('#translation_sourceWriting').val());
   });
 
-  function fetch(phrase){
-    $.get( "/<%= @support.sourceLanguage.name.downcase %>_to_<%= @support.targetLanguage.name.downcase %>/" + phrase, function( data ) {
-      var translation_list = document.getElementById('translation_list');
-      document.getElementById('translation_list').innerHTML = '';
-      for(var i = 0; i < data["tuc"].length; i++)
-      {
-        if(data["tuc"][i]["phrase"] != null){
-          var option = document.createElement('option');
-          option.value = data["tuc"][i]["phrase"]["text"];
-          translation_list.appendChild(option);
-        }
-      }
-    });
-  }
+
 </script>

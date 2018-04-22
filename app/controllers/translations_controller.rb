@@ -7,7 +7,8 @@ class TranslationsController < ApplicationController
   def index
     @support = Support.find(params[:support_id])
     @translations = @support.translations
-    @translation = Translation.new
+    # @translation = Translation.new
+    render json: @translations.to_json(include: [:support, :targetWriting, :sourceWriting])
   end
 
   def create
@@ -20,6 +21,9 @@ class TranslationsController < ApplicationController
       Writing.find_or_create_by(text: params[:translation][:targetWriting],
                                 language_id: @support.targetLanguage.code)
     Translation::TranslationCreator.create(@translation)
+    # respond_to do |format|
+    #   format.js { render json: @translation.to_json }
+    # end
   end
 
   def destroy

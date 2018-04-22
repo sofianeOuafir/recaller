@@ -11,7 +11,7 @@ module Recall
     # Initialize configura tion defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.action_mailer.default_url_options = { host: 'https://rec-all.herokuapp.com', port:443 }
-
+    config.api_only = true
     config.filter_parameters << :password
     config.autoload_paths += %W(#{config.root}/app/poros)
     Raven.configure do |config|
