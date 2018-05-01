@@ -1,4 +1,4 @@
-class Translation::TranslationCreator
+class Translations::Creator
   def self.create(translation)
     return translation unless translation.save
     recalculate_support_mark(translation.support)

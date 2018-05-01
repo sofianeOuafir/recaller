@@ -9,7 +9,8 @@ RSpec.describe 'Answer::SpellingCorrector class', type: :unit do
   describe 'Correct? method' do
     context 'the spelling of the answer is correct' do
       it 'return true' do
-        expect(Answer::SpellingCorrector.correct?(answer)).to eq true
+        result = Answer::SpellingCorrector.correct?(answer)
+        expect(result).to eq true
       end
     end
 

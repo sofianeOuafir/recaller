@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Translation::TranslationCreator' do
+RSpec.describe Translations::Creator do
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
 
@@ -13,7 +13,7 @@ RSpec.describe 'Translation::TranslationCreator' do
     end
     context 'The translation is valid' do
       it 'should create a translation' do
-        expect(Translation::TranslationCreator.create(@translation).persisted?).to eq true
+        expect(Translations::Creator.create(@translation).persisted?).to eq true
       end
 
       context 'The support has a mark of 5' do
@@ -22,7 +22,7 @@ RSpec.describe 'Translation::TranslationCreator' do
         end
 
         it "should recalculate the support's mark" do
-          expect(Translation::TranslationCreator.create(@translation).support.mark).to eq 0
+          expect(Translations::Creator.create(@translation).support.mark).to eq 0
         end
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe 'Translation::TranslationCreator' do
       end
 
       it 'should not create a translation' do
-        expect(Translation::TranslationCreator.create(@translation).persisted?).to eq false
+        expect(Translations::Creator.create(@translation).persisted?).to eq false
       end
 
       context 'The support has a mark of 5' do
@@ -42,7 +42,7 @@ RSpec.describe 'Translation::TranslationCreator' do
         end
 
         it "should not recalculate the support's mark" do
-          expect(Translation::TranslationCreator.create(@translation).support.mark).to eq 5
+          expect(Translations::Creator.create(@translation).support.mark).to eq 5
         end
       end
     end
