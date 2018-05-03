@@ -12,7 +12,7 @@ class Review::ReviewCreator
   private_class_method
 
   def self.create_questions
-    Question::QuestionsCreator.new(review: @review).create_questions
+    Questions::CreatorOfQuestionsForReview.new(review: @review).create_questions
   end
 
   def self.set_support_mark_to_zero
