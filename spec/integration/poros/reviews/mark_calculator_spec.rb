@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Review::MarkCalculator do
-  let!(:mark_calculator) { Review::MarkCalculator }
+RSpec.describe Reviews::MarkCalculator do
+  let!(:mark_calculator) { Reviews::MarkCalculator }
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
   let(:translation) do

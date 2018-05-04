@@ -1,4 +1,4 @@
-class Review::MarkCalculator
+class Reviews::MarkCalculator
   def self.calculate(review)
     @review = review
     return 0 if @review.questions.empty?

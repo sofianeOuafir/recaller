@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Review::ReviewCompleter, type: :integration do
-  let(:review_completer) { class_double('Review::ReviewCompleter') }
+RSpec.describe 'Reviews::ReviewCompleter', type: :integration do
+  let(:review_completer) { class_double('Reviews::ReviewsCompleter') }
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
   let(:translation) do
@@ -27,14 +27,14 @@ RSpec.describe Review::ReviewCompleter, type: :integration do
         end
 
         it 'should set the review as complete' do
-          Review::ReviewCompleter.mark_review_as_complete_if_complete(review)
+          Reviews::ReviewCompleter.mark_review_as_complete_if_complete(review)
           expect(review.complete).to eq true
         end
        end
 
        context 'not all questions have been answered correctly' do
         it 'should not set the review as complete' do
-          Review::ReviewCompleter.mark_review_as_complete_if_complete(review)
+          Reviews::ReviewCompleter.mark_review_as_complete_if_complete(review)
           expect(review.complete).to eq false
         end
        end
@@ -47,7 +47,7 @@ RSpec.describe Review::ReviewCompleter, type: :integration do
 
       it 'should not try to set the review as complete' do
         expect(review).not_to receive(:update)
-        Review::ReviewCompleter.mark_review_as_complete_if_complete(review)
+        Reviews::ReviewCompleter.mark_review_as_complete_if_complete(review)
       end
     end
   end

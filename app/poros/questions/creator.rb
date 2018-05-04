@@ -1,7 +1,7 @@
 class Questions::Creator
   attr_reader :review
 
-  def self.generate(translation:, review:)
+  def self.process(translation:, review:)
     if reverse?
       generate_reverse_question(translation: translation, review: review)
     else
