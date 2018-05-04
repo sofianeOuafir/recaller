@@ -1,1 +1,4 @@
-location.reload();
+(function RemoveTranslation(id){
+  var translationElement = $('#translation' + id);
+  translationElement.fadeOut('slow');
+})(<%= @translation.id %>);

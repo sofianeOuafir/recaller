@@ -6,7 +6,7 @@ class TranslationsController < ApplicationController
 
   def index
     @support = Support.find(params[:support_id])
-    @translations = @support.translations
+    @translations = @support.translations.not_deleted
     @translation = Translation.new
   end
 
@@ -19,11 +19,11 @@ class TranslationsController < ApplicationController
     @translation.targetWriting =
       Writing.find_or_create_by(text: params[:translation][:targetWriting],
                                 language_id: @support.targetLanguage.code)
-    Translation::TranslationCreator.create(@translation)
+    Translations::Creator.create(@translation)
   end
 
   def destroy
-    @translation.destroy
+    Translations::Destroyer.process(@translation)
   end
 
   def edit

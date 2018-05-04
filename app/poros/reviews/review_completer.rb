@@ -1,5 +1,4 @@
-class Review::ReviewCompleter
-
+class Reviews::ReviewCompleter
   def self.mark_review_as_complete_if_complete(review)
     @review = review
     return if @review.complete?

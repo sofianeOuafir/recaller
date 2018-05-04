@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Question::QuestionGenerator', type: :unit do
+RSpec.describe Questions::Creator, type: :unit do
   describe '#generate' do
     it 'pending'
   end

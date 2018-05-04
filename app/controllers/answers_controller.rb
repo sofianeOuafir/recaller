@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
 
   def new
     review = Review.find(params[:review_id])
-    @question = Question::QuestionAsker.ask(review)
+    @question = Questions::Asker.new(review: review).process
     @answer = @question.answers.new
   end
 

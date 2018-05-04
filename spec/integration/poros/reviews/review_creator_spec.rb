@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Review::ReviewCreator' do
-  let(:review_creator) { Review::ReviewCreator }
+RSpec.describe Reviews::ReviewCreator do
+  let(:review_creator) { Reviews::ReviewCreator }
   let(:support) { create_support }
   let(:writing) { create(:writing, text: 'Hello', language: support.sourceLanguage) }
   let(:review) { Review.new(support: support) }

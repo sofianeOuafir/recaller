@@ -1,4 +1,4 @@
-class Review::ReviewCreator
+class Reviews::ReviewCreator
   def self.create(review)
     @review = review
     return @review unless @review.valid?
@@ -12,7 +12,7 @@ class Review::ReviewCreator
   private_class_method
 
   def self.create_questions
-    Question::QuestionsCreator.new(review: @review).create_questions
+    Reviews::QuestionsCreator.new(review: @review).create_questions
   end
 
   def self.set_support_mark_to_zero

@@ -1,26 +1,21 @@
-class Question::QuestionGenerator
-  attr_reader :translation, :review
+class Questions::Creator
+  attr_reader :review
 
-  def initialize(args)
-    @translation = args[:translation]
-    @review = args[:review]
-  end
-
-  def generate
+  def self.process(translation:, review:)
     if reverse?
-      generate_reverse_question
+      generate_reverse_question(translation: translation, review: review)
     else
-      generate_normal_question
+      generate_normal_question(translation: translation, review: review)
     end
   end
 
-  private
+  private_class_method
 
-  def reverse?
+  def self.reverse?
     rand(0..1).zero?
   end
 
-  def generate_reverse_question
+  def self.generate_reverse_question(translation:, review:)
     Question.create(review_id: review.id,
                     translation_id: translation.id,
                     question: "What is the meaning of '#{translation.targetWriting.text}' in #{translation.sourceWriting.language.name} ?",
@@ -28,7 +23,7 @@ class Question::QuestionGenerator
                     reverse: true)
   end
 
-  def generate_normal_question
+  def self.generate_normal_question(translation:, review:)
     Question.create(review_id: review.id,
               translation_id: translation.id,
               question: "What is the meaning of '#{translation.sourceWriting.text}' in #{translation.targetWriting.language.name} ?",

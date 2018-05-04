@@ -15,11 +15,11 @@ class Answer::AnswerCreator
   private_class_method
 
   def self.recalculate_reviews_mark
-    @answer.review.update(mark: Review::MarkCalculator.calculate(@answer.review))
+    @answer.review.update(mark: Reviews::MarkCalculator.calculate(@answer.review))
   end
 
   def self.recalculate_supports_mark
-    @answer.review.support.update(mark: Review::MarkCalculator.calculate(@answer.review))
+    @answer.review.support.update(mark: Reviews::MarkCalculator.calculate(@answer.review))
   end
 
   def self.set_question_as_correctly_answered
@@ -27,6 +27,6 @@ class Answer::AnswerCreator
   end
 
   def self.set_review_as_complete_if_complete
-    Review::ReviewCompleter.mark_review_as_complete_if_complete(@answer.review)
+    Reviews::ReviewCompleter.mark_review_as_complete_if_complete(@answer.review)
   end
 end

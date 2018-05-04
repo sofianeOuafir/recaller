@@ -6,7 +6,7 @@ class Question < ApplicationRecord
 
   scope :correctly_answered, -> { where(correctly_answered: true) }
   scope :not_correctly_answered, -> { where(correctly_answered: false) }
-
+  
   def expected_answer
     writing
   end
