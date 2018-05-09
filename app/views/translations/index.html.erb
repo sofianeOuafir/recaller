@@ -10,7 +10,9 @@
     <p class="col col-2 sm-col-2">
     </p>
   </div>
-  <%= render @translations %>
+  <div id="translations_container">
+    <%= render @translations %>
+  </div>
   <div class="col col-12 center py2 pb4 mb4">
     <%= simple_form_for [@support, @translation], remote: true do |f| %>
       <%= f.hidden_field :support_id, value: @support.id %>
