@@ -1,4 +1,4 @@
-var domToAdd = "<div id='translation<%= @translation.id %>' class='col col-12 center border-bottom border-cloud flex items-center'> \
+var elementToAppend = "<div id='translation<%= @translation.id %>' class='col col-12 center border-bottom border-cloud flex items-center p1'> \
                   <div class='col col-5 sm-col-3'> \
                     <%= @translation.sourceWriting.text %> \
                   </div> \
@@ -10,13 +10,12 @@ var domToAdd = "<div id='translation<%= @translation.id %>' class='col col-12 ce
                     <%= context %> \
                   </div> \
                   <div class='col col-2 sm-col-3'> \
-                    <div id='dropdown_trigger' class='dropdown px3' data-target='<%= @translation.id %>'> \
-                      <i class='ion-android-more-vertical h1 text-orange'></i> \
-                    </div> \
-                    <div class='dropdown-content' id='myDropdown<%= @translation.id %>'> \
-                      <a href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>/edit' data-remote='true' class='text-white block p2'>Update</a> \
-                      <a data-confirm='Are you sure?' class='text-white block p2' data-remote='true' rel='nofollow' data-method='delete' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>'>Delete</a> \
-                    </div> \
+                    <a class='mr2' data-remote='true' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>/edit'> \
+                      <i class='ion-edit h2 text-yellow'></i> \
+                    </a> \
+                    <a data-confirm='Are you sure?' data-remote='true' rel='nofollow' data-method='delete' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>'> \
+                      <i class='ion-ios-trash h2 text-ruby'></i> \
+                    </a> \
                   </div> \
                 </div>";
-$('#translations_container').append(domToAdd);
+$('#translations_container').append(elementToAppend);

@@ -37,16 +37,16 @@
 
 <!-- TODO, put that code in a sharable place -->
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.dropdown').click(function(e){
-      e.preventDefault();
-      toggle_dropdown($(this).data('target'));
-    });
-  });
+  // $(document).ready(function(){
+  //   $('.dropdown').click(function(e){
+  //     e.preventDefault();
+  //     toggle_dropdown($(this).data('target'));
+  //   });
+  // });
 
-  function toggle_dropdown(id){
-    $('#myDropdown' + id).toggle();
-  }
+  // function toggle_dropdown(id){
+  //   $('#myDropdown' + id).toggle();
+  // }
 
   $('#translation_sourceWriting').focusout(function(){
     fetch($('#translation_sourceWriting').val());
