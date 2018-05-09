@@ -10,7 +10,9 @@
     <p class="col col-2 sm-col-2">
     </p>
   </div>
-  <%= render @translations %>
+  <div id="translations_container">
+    <%= render @translations %>
+  </div>
   <div class="col col-12 center py2 pb4 mb4">
     <%= simple_form_for [@support, @translation], remote: true do |f| %>
       <%= f.hidden_field :support_id, value: @support.id %>
@@ -35,16 +37,16 @@
 
 <!-- TODO, put that code in a sharable place -->
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.dropdown').click(function(e){
-      e.preventDefault();
-      toggle_dropdown($(this).data('target'));
-    });
-  });
+  // $(document).ready(function(){
+  //   $('.dropdown').click(function(e){
+  //     e.preventDefault();
+  //     toggle_dropdown($(this).data('target'));
+  //   });
+  // });
 
-  function toggle_dropdown(id){
-    $('#myDropdown' + id).toggle();
-  }
+  // function toggle_dropdown(id){
+  //   $('#myDropdown' + id).toggle();
+  // }
 
   $('#translation_sourceWriting').focusout(function(){
     fetch($('#translation_sourceWriting').val());

@@ -1,4 +1,4 @@
-<div id="translation<%= translation.id %>" class="col col-12 center border-bottom border-cloud flex items-center">
+<div id="translation<%= translation.id %>" class="col col-12 center border-bottom border-cloud flex items-center py1">
   <div class="col col-5 sm-col-3">
     <%= translation.sourceWriting.text %>
   </div>
@@ -10,12 +10,11 @@
     <%= context %>
   </div>
   <div class="col col-2 sm-col-3">
-    <div id="dropdown_trigger" class="dropdown px3" data-target="<%= translation.id %>">
-      <i class="ion-android-more-vertical h1 text-orange"></i>
-    </div>
-    <div class="dropdown-content" id="myDropdown<%= translation.id %>">
-      <%= link_to 'Update', edit_support_translation_path(translation.support, translation), remote: true, class:"text-white block p2" %>
-      <%= link_to "Delete", support_translation_path(translation.support_id, translation.id), remote: true, method: :delete, data: {confirm: 'Are you sure?'}, class:"text-white block p2" %>
-    </div>
+    <%= link_to edit_support_translation_path(translation.support, translation), remote: true, class: 'mr2' do %>
+      <i class="ion-edit h2 text-yellow"></i>
+    <% end %>
+    <%= link_to support_translation_path(translation.support_id, translation.id), remote: true, method: :delete, data: {confirm: 'Are you sure?'} do %>
+      <i class="ion-ios-trash h2 text-ruby"></i> 
+    <% end %>
   </div>
 </div>
