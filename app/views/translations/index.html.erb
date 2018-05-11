@@ -1,7 +1,7 @@
 <div class="max-width-4 mx-auto clearfix bg-white">
   <div class="px2 pt2 flex justify-between">
     <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
-    <%= link_to 'Start Reviewing', support_reviews_path(@support), method: :post, remote: true, class:'btn btn-orange' %>
+    <%= link_to 'Start Revision', support_reviews_path(@support), method: :post, remote: true, class:'btn btn-orange' %>
   </div>
   <div class="col col-12 center border-bottom border-cloud">
     <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
