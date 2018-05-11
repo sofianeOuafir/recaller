@@ -1,4 +1,4 @@
-class Translations::FetcherForReview
+class Translations::Fetcher
   attr_reader :review
 
   def self.process(review)

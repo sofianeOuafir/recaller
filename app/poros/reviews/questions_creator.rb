@@ -1,7 +1,7 @@
 class Reviews::QuestionsCreator
   attr_reader :review
 
-  def initialize(review:, question_creator: Questions::Creator, translations_fetcher: Translations::FetcherForReview)
+  def initialize(review:, question_creator: Questions::Creator, translations_fetcher: Translations::Fetcher)
     @review = review
     @question_creator = question_creator
     @translation_fetcher = translations_fetcher
