@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <% if @review.complete? %>
-    <p class="center">Congratulations! You have finished this reviewing.</p>
+    <p class="center">Congratulations! You have finished this revision.</p>
     <%= render partial: 'home/mark', locals: { support: @review } %>
     <%= link_to 'Start Again', support_reviews_path(@review.support), method: :post, remote: true, class:'btn btn-orange block center' %>
     <div class="mt2">
