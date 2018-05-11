@@ -11,10 +11,6 @@ class Review < ApplicationRecord
     questions.not_correctly_answered
   end
 
-  def not_deleted_translations
-    support.translations.not_deleted
-  end
-
   def complete?
     complete == true
   end

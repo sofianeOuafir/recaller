@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
 RSpec.describe Translations::Fetcher do
-  let(:review) { instance_double(Review) }
+  let(:review) { instance_double(Review, support: nil) }
   let(:fetcher_of_all_translations) { spy(Translations::FetchAll) }
   let(:fetcher_of_mistaken_translations) { spy(Translations::FetchMistaken) }
   let(:fetcher) do
@@ -11,10 +11,8 @@ RSpec.describe Translations::Fetcher do
       review: review
     )
   end
+
   describe '#process' do
-    before do
-      allow(review).to receive(:not_deleted_translations)
-    end
     context 'The Fetcher is asked to fetch all translations' do
       before do
         @action = :fetch_all
@@ -22,12 +20,12 @@ RSpec.describe Translations::Fetcher do
 
       it 'should fetch all not deleted translations for the given review' do
         fetcher.process(action: @action)
-        expect(fetcher_of_all_translations).to receive(:process)
+        expect(fetcher_of_all_translations).to have_received(:process)
       end
 
       it 'should not fetch mistaken translations for the given review' do
         fetcher.process(action: @action)
-        expect(fetcher_of_mistaken_translations).not_to receive(:process)
+        expect(fetcher_of_mistaken_translations).not_to have_received(:process)
       end
     end
 
@@ -38,12 +36,19 @@ RSpec.describe Translations::Fetcher do
 
       it 'should not fetch all translations for the given review' do
         fetcher.process(action: @action)
-        expect(fetcher_of_all_translations).not_to receive(:process)
+        expect(fetcher_of_all_translations).not_to have_received(:process)
       end
 
       it 'should fetch mistaken translations for the given review' do
         fetcher.process(action: @action)
-        expect(fetcher_of_mistaken_translations).to receive(:process)
+        expect(fetcher_of_mistaken_translations).to have_received(:process)
+      end
+    end
+
+    context 'The fetcher is asked to process without any action' do
+      it 'should fetch all translations' do
+        fetcher.process
+        expect(fetcher_of_all_translations).to have_received(:process)
       end
     end
   end

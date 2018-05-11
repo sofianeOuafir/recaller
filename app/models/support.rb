@@ -30,6 +30,10 @@ class Support < ApplicationRecord
     reviews.last
   end
 
+  def all_translations_not_deleted
+    translations.not_deleted
+  end
+
   def languages_updatable?
     translations.empty?
   end
