@@ -8,7 +8,7 @@ RSpec.describe Reviews::QuestionsCreator, type: :unit do
   end
   let(:question_creator) { class_double(Questions::Creator) }
   let(:translations_fetcher) { class_double(Translations::Fetcher) }
-  let(:review) { instance_double(Review) }
+  let(:review) { instance_double(Review, support: nil) }
   let(:questions_creator) do
     Reviews::QuestionsCreator.new(review: review,
                                   question_creator: question_creator,

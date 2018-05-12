@@ -7,7 +7,7 @@ class Reviews::QuestionsCreator
     @translation_fetcher = translations_fetcher
   end
 
-  def create_questions(translations: @translation_fetcher.process(review: review))
+  def create_questions(translations: @translation_fetcher.process(support: review.support))
     translations.each do |translation|
       @question_creator.process(translation: translation, review: review)
     end

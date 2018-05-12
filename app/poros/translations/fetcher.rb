@@ -1,23 +1,23 @@
 class Translations::Fetcher
-  attr_reader :review, :fetcher_of_all_translations, :fetcher_of_mistaken_translations
+  attr_reader :support, :fetcher_of_all_translations, :fetcher_of_mistaken_translations
 
-  def self.process(review:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
-    new(review: review, fetcher_of_all_translations: fetcher_of_all_translations, fetcher_of_mistaken_translations: fetcher_of_mistaken_translations).process
+  def self.process(support:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
+    new(support: support, fetcher_of_all_translations: fetcher_of_all_translations, fetcher_of_mistaken_translations: fetcher_of_mistaken_translations).process
   end
 
-  def initialize(review:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
-    @review = review
+  def initialize(support:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
+    @support = support
     @fetcher_of_all_translations = fetcher_of_all_translations
     @fetcher_of_mistaken_translations = fetcher_of_mistaken_translations
   end
 
   def process(action: nil)
     if fetch_all?(action)
-      fetcher_of_all_translations.process(review.support)
+      fetcher_of_all_translations.process(support)
     elsif fetch_mistaken?(action)
-      fetcher_of_mistaken_translations.process(review)
+      fetcher_of_mistaken_translations.process(support.last_revision)
     elsif no_action?(action)
-      fetcher_of_all_translations.process(review.support)
+      fetcher_of_all_translations.process(support)
     end
   end
 
