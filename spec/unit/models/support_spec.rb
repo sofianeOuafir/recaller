@@ -1,20 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe Support, type: :unit do
-  let(:subject) { build_stubbed(:support) }
+  let(:support) { build_stubbed(:support) }
 
-  describe '#reviewable? method' do
-    context 'A support that contains translations' do
-      before { allow(subject.translations).to receive(:present?) { true } }
+  describe '#reviewable?' do
+    context 'the method is called with a collection of many translations' do
       it 'is reviewable' do
-        expect(subject.reviewable?).to eq true
+        translations = [Translation.new, Translation.new]
+        expect(support.reviewable?(translations: translations)).to eq true
       end
     end
 
-    context 'A support that do not contains any translation' do
-      before { allow(subject.translations).to receive(:present?) { false } }
+    context 'the method is called with an empty collection of translations' do
       it 'is not reviewable' do
-        expect(subject.reviewable?).to eq false
+        translations = []
+        expect(support.reviewable?(translations: translations)).to eq false
+      end
+    end
+
+    context 'the method is called without any argument' do
+      it 'should send a message to the Translations::FetchAll object' do
+        expect(Translations::FetchAll).to receive(:process)
+        support.reviewable?
       end
     end
   end
@@ -24,17 +31,17 @@ RSpec.describe Support, type: :unit do
       before do
         create_translation
         @relation = Translation.all
-        allow(subject).to receive(:translations) { @relation }
+        allow(support).to receive(:translations) { @relation }
       end
 
       it 'should return false' do
-        expect(subject.languages_updatable?).to eq false
+        expect(support.languages_updatable?).to eq false
       end
     end
 
     context 'The support has no translations' do
       it 'should return true' do
-        expect(subject.languages_updatable?).to eq true
+        expect(support.languages_updatable?).to eq true
       end
     end
   end
