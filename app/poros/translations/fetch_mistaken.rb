@@ -8,7 +8,6 @@ class Translations::FetchMistaken
   private 
 
   def self.ids_of_questions_answered_incorrectly(revision)
-    # TODO Create Revisions::IncorrectAnswersFetcher
-    revision.answers.incorrect.map(&:question_id)
+    Reviews::IncorrectAnswerFetcher.process(revision).map(&:question_id)
   end
 end
