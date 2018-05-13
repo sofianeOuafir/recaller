@@ -1,6 +1,6 @@
 require 'rails_helper' 
 
-RSpec.describe Translations::FetchAll do
+RSpec.describe Translations::FetchAll, type: :integration do
   let!(:translation) { create_translation }
   let(:support) { translation.support }
 

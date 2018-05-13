@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Translations::Destroyer do
+RSpec.describe Translations::Destroyer, type: :unit do
   let(:translation) { instance_double(Translation) }
   describe '#process' do
     context 'the user want to delete a translation from a list' do

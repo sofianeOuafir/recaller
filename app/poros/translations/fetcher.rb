@@ -1,37 +1,47 @@
 class Translations::Fetcher
   attr_reader :support, :fetcher_of_all_translations, :fetcher_of_mistaken_translations
 
-  def self.process(support:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
-    new(support: support, fetcher_of_all_translations: fetcher_of_all_translations, fetcher_of_mistaken_translations: fetcher_of_mistaken_translations).process
+  def self.process(support:,
+                   what_to_study: nil,
+                   fetcher_of_all_translations: Translations::FetchAll,
+                   fetcher_of_mistaken_translations: Translations::FetchMistaken)
+    new(support: support,
+        fetcher_of_all_translations: fetcher_of_all_translations, 
+        fetcher_of_mistaken_translations: fetcher_of_mistaken_translations)
+      .process(what_to_study: what_to_study)
   end
 
-  def initialize(support:, fetcher_of_all_translations: Translations::FetchAll, fetcher_of_mistaken_translations: Translations::FetchMistaken)
+  def initialize(support:,
+                 fetcher_of_all_translations: Translations::FetchAll,
+                 fetcher_of_mistaken_translations: Translations::FetchMistaken)
     @support = support
     @fetcher_of_all_translations = fetcher_of_all_translations
     @fetcher_of_mistaken_translations = fetcher_of_mistaken_translations
   end
 
-  def process(action: nil)
-    if fetch_all?(action)
-      fetcher_of_all_translations.process(support)
-    elsif fetch_mistaken?(action)
-      fetcher_of_mistaken_translations.process(support.last_revision)
-    elsif no_action?(action)
-      fetcher_of_all_translations.process(support)
+  def process(what_to_study: nil)
+    if study_all?(what_to_study)
+      translations = fetcher_of_all_translations.process(support)
+    elsif study_mistaken?(what_to_study)
+
+      translations = fetcher_of_mistaken_translations.process(support.last_revision)
+    elsif no_argument?(what_to_study)
+      translations = fetcher_of_all_translations.process(support)
     end
+    translations
   end
 
-  private 
+  private
 
-  def fetch_all?(action)
-    action == :fetch_all
+  def study_all?(what_to_study)
+    what_to_study == "all"
   end
 
-  def fetch_mistaken?(action)
-    action == :fetch_mistaken
+  def study_mistaken?(what_to_study)
+    what_to_study == "mistaken"
   end
 
-  def no_action?(action)
-    action.nil?
+  def no_argument?(what_to_study)
+    what_to_study.nil?
   end
 end

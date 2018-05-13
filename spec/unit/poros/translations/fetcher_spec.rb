@@ -1,6 +1,6 @@
 require 'rails_helper' 
 
-RSpec.describe Translations::Fetcher do
+RSpec.describe Translations::Fetcher, type: :unit do
   let(:support) { instance_double(Support, last_revision: nil) }
   let(:fetcher_of_all_translations) { spy(Translations::FetchAll) }
   let(:fetcher_of_mistaken_translations) { spy(Translations::FetchMistaken) }
@@ -15,32 +15,32 @@ RSpec.describe Translations::Fetcher do
   describe '#process' do
     context 'The Fetcher is asked to fetch all translations' do
       before do
-        @action = :fetch_all
+        @what_to_study = 'all'
       end
 
       it 'should fetch all not deleted translations for the given support' do
-        fetcher.process(action: @action)
+        fetcher.process(what_to_study: @what_to_study)
         expect(fetcher_of_all_translations).to have_received(:process)
       end
 
       it 'should not fetch mistaken translations for the given support' do
-        fetcher.process(action: @action)
+        fetcher.process(what_to_study: @what_to_study)
         expect(fetcher_of_mistaken_translations).not_to have_received(:process)
       end
     end
 
     context 'The Fetcher is asked to fetch mistaken translations (from last review)' do
       before do
-        @action = :fetch_mistaken
+        @what_to_study = 'mistaken'
       end
 
       it 'should not fetch all translations for the given support' do
-        fetcher.process(action: @action)
+        fetcher.process(what_to_study: @what_to_study)
         expect(fetcher_of_all_translations).not_to have_received(:process)
       end
 
       it 'should fetch mistaken translations for the last review' do
-        fetcher.process(action: @action)
+        fetcher.process(what_to_study: @what_to_study)
         expect(fetcher_of_mistaken_translations).to have_received(:process)
       end
     end
