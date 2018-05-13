@@ -22,15 +22,15 @@ class Support < ApplicationRecord
   scope :deleted, -> { where('deleted_at IS NOT NULL') }
   scope :archived, -> { where('archive_at IS NOT NULL') }
 
-  def reviewable?
+  def reviewable?(translations: Translations::FetchAll.process(self))
     translations.present?
   end
 
-  def last_review
+  def last_revision
     reviews.last
   end
 
-  def languages_updatable?
+  def languages_updatable?(translations: Translations::FetchAll.process(self))
     translations.empty?
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Translations::Creator do
+RSpec.describe Translations::Creator, type: :integration do
   let(:review) { create_review }
   let(:writing) { create(:writing, text:'Hello', language: review.support.sourceLanguage) }
 

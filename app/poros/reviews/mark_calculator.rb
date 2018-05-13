@@ -25,7 +25,7 @@ class Reviews::MarkCalculator
   end
 
   def self.ids_of_questions_answered_incorrectly
-    @review.answers.incorrect.map(&:question_id)
+    Reviews::IncorrectAnswerFetcher.process(@review).map(&:question_id)
   end
 
   def self.ids_of_questions_answered

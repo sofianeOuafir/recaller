@@ -36,7 +36,7 @@
             <div class="col col-12 pb1">
               <% if support.reviewable? %>
                 <div class="col col-6 px1">
-                  <%= link_to 'Start Revision', support_reviews_path(support), method: :post, remote: true, class:'btn btn-orange block' %>
+                  <%= link_to 'Start Revision', support_reviews_path(support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange block' %>
                 </div>
               <% else %>
                 <div class="col col-6 px1">
@@ -46,9 +46,9 @@
                 </div>
               <% end %>
 
-              <% if support.last_review && support.last_review.incomplete? %>
+              <% if support.last_revision && support.last_revision.incomplete? %>
                 <div class="col col-6 px1">
-                  <%= link_to 'Resume', new_review_answer_path(support.last_review), remote: :true, class:'btn btn-orange block' %>
+                  <%= link_to 'Resume', new_review_answer_path(support.last_revision), remote: :true, class:'btn btn-orange block' %>
                 </div>
               <% else %>
                 <div class="col col-6 px1">
