@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
     answer = Answer.new(answer_params)
     answer.writing = Writing.find_or_create_by(text: params[:answer][:text],
                                                language_id: answer.question.expected_answer.language_id)
-    @answer = Answer::AnswerCreator.create(answer)
+    @answer = Answer::Creator.create(answer)
     @review = @answer.review
   end
 
