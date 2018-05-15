@@ -1,4 +1,4 @@
-class Answer::AnswerCreator
+class Answer::Creator
   def self.create(answer)
     @answer = answer
     return @answer unless @answer.valid?
