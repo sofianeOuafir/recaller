@@ -15,6 +15,8 @@ class Support < ApplicationRecord
   belongs_to :user
   has_many :translations
   has_many :reviews
+  has_many :supports
+  belongs_to :support, optional: true
 
   #=== SCOPE ===
 

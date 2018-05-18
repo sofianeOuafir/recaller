@@ -9,7 +9,6 @@ class SupportsController < ApplicationController
 
   def create
     @support = Support.new(support_params)
-    @support.user_id = current_user.id
     @support.save
   end
 
@@ -38,7 +37,8 @@ class SupportsController < ApplicationController
 
   def support_params
     params.require(:support).permit(:name, :media_type_id,
-                                    :sourceLanguage_id, :targetLanguage_id)
+                                    :sourceLanguage_id, :targetLanguage_id,
+                                    :user_id)
   end
 
   def check_deleted_support_access
