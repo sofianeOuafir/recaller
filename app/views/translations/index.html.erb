@@ -2,7 +2,7 @@
   <div class="px2 pt2 flex justify-between">
     <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
     <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange', id: 'startRevisionButton' %>
-    <%= link_to 'Create a Sublist', '#', class: 'btn btn-orange', style:'display:none;', id: 'createSublistButton', onclick:"sendSublistForm();" %>
+    <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', style:'display:none;', id: 'createSublistButton', onclick:"sendSublistForm();" %>
   </div>
   <div class="col col-12 center border-bottom border-cloud">
     <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>

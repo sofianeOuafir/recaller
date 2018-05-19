@@ -30,7 +30,7 @@ class SupportsController < ApplicationController
   def destroy
     @support.deleted_at = DateTime.now
     @support.archive_at = nil
-    redirect_to home_index_path, notice: 'Le media a bien été supprimé.' if @support.save
+    redirect_to home_index_path, notice: 'The list has been deleted with success.' if @support.save
   end
 
   private
