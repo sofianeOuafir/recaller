@@ -1,7 +1,8 @@
 <div class="max-width-4 mx-auto clearfix bg-white">
   <div class="px2 pt2 flex justify-between">
     <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
-    <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange' %>
+    <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange', id: 'startRevisionButton' %>
+    <%= link_to 'Create a Sublist', '#', class: 'btn btn-orange', style:'display:none;', id: 'createSublistButton', onclick:"sendSublistForm();" %>
   </div>
   <div class="col col-12 center border-bottom border-cloud">
     <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
@@ -11,7 +12,16 @@
     </p>
   </div>
   <div id="translations_container">
-    <%= render @translations %>
+    <%= simple_form_for Support.new, url: sublists_path, remote: true do |f| %>
+      <%= f.hidden_field :support_id, value: @support.id %>
+      <%= f.hidden_field :media_type_id, value: @support.media_type_id %>
+      <%= f.hidden_field :name, value: 'List' %>
+      <%= f.hidden_field :sourceLanguage_id, value: @support.sourceLanguage_id %>
+      <%= f.hidden_field :targetLanguage_id, value: @support.targetLanguage_id %>
+      <%= f.hidden_field :user_id, value: @support.user_id %>
+
+      <%= render @translations %>
+    <% end %>
   </div>
   <div class="col col-12 center py2 pb4 mb4">
     <%= simple_form_for [@support, @translation], remote: true do |f| %>
@@ -65,5 +75,33 @@
         }
       }
     });
+  }
+
+  function toggleSublistButton(){
+    var startRevisionButton = document.getElementById('startRevisionButton');
+    var createSublistButton = document.getElementById('createSublistButton');
+    if(isCheckboxSelected()){
+      startRevisionButton.style.display = 'none';
+      createSublistButton.style.display = 'inline-block';
+    }
+    else{
+      startRevisionButton.style.display = 'inline-block';
+      createSublistButton.style.display = 'none';
+    }
+    function isCheckboxSelected(){
+      var checkboxes = document.getElementsByName('translation[]');
+      var numberOfCheckboxesSelected = 0;
+      for(var i = 0; i < checkboxes.length; i++){
+        if(checkboxes[i].checked){
+          numberOfCheckboxesSelected += 1;
+        }
+      }
+      return numberOfCheckboxesSelected > 0
+    }
+  }
+
+  function sendSublistForm(){
+    sublist_form = document.getElementById('new_support');
+    sublist_form.submit();
   }
 </script>

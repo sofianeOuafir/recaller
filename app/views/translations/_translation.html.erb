@@ -1,4 +1,7 @@
 <div id="translation<%= translation.id %>" class="col col-12 center border-bottom border-cloud flex items-center py1">
+  <div>
+    <input type="checkbox" name="translation[]" value="<%= translation.id %>" onclick="toggleSublistButton();">
+  </div>
   <div class="col col-5 sm-col-3">
     <%= translation.sourceWriting.text %>
   </div>

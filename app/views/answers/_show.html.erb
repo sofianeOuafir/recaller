@@ -16,7 +16,7 @@
       </div>
       <div>
         <% if Reviews::IncorrectAnswerFetcher.process(@review).present? %>
-          <%= link_to 'Revise only the words I made a mistake on.', support_reviews_path(@review.support, what_to_study: "mistaken"), method: :post, remote: true, class:'btn btn-orange block center' %>
+          <%= link_to 'Fix my mistakes!', support_reviews_path(@review.support, what_to_study: "mistaken"), method: :post, remote: true, class:'btn btn-orange block center' %>
         <% end %>
       </div>
     </div>
