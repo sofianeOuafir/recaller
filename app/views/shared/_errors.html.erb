@@ -1,4 +1,4 @@
-<% if obj.errors.any? %>
+<% if obj.try(:errors).try(:any?) %>
   <div>
     <h2>Ah, we spotted <%= pluralize(obj.errors.count, "error") %>!</h2>
     <% obj.errors.full_messages.each do |message| %>

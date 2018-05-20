@@ -6,7 +6,7 @@ class TranslationsController < ApplicationController
 
   def index
     @support = Support.find(params[:support_id])
-    @translations = @support.translations.not_deleted
+    @translations = Translations::FetchAll.process(@support)
     @translation = Translation.new
   end
 

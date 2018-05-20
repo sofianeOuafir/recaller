@@ -6,10 +6,10 @@
     <%= f.association :media_type, collection: MediaType.all.order(:name), label: 'What is it?' %>
   </div>
   <div class="py1">
-    <%= f.association :sourceLanguage, collection: Language.all.order(:name), label: 'Language of the media', disabled: !@support.languages_updatable? %>
+    <%= f.association :sourceLanguage, collection: Language.all.order(:name), label: 'Language (From)', disabled: !@support.languages_updatable? %>
   </div>
   <div class="py1">
-    <%= f.association :targetLanguage, collection: Language.all.order(:name), label: 'Language of translation', disabled: !@support.languages_updatable? %>
+    <%= f.association :targetLanguage, collection: Language.all.order(:name), label: 'Language (To)', disabled: !@support.languages_updatable? %>
   </div>
   <div class="py1">
     <%= f.submit submit_value, class: 'btn btn-orange' %>

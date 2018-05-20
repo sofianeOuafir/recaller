@@ -1,62 +1,66 @@
-<div class="max-width-4 mx-auto clearfix bg-white">
-  <div class="px2 pt2 flex justify-between">
-    <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
-    <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange', id: 'startRevisionButton' %>
-    <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', style:'display:none;', id: 'createSublistButton', onclick:"sendSublistForm();" %>
-  </div>
-  <div class="col col-12 center border-bottom border-cloud">
-    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
-    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
-    <p class="col col-3 xs-hide sm-show fw700 h2">Context</p>
-    <p class="col col-2 sm-col-2">
-    </p>
-  </div>
-  <div id="translations_container">
-    <%= simple_form_for Support.new, url: sublists_path, remote: true do |f| %>
-      <%= f.hidden_field :support_id, value: @support.id %>
-      <%= f.hidden_field :media_type_id, value: @support.media_type_id %>
-      <%= f.hidden_field :name, value: 'List' %>
-      <%= f.hidden_field :sourceLanguage_id, value: @support.sourceLanguage_id %>
-      <%= f.hidden_field :targetLanguage_id, value: @support.targetLanguage_id %>
-      <%= f.hidden_field :user_id, value: @support.user_id %>
+<div class="col col-12 border">
+  <% if @support.topic? %>
+    <div class="col col-3"> 
+      <%= render partial: 'sublists/list', locals: { support: @support.support } %>
+    </div>
+  <% else %>
+    <div class="col col-3"> 
+      <%= render partial: 'sublists/list', locals: { support: @support } %>
+    </div>
+  <% end %>
 
-      <%= render @translations %>
-    <% end %>
-  </div>
-  <div class="col col-12 center py2 pb4 mb4">
-    <%= simple_form_for [@support, @translation], remote: true do |f| %>
-      <%= f.hidden_field :support_id, value: @support.id %>
-      <div class="col col-5 sm-col-3">
-      <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+  <div class="col col-9">
+    <div class="max-width-4 mx-auto clearfix px2 border bg-white">
+      <h1 class="m0 pt2 h2"><%= @support.name %></h1>
+      <div class="px2 pt1 flex justify-between">
+        <% if @support.topic? %>
+          <%= link_to 'Back', support_translations_path(@support.support), class: 'btn btn-outline-orange' %>
+        <% else %>
+          <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
+        <% end %>
+        <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange' %>
+        <% unless @support.topic? %>
+          <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', onclick:"sendSublistForm();", id: 'createTopicButton' %>
+        <% end %>
       </div>
-      <div class="col col-5 sm-col-3">
-      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
-        <datalist id="translation_list">
-        </datalist>
+      <div class="col col-12 center border-bottom border-cloud">
+        <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
+        <p class="col col-5 sm-col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
+        <p class="col col-3 xs-hide sm-show fw700 h2">Context</p>
+        <p class="col col-2 sm-col-2">
+        </p>
       </div>
-      <div class="col col-3 xs-hide sm-show">
-      <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+      <div id="translations_container">
+        <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
+          <%= render @translations %>
+          <%= submit_tag "Add Topic", style: 'display:none;', id:"submitButton" %>
+        <% end %>
       </div>
-      <div class="col col-2 sm-col-3">
-      <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
+      <div class="col col-12 center py2 pb4 mb4">
+        <%= simple_form_for [@support, @translation], remote: true do |f| %>
+          <%= f.hidden_field :support_id, value: @support.id %>
+          <div class="col col-5 sm-col-3">
+          <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+          </div>
+          <div class="col col-5 sm-col-3">
+          <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
+            <datalist id="translation_list">
+            </datalist>
+          </div>
+          <div class="col col-3 xs-hide sm-show">
+          <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+          </div>
+          <div class="col col-2 sm-col-3">
+          <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 
 
-<!-- TODO, put that code in a sharable place -->
 <script type="text/javascript">
-  // $(document).ready(function(){
-  //   $('.dropdown').click(function(e){
-  //     e.preventDefault();
-  //     toggle_dropdown($(this).data('target'));
-  //   });
-  // });
-
-  // function toggle_dropdown(id){
-  //   $('#myDropdown' + id).toggle();
-  // }
 
   $('#translation_sourceWriting').focusout(function(){
     fetch($('#translation_sourceWriting').val());
@@ -77,31 +81,33 @@
     });
   }
 
-  function toggleSublistButton(){
-    var startRevisionButton = document.getElementById('startRevisionButton');
-    var createSublistButton = document.getElementById('createSublistButton');
+  function changeTextCreateTopicButton(){
+    var createTopicButton = document.getElementById('createTopicButton');
     if(isCheckboxSelected()){
-      startRevisionButton.style.display = 'none';
-      createSublistButton.style.display = 'inline-block';
+      var itemWord = numberOfCheckboxSelected() == 1 ? 'Item' : 'Items' 
+      createTopicButton.text = 'Create Topic From ' + numberOfCheckboxSelected() + ' ' + itemWord;
     }
     else{
-      startRevisionButton.style.display = 'inline-block';
-      createSublistButton.style.display = 'none';
+      createTopicButton.text = 'Create Topic'
     }
     function isCheckboxSelected(){
+      return numberOfCheckboxSelected() > 0;
+    }
+
+    function numberOfCheckboxSelected(){
       var checkboxes = document.getElementsByName('translation[]');
-      var numberOfCheckboxesSelected = 0;
+      var checkboxSelected = 0;
       for(var i = 0; i < checkboxes.length; i++){
         if(checkboxes[i].checked){
-          numberOfCheckboxesSelected += 1;
+          checkboxSelected += 1;
         }
       }
-      return numberOfCheckboxesSelected > 0
+      return checkboxSelected;
     }
   }
 
   function sendSublistForm(){
-    sublist_form = document.getElementById('new_support');
-    sublist_form.submit();
+    sublist_button = document.getElementById('submitButton');
+    sublist_button.click();
   }
 </script>

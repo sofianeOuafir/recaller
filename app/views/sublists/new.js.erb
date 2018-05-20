@@ -1,0 +1,3 @@
+$('#modal').remove();
+$("#modal-container").html("<%= escape_javascript(render(partial:'sublists/new', locals:{support: @support, topic: @topic, translations: @translations})).html_safe %>");
+$('#modal').modal();

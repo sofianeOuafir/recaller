@@ -1,0 +1,8 @@
+<div class="max-width-4 mx-auto clearfix px2 border">
+  <h1 class="h2 center border">Topics</h1>
+  <% support.supports.each do |topic|%>
+    <%= link_to support_translations_path(topic), class: 'text-white center bg-orange py1 mb1 block' do %>
+      <%= topic.name %>
+    <% end %>
+  <% end %>
+</div>
