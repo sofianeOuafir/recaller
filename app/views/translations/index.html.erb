@@ -1,4 +1,4 @@
-<div class="col col-12 border">
+<div class="col col-12">
   <% if @support.topic? %>
     <div class="col col-3"> 
       <%= render partial: 'sublists/list', locals: { support: @support.support } %>
@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="col col-9">
-    <div class="max-width-4 mx-auto clearfix px2 border bg-white">
+    <div class="max-width-4 mx-auto clearfix px2 bg-white">
       <h1 class="m0 pt2 h2"><%= @support.name %></h1>
       <div class="px2 pt1 flex justify-between">
         <% if @support.topic? %>
@@ -20,7 +20,7 @@
         <% end %>
         <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange' %>
         <% unless @support.topic? %>
-          <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', onclick:"sendSublistForm();", id: 'createTopicButton' %>
+          <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', onclick:"sendTopicForm();", id: 'createTopicButton' %>
         <% end %>
       </div>
       <div class="col col-12 center border-bottom border-cloud">
@@ -33,7 +33,7 @@
       <div id="translations_container">
         <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
           <%= render partial: @translations %>
-          <%= submit_tag "Add Topic", id:"submitButton" %>
+          <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
         <% end %>
       </div>
       <div class="col col-12 center py2 pb4 mb4">
@@ -106,8 +106,9 @@
     }
   }
 
-  function sendSublistForm(){
-    sublist_button = document.getElementById('submitButton');
-    sublist_button.click();
+  function sendTopicForm(){
+    event.preventDefault();
+    submitButton = document.getElementById('submitButton');
+    submitButton.click();
   }
 </script>

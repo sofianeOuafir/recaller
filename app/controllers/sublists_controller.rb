@@ -6,7 +6,7 @@ class SublistsController < ApplicationController
   end
 
   def create
-    # TODO create a Sublists::Creator
+    # TODO create a Topic::Creator
     @topic = Support.new(support_params)
     @support = @topic.support
     @translations = params[:translation]
