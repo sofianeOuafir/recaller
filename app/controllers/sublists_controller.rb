@@ -1,15 +1,8 @@
 class SublistsController < ApplicationController
-
-  def index
-    @support = Support.find(params[:support_id])
-    @translations = Translations::FetchAll.process(@support)
-    @translation = Translation.new
-  end
-
   def new
     @support = Support.find(params[:support_id])
-    @topic = @support.build_support
     @translations = params[:translation]
+    @topic = @support.build_support
   end
 
   def create

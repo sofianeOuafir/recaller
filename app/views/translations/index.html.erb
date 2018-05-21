@@ -32,8 +32,8 @@
       </div>
       <div id="translations_container">
         <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
-          <%= render @translations %>
-          <%= submit_tag "Add Topic", style: 'display:none;', id:"submitButton" %>
+          <%= render partial: @translations %>
+          <%= submit_tag "Add Topic", id:"submitButton" %>
         <% end %>
       </div>
       <div class="col col-12 center py2 pb4 mb4">
