@@ -1,0 +1,21 @@
+<div class="max-width-4 mx-auto clearfix px2 bg-white">
+  <h1 class="h2 center">Topics</h1>
+  <% if support.supports.present? %>
+    <% support.supports.each do |topic|%>
+      <% if @support.id == topic.id %>
+        <% background = 'bg-iron' %>
+        <% text = 'text-white' %>
+      <% else %>
+        <% background = 'bg-orange' %>
+        <% text = 'text-white' %>
+      <% end %>
+      <%= link_to support_translations_path(topic), class: "#{text} center #{background} py1 mb1 block" do %>
+        <%= topic.name %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="center py1">
+      <%= link_to 'Create your first topic!', '#', class: 'fw600 text-orange internal-link', onclick: 'sendTopicForm();' %>
+    </div>
+  <% end %>
+</div>

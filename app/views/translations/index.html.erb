@@ -1,52 +1,66 @@
-<div class="max-width-4 mx-auto clearfix bg-white">
-  <div class="px2 pt2 flex justify-between">
-    <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
-    <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange' %>
-  </div>
-  <div class="col col-12 center border-bottom border-cloud">
-    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
-    <p class="col col-5 sm-col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
-    <p class="col col-3 xs-hide sm-show fw700 h2">Context</p>
-    <p class="col col-2 sm-col-2">
-    </p>
-  </div>
-  <div id="translations_container">
-    <%= render @translations %>
-  </div>
-  <div class="col col-12 center py2 pb4 mb4">
-    <%= simple_form_for [@support, @translation], remote: true do |f| %>
-      <%= f.hidden_field :support_id, value: @support.id %>
-      <div class="col col-5 sm-col-3">
-      <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+<div class="col col-12">
+  <% if @support.topic? %>
+    <div class="col col-3"> 
+      <%= render partial: 'sublists/list', locals: { support: @support.support } %>
+    </div>
+  <% else %>
+    <div class="col col-3"> 
+      <%= render partial: 'sublists/list', locals: { support: @support } %>
+    </div>
+  <% end %>
+
+  <div class="col col-9">
+    <div class="max-width-4 mx-auto clearfix px2 bg-white">
+      <h1 class="m0 pt2 h2"><%= @support.name %></h1>
+      <div class="px2 pt1 flex justify-between">
+        <% if @support.topic? %>
+          <%= link_to 'Back', support_translations_path(@support.support), class: 'btn btn-outline-orange' %>
+        <% else %>
+          <%= link_to 'Back', root_path, class: 'btn btn-outline-orange' %>
+        <% end %>
+        <%= link_to 'Start Revision', support_reviews_path(@support, what_to_study: "all"), method: :post, remote: true, class:'btn btn-orange' %>
+        <% unless @support.topic? %>
+          <%= link_to 'Create a Topic', '#', class: 'btn btn-orange', onclick:"sendTopicForm();", id: 'createTopicButton' %>
+        <% end %>
       </div>
-      <div class="col col-5 sm-col-3">
-      <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
-        <datalist id="translation_list">
-        </datalist>
+      <div class="col col-12 center border-bottom border-cloud">
+        <p class="col col-5 sm-col-3 fw700 h2"><%= @support.sourceLanguage.name %></p>
+        <p class="col col-5 sm-col-3 fw700 h2"><%= @support.targetLanguage.name %></p>
+        <p class="col col-3 xs-hide sm-show fw700 h2">Context</p>
+        <p class="col col-2 sm-col-2">
+        </p>
       </div>
-      <div class="col col-3 xs-hide sm-show">
-      <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+      <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
+        <div id="translations_container">
+          <%= render partial: @translations %>
+        </div>
+        <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
+      <% end %>
+      <div class="col col-12 center py2 pb4 mb4">
+        <%= simple_form_for [@support, @translation], remote: true do |f| %>
+          <%= f.hidden_field :support_id, value: @support.id %>
+          <div class="col col-5 sm-col-3">
+          <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+          </div>
+          <div class="col col-5 sm-col-3">
+          <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
+            <datalist id="translation_list">
+            </datalist>
+          </div>
+          <div class="col col-3 xs-hide sm-show">
+          <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+          </div>
+          <div class="col col-2 sm-col-3">
+          <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
+          </div>
+        <% end %>
       </div>
-      <div class="col col-2 sm-col-3">
-      <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
 
 
-<!-- TODO, put that code in a sharable place -->
 <script type="text/javascript">
-  // $(document).ready(function(){
-  //   $('.dropdown').click(function(e){
-  //     e.preventDefault();
-  //     toggle_dropdown($(this).data('target'));
-  //   });
-  // });
-
-  // function toggle_dropdown(id){
-  //   $('#myDropdown' + id).toggle();
-  // }
 
   $('#translation_sourceWriting').focusout(function(){
     fetch($('#translation_sourceWriting').val());
@@ -65,5 +79,36 @@
         }
       }
     });
+  }
+
+  function changeTextCreateTopicButton(){
+    var createTopicButton = document.getElementById('createTopicButton');
+    if(isCheckboxSelected()){
+      var itemWord = numberOfCheckboxSelected() == 1 ? 'Item' : 'Items' 
+      createTopicButton.text = 'Create Topic From ' + numberOfCheckboxSelected() + ' ' + itemWord;
+    }
+    else{
+      createTopicButton.text = 'Create Topic'
+    }
+    function isCheckboxSelected(){
+      return numberOfCheckboxSelected() > 0;
+    }
+
+    function numberOfCheckboxSelected(){
+      var checkboxes = document.getElementsByName('translation[]');
+      var checkboxSelected = 0;
+      for(var i = 0; i < checkboxes.length; i++){
+        if(checkboxes[i].checked){
+          checkboxSelected += 1;
+        }
+      }
+      return checkboxSelected;
+    }
+  }
+
+  function sendTopicForm(){
+    event.preventDefault();
+    submitButton = document.getElementById('submitButton');
+    submitButton.click();
   }
 </script>

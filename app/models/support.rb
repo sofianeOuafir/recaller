@@ -15,12 +15,16 @@ class Support < ApplicationRecord
   belongs_to :user
   has_many :translations
   has_many :reviews
+  has_many :supports
+  belongs_to :support, optional: true
 
   #=== SCOPE ===
 
   scope :active, -> { where(deleted_at: nil, archive_at: nil) }
   scope :deleted, -> { where('deleted_at IS NOT NULL') }
   scope :archived, -> { where('archive_at IS NOT NULL') }
+  scope :not_a_topic, -> { where(support_id: nil) }
+  scope :topic, -> { where.not(support_id: nil) }
 
   def reviewable?(translations: Translations::FetchAll.process(self))
     translations.present?
@@ -32,5 +36,9 @@ class Support < ApplicationRecord
 
   def languages_updatable?(translations: Translations::FetchAll.process(self))
     translations.empty?
+  end
+
+  def topic?
+    support_id.present?
   end
 end

@@ -45,3 +45,4 @@ bower.json
 /config/database.yml
 /spec/examples.txt
 
+spec/examples.txt

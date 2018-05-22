@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   	patch :archive, on: :member
     resources :translations
     resources :reviews, only: [:create]
+    resources :sublists, only: [:create, :new]
   end
 
   resources :reviews, :only => [] do

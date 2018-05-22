@@ -6,11 +6,12 @@ class TranslationsController < ApplicationController
 
   def index
     @support = Support.find(params[:support_id])
-    @translations = @support.translations.not_deleted
+    @translations = Translations::FetchAll.process(@support)
     @translation = Translation.new
   end
 
   def create
+    # TODO enable creator to create by passing hash to object
     @support = Support.find(params[:support_id])
     @translation = Translation.new(translation_params)
     @translation.sourceWriting =

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504214004) do
+ActiveRecord::Schema.define(version: 20180518191511) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "question_id"
@@ -69,8 +69,10 @@ ActiveRecord::Schema.define(version: 20180504214004) do
     t.datetime "deleted_at"
     t.datetime "archive_at"
     t.float "mark", limit: 24, default: 0.0
+    t.bigint "support_id"
     t.index ["media_type_id"], name: "index_supports_on_media_type_id"
     t.index ["sourceLanguage_id"], name: "index_supports_on_sourceLanguage_id"
+    t.index ["support_id"], name: "index_supports_on_support_id"
     t.index ["targetLanguage_id"], name: "index_supports_on_targetLanguage_id"
     t.index ["user_id"], name: "index_supports_on_user_id"
   end
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(version: 20180504214004) do
   add_foreign_key "supports", "languages", column: "sourceLanguage_id", primary_key: "code", name: "support_sourceLanguage_id_fk", on_update: :cascade
   add_foreign_key "supports", "languages", column: "targetLanguage_id", primary_key: "code", name: "support_targetLanguage_id_fk", on_update: :cascade
   add_foreign_key "supports", "media_types", name: "support_media_type_id_fk"
+  add_foreign_key "supports", "supports"
   add_foreign_key "supports", "users"
   add_foreign_key "translations", "supports", name: "translation_support_id_fk"
   add_foreign_key "translations", "writings", column: "sourceWriting_id", name: "translation_sourceWriting_id_fk"

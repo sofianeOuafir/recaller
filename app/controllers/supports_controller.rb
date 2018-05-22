@@ -9,7 +9,6 @@ class SupportsController < ApplicationController
 
   def create
     @support = Support.new(support_params)
-    @support.user_id = current_user.id
     @support.save
   end
 
@@ -31,14 +30,15 @@ class SupportsController < ApplicationController
   def destroy
     @support.deleted_at = DateTime.now
     @support.archive_at = nil
-    redirect_to home_index_path, notice: 'Le media a bien été supprimé.' if @support.save
+    redirect_to home_index_path, notice: 'The list has been deleted with success.' if @support.save
   end
 
   private
 
   def support_params
     params.require(:support).permit(:name, :media_type_id,
-                                    :sourceLanguage_id, :targetLanguage_id)
+                                    :sourceLanguage_id, :targetLanguage_id,
+                                    :user_id)
   end
 
   def check_deleted_support_access

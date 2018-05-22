@@ -1,0 +1,25 @@
+<div id="modal" class="m0 p0">
+  <%= render partial:'shared/modals/header', locals:{
+      title: "Create a Topic",
+      sub_title: "Create a new topic to organise better what you want to learn!"
+  }%>
+  <%= render partial:'shared/errors', locals:{obj: topic} %>
+  <div class="px4">
+    <%= form_tag support_sublists_path(support), remote: true do %>
+      <div class="center m1">
+        <%= text_field_tag 'support[name]', '', placeholder: 'Give it a name', class: 'p1 center fullwidth' %>
+      </div>
+      <%= hidden_field_tag 'support[support_id]', support.id %>
+      <%= hidden_field_tag 'support[media_type_id]', support.media_type_id %>
+      <%= hidden_field_tag 'support[sourceLanguage_id]', support.sourceLanguage_id %>
+      <%= hidden_field_tag 'support[targetLanguage_id]', support.targetLanguage_id %>
+      <%= hidden_field_tag 'support[user_id]', support.user_id %>
+      <% translations.try(:each) do |translation| %>
+        <%= check_box_tag 'translation[]', translation, true, style: 'display: none;' %>
+      <% end %>
+      <div class='center m1'>
+        <%= submit_tag "Create Topic", class:'btn btn-orange' %>
+      </div>
+    <% end %>
+  </div>
+</div>
