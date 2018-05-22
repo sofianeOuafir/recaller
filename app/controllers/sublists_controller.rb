@@ -8,7 +8,7 @@ class SublistsController < ApplicationController
   def create
     @translations = params[:translation]
     @topic = Topics::Creator.process(
-      params: params[:support].to_hash,
+      params: support_params.to_hash,
       translations: Translation.where(id: @translations)
     )
     @support = @topic.support

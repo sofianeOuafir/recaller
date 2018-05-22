@@ -4,7 +4,7 @@ class Topics::Creator
   def initialize(params:, translations: nil, duplicator: Translations::Duplicator)
     @params = params
     @translations = translations
-    @duplicator
+    @duplicator = duplicator
   end
 
   def self.process(params:, translations: nil, duplicator: Translations::Duplicator)
@@ -14,6 +14,7 @@ class Topics::Creator
   def process
     topic = Support.new(params)
     return topic unless topic.save
+    return topic unless translations.present?
     duplicator.process(translations: translations, listable: topic)
     topic
   end
