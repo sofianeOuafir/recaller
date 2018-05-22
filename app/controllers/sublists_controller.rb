@@ -6,20 +6,12 @@ class SublistsController < ApplicationController
   end
 
   def create
-    # TODO create a Topic::Creator
-    @topic = Support.new(support_params)
-    @support = @topic.support
     @translations = params[:translation]
-    if @topic.save
-      @translations.try(:each) do |translation_id|
-        translation = Translation.find(translation_id)
-        new_translation = Translation.new(context: translation.context,
-                                          support_id: @topic.id,
-                                          targetWriting_id: translation.targetWriting_id,
-                                          sourceWriting_id: translation.sourceWriting_id
-                                        ).save
-      end
-    end
+    @topic = Topics::Creator.process(
+      params: params[:support].to_hash,
+      translations: Translation.where(id: @translations)
+    )
+    @support = @topic.support
   end
 
   private

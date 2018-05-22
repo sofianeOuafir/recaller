@@ -30,12 +30,12 @@
         <p class="col col-2 sm-col-2">
         </p>
       </div>
-      <div id="translations_container">
-        <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
+      <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
+        <div id="translations_container">
           <%= render partial: @translations %>
-          <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
-        <% end %>
-      </div>
+        </div>
+        <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
+      <% end %>
       <div class="col col-12 center py2 pb4 mb4">
         <%= simple_form_for [@support, @translation], remote: true do |f| %>
           <%= f.hidden_field :support_id, value: @support.id %>

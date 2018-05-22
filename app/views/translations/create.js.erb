@@ -1,21 +1,26 @@
 var elementToAppend = "<div id='translation<%= @translation.id %>' class='col col-12 center border-bottom border-cloud flex items-center p1'> \
-                  <div class='col col-5 sm-col-3'> \
-                    <%= @translation.sourceWriting.text %> \
-                  </div> \
-                  <div class='col col-5 sm-col-3'> \
-                    <%= @translation.targetWriting.text %> \
-                  </div> \
-                  <% context = (!@translation.context.present? ? '/' : @translation.context ) %> \
-                  <div class='col col-3 xs-hide sm-show'> \
-                    <%= context %> \
-                  </div> \
-                  <div class='col col-2 sm-col-3'> \
-                    <a class='mr2' data-remote='true' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>/edit'> \
-                      <i class='ion-edit h2 text-yellow'></i> \
-                    </a> \
-                    <a data-confirm='Are you sure?' data-remote='true' rel='nofollow' data-method='delete' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>'> \
-                      <i class='ion-ios-trash h2 text-ruby'></i> \
-                    </a> \
-                  </div> \
-                </div>";
+                        <% unless @support.topic? %> \
+                          <div> \
+                            <input type='checkbox' name='translation[]' id='translation_' value='<%= @translation.id %>' onclick='changeTextCreateTopicButton();' /> \
+                          </div> \
+                        <% end %> \
+                        <div class='col col-5 sm-col-3'> \
+                          <%= @translation.sourceWriting.text %> \
+                        </div> \
+                        <div class='col col-5 sm-col-3'> \
+                          <%= @translation.targetWriting.text %> \
+                        </div> \
+                        <% context = (!@translation.context.present? ? '/' : @translation.context ) %> \
+                        <div class='col col-3 xs-hide sm-show'> \
+                          <%= context %> \
+                        </div> \
+                        <div class='col col-2 sm-col-3'> \
+                          <a class='mr2' data-remote='true' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>/edit'> \
+                            <i class='ion-edit h2 text-yellow'></i> \
+                          </a> \
+                          <a data-confirm='Are you sure?' data-remote='true' rel='nofollow' data-method='delete' href='/supports/<%= @translation.support.id %>/translations/<%= @translation.id %>'> \
+                            <i class='ion-ios-trash h2 text-ruby'></i> \
+                          </a> \
+                        </div> \
+                      </div>";
 $('#translations_container').append(elementToAppend);

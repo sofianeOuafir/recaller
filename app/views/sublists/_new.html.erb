@@ -7,8 +7,7 @@
   <div class="px4">
     <%= form_tag support_sublists_path(support), remote: true do %>
       <div class="center m1">
-        <%= label_tag "Topic's name"%>
-        <%= text_field_tag 'support[name]', '', class:'px1' %>
+        <%= text_field_tag 'support[name]', '', placeholder: 'Give it a name', class: 'p1 center fullwidth' %>
       </div>
       <%= hidden_field_tag 'support[support_id]', support.id %>
       <%= hidden_field_tag 'support[media_type_id]', support.media_type_id %>
@@ -18,7 +17,7 @@
       <% translations.try(:each) do |translation| %>
         <%= check_box_tag 'translation[]', translation, true, style: 'display: none;' %>
       <% end %>
-      <div class='center my3'>
+      <div class='center m1'>
         <%= submit_tag "Create Topic", class:'btn btn-orange' %>
       </div>
     <% end %>
