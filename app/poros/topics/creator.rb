@@ -1,6 +1,5 @@
 class Topics::Creator
   attr_reader :params, :translations, :duplicator
-  # TODO need to belong to support_id, should be compulsory for a topic
   def initialize(params:, translations: nil, duplicator: Translations::Duplicator)
     @params = params
     @translations = translations
@@ -13,6 +12,7 @@ class Topics::Creator
 
   def process
     topic = Support.new(params)
+    raise 'A topic must belong to a list in order to be created' unless topic.support_id.present?
     return topic unless topic.save
     return topic unless translations.present?
     duplicator.process(translations: translations, listable: topic)
