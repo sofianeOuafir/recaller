@@ -111,4 +111,26 @@
     submitButton = document.getElementById('submitButton');
     submitButton.click();
   }
+
+  function check(event){
+    //console.log('isMouseDown()');
+    if(isMouseDown()){
+      $(event.target).find('input:checkbox:first').attr('checked', true);
+    }
+  }
+
+  function isMouseDown(){
+    return Boolean( mouseDown );
+  }
+
+
+  var mouseDown = 0;
+  document.body.onmousedown = function onMouseDown(){
+    mouseDown++;
+  }
+
+  document.body.onmouseup = function onMouseUp(){
+    mouseDown--;
+  }
+
 </script>
