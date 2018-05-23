@@ -115,7 +115,7 @@
   function check(event){
     //console.log('isMouseDown()');
     if(isMouseDown()){
-      $(event.target).find('input:checkbox:first').attr('checked', true);
+      $(event.target).find('input:checkbox:first').trigger('click');
     }
   }
 

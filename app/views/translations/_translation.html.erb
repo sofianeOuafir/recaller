@@ -1,4 +1,4 @@
-<div id="translation<%= translation.id %>" class="col col-12 center border-bottom border-cloud flex items-center py1", onmouseover='check(event);'>
+<div id="translation<%= translation.id %>" class="col col-12 center border-bottom border-cloud flex items-center py1", onmouseenter='check(event); console.log("triggered");'>
   <% unless @support.topic? %>
     <div>
       <%= check_box_tag 'translation[]', translation.id, false, onclick: 'changeTextCreateTopicButton();' %>
