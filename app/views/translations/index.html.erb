@@ -111,4 +111,54 @@
     submitButton = document.getElementById('submitButton');
     submitButton.click();
   }
+
+  function check(event){
+    if(event.type == 'mouseenter'){
+      if(isMouseDown() && goingDown()){
+        $(event.target).find('input:checkbox:first').trigger('click');
+      }
+    }else if(event.type == 'mouseleave'){
+      if(isMouseDown() && goingUp()){
+        $(event.target).find('input:checkbox:first').trigger('click');
+      }   
+    }
+
+    function goingUp(){
+      return direction == 'down';
+    }
+
+    function goingDown(){
+      return direction == 'up';
+    }
+  }
+
+  function isMouseDown(){
+    return Boolean( mouseDown );
+  }
+
+  var bodyElement = document.querySelector('body');
+  bodyElement.addEventListener('mousemove', getMouseDirection, false);
+  var oldY = 0;
+  var direction = '';
+
+  function getMouseDirection(e){
+    if(oldY > e.pageY){
+      direction = 'up'
+    }
+    else if(oldY < e.pageY){
+      direction = 'down'
+    }
+    oldY = e.pageY;
+  }
+
+
+  var mouseDown = 0;
+  document.body.onmousedown = function onMouseDown(){
+    mouseDown++;
+  }
+
+  document.body.onmouseup = function onMouseUp(){
+    mouseDown--;
+  }
+
 </script>
