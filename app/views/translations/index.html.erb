@@ -113,14 +113,42 @@
   }
 
   function check(event){
-    //console.log('isMouseDown()');
-    if(isMouseDown()){
-      $(event.target).find('input:checkbox:first').trigger('click');
+    if(event.type == 'mouseenter'){
+      if(isMouseDown() && goingDown()){
+        $(event.target).find('input:checkbox:first').trigger('click');
+      }
+    }else if(event.type == 'mouseleave'){
+      if(isMouseDown() && goingUp()){
+        $(event.target).find('input:checkbox:first').trigger('click');
+      }   
+    }
+
+    function goingUp(){
+      return direction == 'down';
+    }
+
+    function goingDown(){
+      return direction == 'up';
     }
   }
 
   function isMouseDown(){
     return Boolean( mouseDown );
+  }
+
+  var bodyElement = document.querySelector('body');
+  bodyElement.addEventListener('mousemove', getMouseDirection, false);
+  var oldY = 0;
+  var direction = '';
+
+  function getMouseDirection(e){
+    if(oldY > e.pageY){
+      direction = 'up'
+    }
+    else if(oldY < e.pageY){
+      direction = 'down'
+    }
+    oldY = e.pageY;
   }
 
 
