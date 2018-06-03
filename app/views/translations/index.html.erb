@@ -30,31 +30,31 @@
         <p class="col col-2 sm-col-2">
         </p>
       </div>
-      <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
-        <div id="translations_container">
-          <%= render partial: @translations %>
-        </div>
-        <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
-      <% end %>
-      <div class="col col-12 center py2 pb4 mb4">
+      <div class="col col-12 center py2">
         <%= simple_form_for [@support, @translation], remote: true do |f| %>
           <%= f.hidden_field :support_id, value: @support.id %>
           <div class="col col-5 sm-col-3">
-          <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;' %>
+          <%= f.text_field :sourceWriting, placeholder: "Word in #{@support.sourceLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', autocomplete: 'off' %>
           </div>
           <div class="col col-5 sm-col-3">
-          <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list' %>
+          <%= f.text_field :targetWriting, placeholder: "Translation in #{@support.targetLanguage.name}", :required => true, class: 'py1 center', style:'width:100%;', list: 'translation_list', autocomplete: 'off' %>
             <datalist id="translation_list">
             </datalist>
           </div>
           <div class="col col-3 xs-hide sm-show">
-          <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center'  %>
+          <%= f.text_field :context, placeholder: 'Give a context!', class: 'py1 center', autocomplete: 'off'  %>
           </div>
           <div class="col col-2 sm-col-3">
           <%= f.submit 'Add', class: 'btn btn-orange', style:'width:100%;' %>
           </div>
         <% end %>
       </div>
+      <%= form_tag new_support_sublist_path(@support), method: :get, remote: true do %>
+        <div id="translations_container">
+          <%= render partial: @translations %>
+        </div>
+        <%= submit_tag "Add Topic", id:"submitButton", style: 'display:none;' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -67,18 +67,29 @@
   });
 
   function fetch(phrase){
+    if(!phrase){
+      return;
+    }
     $.get( "/<%= @support.sourceLanguage.name.downcase %>_to_<%= @support.targetLanguage.name.downcase %>/" + phrase, function( data ) {
-      var translation_list = document.getElementById('translation_list');
-      document.getElementById('translation_list').innerHTML = '';
+      var dataList = document.getElementById('translation_list');
+      emptyDataList(dataList);
+      fillUpDataList(data, dataList);
+    });
+
+    function fillUpDataList(data, dataList){
       for(var i = 0; i < data["tuc"].length; i++)
       {
-        if(data["tuc"][i]["phrase"] != null){
+        if(data["tuc"][i]["phrase"]){
           var option = document.createElement('option');
           option.value = data["tuc"][i]["phrase"]["text"];
           translation_list.appendChild(option);
         }
       }
-    });
+    }
+    
+    function emptyDataList(dataList){
+      dataList.innerHTML = '';
+    }
   }
 
   function changeTextCreateTopicButton(){
