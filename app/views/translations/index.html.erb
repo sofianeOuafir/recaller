@@ -63,10 +63,11 @@
 <script type="text/javascript">
 
   $('#translation_sourceWriting').focusout(function(){
-    fetch($('#translation_sourceWriting').val());
+    var phraseToTranslate = $('#translation_sourceWriting').val();
+    fetch_translation_of(phraseToTranslate);
   });
 
-  function fetch(phrase){
+  function fetch_translation_of(phrase){
     if(!phrase){
       return;
     }
