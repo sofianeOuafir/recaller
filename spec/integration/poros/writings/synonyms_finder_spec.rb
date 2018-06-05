@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Writing::SynonymsFinder class', type: :integration do
+RSpec.describe 'Writings::SynonymsFinder class', type: :integration do
   before(:each) do
     allow_any_instance_of(Devise::Mailer).to receive(:confirmation_instructions)
   end
@@ -19,7 +19,7 @@ RSpec.describe 'Writing::SynonymsFinder class', type: :integration do
   describe '#find_synonyms_of method' do
     context 'hello means bonjour and also salut in french' do
       it 'Bonjour should be a synoym of Salut' do
-        expect(Writing::SynonymsFinder.find_synonyms_of(bonjour)).to include(salut)
+        expect(Writings::SynonymsFinder.find_synonyms_of(bonjour)).to include(salut)
       end
     end
   end

@@ -14,12 +14,16 @@ class TranslationsController < ApplicationController
     # TODO enable creator to create by passing hash to object
     @support = Support.find(params[:support_id])
     @translation = Translation.new(translation_params)
-    @translation.sourceWriting =
-      Writing.find_or_create_by(text: params[:translation][:sourceWriting],
-                                language_id: @support.sourceLanguage.code)
-    @translation.targetWriting =
-      Writing.find_or_create_by(text: params[:translation][:targetWriting],
-                                language_id: @support.targetLanguage.code)
+    source = Writings::Creator.new(
+      text: params[:translation][:sourceWriting],
+      language_id: @support.sourceLanguage.code
+    ).process
+    target = Writings::Creator.new(
+      text: params[:translation][:targetWriting],
+      language_id: @support.targetLanguage.code
+    ).process
+    @translation.sourceWriting = source
+    @translation.targetWriting = target
     Translations::Creator.create(@translation)
   end
 
