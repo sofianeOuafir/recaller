@@ -1,5 +1,6 @@
 class Translations::Creator
-  def self.create(translation)
+  def self.create(params)
+    translation = Translation.new(params)
     return translation unless translation.save
     recalculate_support_mark(translation.support)
     translation

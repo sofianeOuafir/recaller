@@ -6,14 +6,14 @@ RSpec.describe Translations::Creator, type: :integration do
 
   describe '#create' do
     before do
-      @translation = Translation.new(support: review.support,
-                                     sourceWriting: writing,
-                                     targetWriting: writing,
-                                     context: '')
+      @params = { support_id: review.support.id,
+                  sourceWriting_id: writing.id,
+                  targetWriting_id: writing.id,
+                  context: '' }
     end
     context 'The translation is valid' do
       it 'should create a translation' do
-        expect(Translations::Creator.create(@translation).persisted?).to eq true
+        expect(Translations::Creator.create(@params).persisted?).to eq true
       end
 
       context 'The support has a mark of 5' do
@@ -22,7 +22,7 @@ RSpec.describe Translations::Creator, type: :integration do
         end
 
         it "should recalculate the support's mark" do
-          expect(Translations::Creator.create(@translation).support.mark).to eq 0
+          expect(Translations::Creator.create(@params).support.mark).to eq 0
         end
       end
     end

@@ -11,9 +11,7 @@ class TranslationsController < ApplicationController
   end
 
   def create
-    # TODO enable creator to create by passing hash to object
     @support = Support.find(params[:support_id])
-    @translation = Translation.new(translation_params)
     source = Writings::Creator.new(
       text: params[:translation][:sourceWriting],
       language_id: @support.sourceLanguage.code
@@ -22,10 +20,12 @@ class TranslationsController < ApplicationController
       text: params[:translation][:targetWriting],
       language_id: @support.targetLanguage.code
     ).process
-    @translation.sourceWriting = source
-    @translation.targetWriting = target
-    Translations::Creator.create(@translation)
-      # Translations::Creator.new(source: source, target: target, context: params[:translation][:context]).process
+    @translation = Translations::Creator.create(
+      support_id: @support.id,
+      context: params[:translation][:context],
+      targetWriting_id: target.id,
+      sourceWriting_id: source.id
+    )
   end
 
   def destroy
