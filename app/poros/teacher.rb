@@ -12,7 +12,7 @@ class Teacher
   private_class_method
 
   def self.wrong_answer(answer)
-    synonyms = Writing::SynonymsFinder.find_synonyms_of(answer.question.expected_answer).map(&:text).join(',')
+    synonyms = Writings::SynonymsFinder.find_synonyms_of(answer.question.expected_answer).map(&:text).join(',')
     if synonyms.size.zero?
       "Ooops! The right answer is #{answer.question.expected_answer.text}"
     else

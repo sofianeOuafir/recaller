@@ -1,4 +1,4 @@
-class Writing::SynonymsFinder
+class Writings::SynonymsFinder
   def self.find_synonyms_of(writing)
     has_defined_ids = writing.has_defined.map(&:id)
     definitions_ids = writing.definitions.map(&:id)
