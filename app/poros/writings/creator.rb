@@ -1,16 +1,10 @@
 module Writings
   class Creator
-    attr_reader :text, :language_id, :model
-    def initialize(text:, language_id:, model: Writing)
-      @text = text
-      @language_id = language_id
-      @model = model
-    end
-
-    def process
-      model.find_or_create_by(
-        text: text,
-        language_id: language_id
+    def self.process(args)
+      word = Writing.new(args)
+      Writing.find_or_create_by(
+        text: word.text,
+        language_id: word.language_id
       )
     end
   end

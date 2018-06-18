@@ -2,7 +2,6 @@ class TranslationsController < ApplicationController
   before_action :authenticate_user!
   before_action :restrict_access_to_support, only: %i[index create]
   before_action :restrict_access_to_translation, only: %i[edit update destroy]
-  before_action :set_translation, only: %i[edit update destroy]
 
   def index
     @support = Support.find(params[:support_id])
@@ -12,14 +11,14 @@ class TranslationsController < ApplicationController
 
   def create
     @support = Support.find(params[:support_id])
-    source = Writings::Creator.new(
+    source = Writings::Creator.process(
       text: params[:translation][:sourceWriting],
       language_id: @support.sourceLanguage.code
-    ).process
-    target = Writings::Creator.new(
+    )
+    target = Writings::Creator.process(
       text: params[:translation][:targetWriting],
       language_id: @support.targetLanguage.code
-    ).process
+    )
     @translation = Translations::Creator.create(
       support_id: @support.id,
       context: params[:translation][:context],
@@ -29,54 +28,41 @@ class TranslationsController < ApplicationController
   end
 
   def destroy
+    @translation = Translation.find(params[:id])
     Translations::Destroyer.process(@translation)
   end
 
   def edit
+    @translation = Translation.find(params[:id])
     @support = @translation.support
   end
 
   def update
-      #if the translation has been updated
-      if @translation.sourceWriting.text != params[:translation][:sourceWriting] || @translation.targetWriting.text != params[:translation][:targetWriting] || @translation.context != params[:translation][:context]
-          #if the sourceWriting has been updated
-          if @translation.sourceWriting.text != params[:translation][:sourceWriting]
-              @sourceWriting = Writing.find_by_text_and_language_id(params[:translation][:sourceWriting], @translation.support.sourceLanguage.code)
-              if @sourceWriting == nil
-                @sourceWriting = Writing.new(text: params[:translation][:sourceWriting], language_id: @translation.support.sourceLanguage.code)
-                @sourceWriting.save
-              end
-              @translation.sourceWriting = @sourceWriting
-          end
-
-          #if the targetWriting has been modified
-          if @translation.targetWriting.text != params[:translation][:targetWriting]
-              @targetWriting = Writing.find_by_text_and_language_id(params[:translation][:targetWriting], @translation.support.targetLanguage.code)
-              if @targetWriting == nil
-                @targetWriting = Writing.new(text: params[:translation][:targetWriting], language_id: @translation.support.targetLanguage.code)
-                @targetWriting.save
-              end
-              @translation.targetWriting = @targetWriting
-          end
-
-          #if the context has been modified
-          if @translation.context != params[:translation][:context]
-              @translation.context = params[:translation][:context]
-          end
-          @translation.save
-      end
-
-      redirect_to support_translations_path(@translation.support)
+    @support = Support.find(params[:support_id])
+    @translation = Translation.find(params[:id])
+    source = Writings::Creator.process(
+      text: params[:translation][:sourceWriting],
+      language_id: @support.sourceLanguage.code
+    )
+    target = Writings::Creator.process(
+      text: params[:translation][:targetWriting],
+      language_id: @support.targetLanguage.code
+    )
+    @translation.update(
+      support_id: @support.id,
+      context: params[:translation][:context],
+      targetWriting_id: target.id,
+      sourceWriting_id: source.id
+    )
+    redirect_to support_translations_path(@translation.support)
   end
 
   private
 
   def translation_params
-    params.require(:translation).permit(:context, :support_id)
-  end
-
-  def set_translation
-    @translation = Translation.find(params[:id])
+    params.require(:translation)
+          .permit(:context, :support_id, :deleted_at,
+                  :sourceWriting_id, :targetWriting_id)
   end
 
   def restrict_access_to_support
