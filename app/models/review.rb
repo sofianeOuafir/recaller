@@ -7,10 +7,6 @@ class Review < ApplicationRecord
     questions.count
   end
 
-  def not_correctly_answered_questions
-    questions.not_correctly_answered
-  end
-
   def complete?
     complete == true
   end

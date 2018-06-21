@@ -1,12 +1,10 @@
 class Questions::Asker
-  def initialize(review:, fetcher: Questions::FetcherForReview, picker: Questions::Picker)
-    @fetcher = fetcher
+  def initialize(review:, questions: Questions::NotCorrectlyAnswered.process(review.questions), picker: Questions::Picker)
+    @questions = questions
     @picker = picker
-    @review = review
   end
 
   def process
-    questions = @fetcher.process(@review)
-    @picker.process(questions)
+    @picker.process(@questions)
   end
 end

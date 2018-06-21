@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Questions::Asker, type: :unit do
-  let(:fetcher) { class_double(Questions::FetcherForReview) }
+  let(:fetcher) { class_double(Questions::NotCorrectlyAnswered) }
   let(:picker) { class_double(Questions::Picker) }
   let(:review) { instance_double(Review) }
-  let(:asker) { Questions::Asker.new(review: review, fetcher: fetcher, picker: picker) }
+  let(:asker) { Questions::Asker.new(review: review, questions: fetcher, picker: picker) }
 
   before do
     allow(picker).to receive(:process)
