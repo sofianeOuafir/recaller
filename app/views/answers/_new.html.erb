@@ -26,7 +26,22 @@
 
 
 <script type="text/javascript">
-  $('close_button').onClick({
+  $('close_button').on('click', function(){
     location.reload();
   });
+
+  (function(){
+    var bar = document.getElementById('myBar');
+    var width = 1;
+    var interval = setInterval(progress, 10);
+    function progress(){
+      console.log('yo');
+      if(width >= <%= @percentage_completed %>){
+        clearInterval(interval);
+      }else{
+        width++;
+        bar.style.width = width + '%';
+      }
+    }
+  })();
 </script>
