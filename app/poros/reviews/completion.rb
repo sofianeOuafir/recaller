@@ -7,7 +7,7 @@ module Reviews
 
     def percentage
       return if review.questions.length.zero?
-      ((questions_left.length / review.questions.length) * 100) - 100
+      (100 - ((questions_left.length.to_f / review.questions.length.to_f) * 100)).round
     end
 
     private

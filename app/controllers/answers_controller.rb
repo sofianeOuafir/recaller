@@ -11,6 +11,7 @@ class AnswersController < ApplicationController
     review = Review.find(params[:review_id])
     @question = Questions::Asker.new(review: review).process
     @answer = @question.answers.new
+    @percentage_completed = Reviews::Completion.new(review).percentage
   end
 
   private

@@ -1,4 +1,7 @@
 <div id="modal" class="modal" style="display:none;">
+  <div class="border">
+    <div id="myBar" style="height:24px;width:1%; background-color:green;"></div>
+  </div>
   <h1 class="center"><%= "#{@question.question}" %></h1>
   <% if @question.translation.context.present? %>
   <div class="mb1">
@@ -25,5 +28,5 @@
 <script type="text/javascript">
   $('close_button').onClick({
     location.reload();
-  })
+  });
 </script>
