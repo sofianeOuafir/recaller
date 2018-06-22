@@ -1,23 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Questions::Asker, type: :unit do
-  let(:fetcher) { class_double(Questions::NotCorrectlyAnswered) }
-  let(:picker) { class_double(Questions::Picker) }
+  let(:question1) { instance_double(Question) }
+  let(:question2) { instance_double(Question) }
+  let(:picker) { Questions::Picker }
   let(:review) { instance_double(Review) }
   let(:asker) { Questions::Asker.new(review: review, questions: fetcher, picker: picker) }
 
-  before do
-    allow(picker).to receive(:process)
-    allow(fetcher).to receive(:process)
+  context 'questions is not empty' do
+    before { @questions = [question1, question2] }
+
+    it 'should return either question1 or question2' do
+      asker =  Questions::Asker.new(review: review, questions: @questions, picker: picker)
+      question = asker.process
+      expect(@questions).to include(question)
+    end
   end
 
-  it 'should ask the fetcher to fetch the question' do
-    expect(fetcher).to receive(:process)
-    asker.process
-  end
+  context 'questions is empty' do
+    before { @questions = [] }
 
-  it 'should ask the picker to pick a question' do
-    expect(picker).to receive(:process)
-    asker.process
+    it 'should return nil' do
+      asker =  Questions::Asker.new(review: review, questions: @questions, picker: picker)
+      question = asker.process
+      expect(question).to be_nil
+    end
   end
 end

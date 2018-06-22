@@ -5,6 +5,11 @@ class Questions::Asker
   end
 
   def process
-    @picker.process(@questions)
+    return if questions.empty?
+    picker.process(questions)
   end
+
+  private
+
+  attr_reader :questions, :picker
 end

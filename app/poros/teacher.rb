@@ -1,5 +1,5 @@
 class Teacher
-  def self.am_i_right?(answer)
+  def self.appreciation(answer)
     if answer.correct_with_synonym?
       "That's right! #{answer.question.about.text} means also #{answer.question.expected_answer.text}"
     elsif answer.correct?

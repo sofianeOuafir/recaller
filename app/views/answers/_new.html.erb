@@ -1,26 +1,25 @@
 <div id="modal" class="modal" style="display:none;">
-  <div class="border">
-    <div id="myBar" style="height:24px;width:1%; background-color:green;"></div>
-  </div>
-  <h1 class="center"><%= "#{@question.question}" %></h1>
-  <% if @question.translation.context.present? %>
-  <div class="mb1">
-    <i class="ion-information-circled text-orange"></i> <em><%= @question.translation.context %></em>
-  </div>
-  <% end %>
-  <%= simple_form_for [@question.review, @answer], html: {class:'admin-modal-form'}, method: :post, remote: true do |f| %>
-    <%= f.input :text, label: false, placeholder: 'Give your answer here', input_html:{ autocomplete: 'off' } %>
-    <%= f.hidden_field :question_id, value: @question.id %>
-    <%= f.hidden_field :review_id, value: @question.review.id %>
-    <div>
-      <%= f.submit 'Submit', class: 'btn btn-orange block fullwidth' %>
+  <div id="modalContainer">
+    <div class="bg-grey rounded">
+      <div id="myBar" class="bg-orange text-white flex items-strech p1 rounded" style="height:24px;width:10%;">
+        0%
+      </div>
     </div>
-  <% end %>
-
-  <div class="mt2">
-    <%= link_to '#', class: 'btn btn-outline-orange close_button block fullwidth' do %>
-      <div class="center">Pause</div>
+    <h1 class="center" id="question"><%= @question.question %></h1>
+    <% if @question.translation.context.present? %>
+    <div class="mb1">
+      <i class="ion-information-circled text-orange"></i> <em><%= @question.translation.context %></em>
+    </div>
     <% end %>
+    <div id="formAndAppreciation">
+      <%= render partial: 'answers/form', locals: { question: @question, answer: @answer } %>
+    </div>
+
+    <div class="mt2">
+      <%= link_to '#', class: 'btn btn-outline-orange close_button block fullwidth' do %>
+        <div class="center">Pause</div>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -29,19 +28,24 @@
   $('close_button').on('click', function(){
     location.reload();
   });
+  var width = 0;
 
-  (function(){
+  function progress(until){
     var bar = document.getElementById('myBar');
-    var width = 1;
-    var interval = setInterval(progress, 10);
-    function progress(){
-      console.log('yo');
-      if(width >= <%= @percentage_completed %>){
-        clearInterval(interval);
+    var id = setInterval(frame, 10);
+    function frame(){
+      if(width >= until){
+        clearInterval(id);
+      }else if(width < 10){ // not updating bar width if < 10
+        width++;
+        bar.innerHTML = width + '%';
       }else{
         width++;
         bar.style.width = width + '%';
+        bar.innerHTML = width + '%';
       }
     }
-  })();
+  }
+
+  progress(<%= @percentage_completed %>);
 </script>
