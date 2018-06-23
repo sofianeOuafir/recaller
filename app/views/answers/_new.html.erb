@@ -5,12 +5,10 @@
         0%
       </div>
     </div>
-    <h1 class="center" id="question"><%= @question.question %></h1>
-    <% if @question.translation.context.present? %>
-    <div class="mb1">
-      <i class="ion-information-circled text-orange"></i> <em><%= @question.translation.context %></em>
+    <div id="question">
+      <%= render partial: 'answers/question', locals: { question: @question } %>
     </div>
-    <% end %>
+
     <div id="formAndAppreciation">
       <%= render partial: 'answers/form', locals: { question: @question, answer: @answer } %>
     </div>

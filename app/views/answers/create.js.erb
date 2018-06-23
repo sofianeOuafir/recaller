@@ -8,7 +8,7 @@
   setTimeout(showNextQuestion, 1500);
 
   function showNextQuestion(){
-    question.innerHTML = '<%= @question.question %>';
+    question.innerHTML = "<%= escape_javascript(render(partial: 'answers/question', locals: { question: @question })).html_safe %>";
     formAndAppreciation.innerHTML = "<%= escape_javascript(render(partial: 'answers/form', locals: { question: @question, answer: @new_answer })).html_safe %>";
   }
   <% if @answer.correct? %>
