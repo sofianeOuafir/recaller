@@ -1,0 +1,8 @@
+<%= simple_form_for [question.review, answer], html: {class:'admin-modal-form'}, method: :post, remote: true do |f| %>
+  <%= f.input :text, label: false, placeholder: 'Give your answer here', input_html:{ autocomplete: 'off' } %>
+  <%= f.hidden_field :question_id, value: question.id %>
+  <%= f.hidden_field :review_id, value: question.review.id %>
+  <div>
+    <%= f.submit 'Submit', class: 'btn btn-orange block fullwidth' %>
+  </div>
+<% end %>

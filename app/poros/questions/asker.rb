@@ -1,12 +1,15 @@
 class Questions::Asker
-  def initialize(review:, fetcher: Questions::FetcherForReview, picker: Questions::Picker)
-    @fetcher = fetcher
+  def initialize(review:, questions: Questions::NotCorrectlyAnswered.filter(review.questions), picker: Questions::Picker)
+    @questions = questions
     @picker = picker
-    @review = review
   end
 
   def process
-    questions = @fetcher.process(@review)
-    @picker.process(questions)
+    return if questions.empty?
+    picker.process(questions)
   end
+
+  private
+
+  attr_reader :questions, :picker
 end

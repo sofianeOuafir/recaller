@@ -1,0 +1,6 @@
+<h1 class="center"><%= question.question %></h1>
+<% if question.translation.context.present? %>
+  <div class="mb1">
+    <i class="ion-information-circled text-orange"></i> <em><%= question.translation.context %></em>
+  </div>
+<% end %>

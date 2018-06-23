@@ -1,9 +1,18 @@
-$('#modal').remove();
-$("#modal-container").html("<%= escape_javascript(render(partial:'answers/show', locals:{answer: @answer})).html_safe %>");
-$('#modal').modal({
-  escapeClose: false,
-  clickClose: false,
-  showClose: false
+<% if @review.complete? %>
+  var modalContainer = document.getElementById('modalContainer');
+  modalContainer.innerHTML = "<%= escape_javascript(render(partial:'reviews/complete', locals:{review: @review})).html_safe %>";
+<% else %>
+  var question = document.getElementById('question');
+  var formAndAppreciation = document.getElementById('formAndAppreciation');
+  formAndAppreciation.innerHTML = "<%= escape_javascript(render(partial:'answers/appreciation', locals:{appreciation: @appreciation, answer: @answer})).html_safe %>";
+  setTimeout(showNextQuestion, 1500);
+
+  function showNextQuestion(){
+    question.innerHTML = "<%= escape_javascript(render(partial: 'answers/question', locals: { question: @question })).html_safe %>";
+    formAndAppreciation.innerHTML = "<%= escape_javascript(render(partial: 'answers/form', locals: { question: @question, answer: @new_answer })).html_safe %>";
   }
-);
+  <% if @answer.correct? %>
+    progress(<%= @percentage_completed %>);
+  <% end %>
+<% end %>
 
