@@ -1,5 +1,5 @@
 class Questions::Asker
-  def initialize(review:, questions: Questions::NotCorrectlyAnswered.process(review.questions), picker: Questions::Picker)
+  def initialize(review:, questions: Questions::NotCorrectlyAnswered.filter(review.questions), picker: Questions::Picker)
     @questions = questions
     @picker = picker
   end

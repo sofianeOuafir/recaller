@@ -1,6 +1,6 @@
 module Reviews
   class Completion
-    def initialize(review, questions_left: Questions::NotCorrectlyAnswered.process(review.questions))
+    def initialize(review, questions_left: Questions::NotCorrectlyAnswered.filter(review.questions))
       @review = review
       @questions_left = questions_left
     end

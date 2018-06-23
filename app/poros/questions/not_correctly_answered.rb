@@ -1,5 +1,5 @@
 class Questions::NotCorrectlyAnswered
-  def self.process(questions)
+  def self.filter(questions)
     questions.where(correctly_answered: false)
   end
 end
