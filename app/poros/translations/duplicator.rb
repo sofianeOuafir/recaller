@@ -13,13 +13,13 @@ class Translations::Duplicator
 
   def process
     translations.each do |translation|
-      new_translation = Translation.new(
+      params = {
         context: translation.context,
         support_id: listable.id,
         targetWriting_id: translation.targetWriting_id,
         sourceWriting_id: translation.sourceWriting_id
-      )
-      translations_creator.create(new_translation)
+      }
+      translations_creator.create(params)
     end
   end
 end
