@@ -1,4 +1,4 @@
-var elementToAppend = "<div id='translation<%= @translation.id %>' class='col col-12 center border-bottom border-cloud flex items-center p1'> \
+var elementToAdd = "<div id='translation<%= @translation.id %>' class='col col-12 center border-bottom border-cloud flex items-center p1 bg-orange'> \
                         <% unless @support.topic? %> \
                           <div> \
                             <input type='checkbox' name='translation[]' id='translation_' value='<%= @translation.id %>' onclick='changeTextCreateTopicButton();' /> \
@@ -23,6 +23,12 @@ var elementToAppend = "<div id='translation<%= @translation.id %>' class='col co
                           </a> \
                         </div> \
                       </div>";
-$('#translations_container').append(elementToAppend);
+$('#translations_container').prepend(elementToAdd);
 $('#translation_sourceWriting').val('');
 $('#translation_targetWriting').val('');
+$('#translation_context').val('');
+
+setTimeout(function(){
+  $( "#translation<%= @translation.id %>" ).css('background-color', 'white');
+}, 1000);
+

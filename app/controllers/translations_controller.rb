@@ -5,7 +5,7 @@ class TranslationsController < ApplicationController
 
   def index
     @support = Support.find(params[:support_id])
-    @translations = Translations::FetchAll.process(@support)
+    @translations = Translations::FetchAll.process(@support).order(created_at: :desc)
     @translation = Translation.new
   end
 
