@@ -28,7 +28,20 @@ $('#translation_sourceWriting').val('');
 $('#translation_targetWriting').val('');
 $('#translation_context').val('');
 
-setTimeout(function(){
-  $( "#translation<%= @translation.id %>" ).css('background-color', 'white');
-}, 1000);
+var ElementBackgroundColor = [239, 108, 53];
 
+var intervalId = setInterval(makeElementWhiter, 1);
+
+function makeElementWhiter(){
+  if(ElementBackgroundColor[0] === 255 && ElementBackgroundColor[1] === 255 && ElementBackgroundColor[2] === 255){
+    clearInterval(intervalId);
+  }
+  else{
+    for(var i = 0; i < ElementBackgroundColor.length; i++){
+      if(ElementBackgroundColor[i] < 255){
+        ElementBackgroundColor[i]++;
+      }
+    }
+  }
+  $( "#translation<%= @translation.id %>" ).css('background-color', 'rgb(' + ElementBackgroundColor.join(',') + ')');
+}
