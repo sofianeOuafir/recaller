@@ -23,25 +23,25 @@ var elementToAdd = "<div id='translation<%= @translation.id %>' class='col col-1
                           </a> \
                         </div> \
                       </div>";
+
 $('#translations_container').prepend(elementToAdd);
 $('#translation_sourceWriting').val('');
 $('#translation_targetWriting').val('');
 $('#translation_context').val('');
 
-var ElementBackgroundColor = [239, 108, 53];
+var gradient = ['#ee5f23', '#ef6c35', '#f07947', '#f28659', '#f3946c', '#f5a17e', '#f6ae90', '#f8bba2', '#f9c9b4', '#fbd6c6', '#fce3d9', '#fdf0eb', '#ffffff' ];
+var step = 0;
+var intervalId;
+setTimeout(function triggerGradientFromOrangeToWhite(){
+  intervalId = setInterval(gradientFromOrangeToWhite, 40)
+}, 1000);
 
-var intervalId = setInterval(makeElementWhiter, 1);
-
-function makeElementWhiter(){
-  if(ElementBackgroundColor[0] === 255 && ElementBackgroundColor[1] === 255 && ElementBackgroundColor[2] === 255){
+function gradientFromOrangeToWhite(){
+  if(step == gradient.length){
     clearInterval(intervalId);
   }
   else{
-    for(var i = 0; i < ElementBackgroundColor.length; i++){
-      if(ElementBackgroundColor[i] < 255){
-        ElementBackgroundColor[i]++;
-      }
-    }
+    $( "#translation<%= @translation.id %>" ).css('background-color', gradient[step] );
   }
-  $( "#translation<%= @translation.id %>" ).css('background-color', 'rgb(' + ElementBackgroundColor.join(',') + ')');
+  step++;
 }
